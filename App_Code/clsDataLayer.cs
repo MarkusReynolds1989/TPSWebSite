@@ -25,7 +25,7 @@ namespace TPS.App_Code
             OleDbTransaction myTransaction = null;
             try
             {
-                OleDbConnection conn = new OleDbConnection("PROVIDER=Microsoft.Jet.OLEDB.4.0;" +
+                OleDbConnection conn = new OleDbConnection("PROVIDER=Microsoft.ACE.OLEDB.12.0;" +
                     "Data Source=" + Database);
                 conn.Open();
                 OleDbCommand command = conn.CreateCommand();
@@ -59,7 +59,7 @@ namespace TPS.App_Code
             OleDbConnection sqlConn;
             OleDbDataAdapter sqlDA;
             //we use the methods to create messages and connect to the database
-            sqlConn = new OleDbConnection("PROVIDER = Microsoft.Jet.OLEDB.4.0;" + "Data Source =" + Database);
+            sqlConn = new OleDbConnection("PROVIDER = Microsoft.ACE.OLEDB.12.0;" + "Data Source =" + Database);
             sqlDA = new OleDbDataAdapter("select * from tblStaffMember", sqlConn);
             //new object of the DS class
             DS = new dsStaff();
