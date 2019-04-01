@@ -1,6 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Staff.aspx.cs" Inherits="Staff" %>
 
-
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -45,7 +44,6 @@
                 return true;
             }
         }
-
     </script>
 
 </head>
@@ -88,7 +86,7 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox runat="server" CssClass ="Inputs" ID ="txtSalary"></asp:TextBox>
             </p>
             <p>
-                <asp:Button runat="server" Text="Add Staff" ID="btnAddStaff"/> <!-- on client click is where the script runs -->
+                <asp:Button runat="server" Text="Add Staff" ID="btnAddStaff" /> <!-- on client click is where the script runs -->
             </p>
             <p>
                 <asp:Label runat ="server" ID ="error" CssClass ="Error"></asp:Label>
@@ -104,4 +102,3 @@
     <div id ="footer"></div>
 </body>
 </html>
-
