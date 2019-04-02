@@ -2,7 +2,7 @@
 //Programmed by: Markus Reynolds
 //3/31/2019
 //Open source avaiable under GNU License
-//A GNU License is avaiable in the documentation for this code but you can also find it online
+//A GNU License should be included in the documentation for this code but you can also find it online
 
 using System;
 using System.Collections.Generic;
@@ -19,7 +19,9 @@ namespace TPS.App_Code
 {
     public class clsDataLayer
     {
-        //Add a new User
+        /*dd a new User
+        ////////////////////
+        ///////////////////*/
         public static bool SaveUser(string Database, string UserName, string Password)
         {
             bool recordSaved;
@@ -49,7 +51,9 @@ namespace TPS.App_Code
             }
         }
         
-        //Add staff member
+        /*Add staff member
+        ////////////////////
+        ///////////////////*/
         public static bool SaveStaff(string Database, string FirstName, string LastName, string EduLevel, string Experience, string Salary)
         {
             bool recordSaved;
@@ -82,7 +86,9 @@ namespace TPS.App_Code
             return recordSaved;
         }
         
-        //delete staff member
+        /*delete staff member
+        ////////////////////
+        ///////////////////*/
         public static bool DeleteStaff(string Database,string MemberID) { 
             bool recordSaved;
             OleDbTransaction myTransaction = null;
@@ -111,7 +117,9 @@ namespace TPS.App_Code
             return recordSaved;
         }
 
-        //Fill staff table
+        /*Fill staff table
+        ////////////////////
+        ///////////////////*/
         public static dsStaff AccessStaff(string Database)
         {
             dsStaff DS;
@@ -128,7 +136,9 @@ namespace TPS.App_Code
             return DS;
         }
 
-        //Fill Manager Table
+        /*Fill Manager Table
+        ////////////////////
+        ///////////////////*/
         public static dsManager AccessManager(string Database)
         {
             dsManager DS;
@@ -145,7 +155,9 @@ namespace TPS.App_Code
             return DS;
         }
 
-        //Fill Client Table
+        /*Fill Client Table
+        ////////////////////
+        ///////////////////*/
         public static dsClient AccessClient(string Database)
         {
             dsClient DS;
@@ -162,7 +174,9 @@ namespace TPS.App_Code
             return DS;
         }
 
-        //Fill Users
+        /*Fill Users
+        ////////////////////
+        ///////////////////*/
         public static dsUserAccess AcessUsers(string Database)
         {
             dsUserAccess DS;
