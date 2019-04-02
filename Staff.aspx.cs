@@ -17,24 +17,28 @@ public partial class Staff : System.Web.UI.Page
             myDataSet = TPS.App_Code.clsDataLayer.GetStaff(Server.MapPath("TPS.accdb"));
             //set the datagrid to datasource based on table
             grdViewStaff.DataSource = myDataSet.Tables["tblStaffMember"];
-            // the datagrid
+            //the datagrid
             grdViewStaff.DataBind();
         }
 
         protected void btnAddStaff_Click(object sender, EventArgs e)
         {
+            //collect the text as variables
             string FirstName = txtFirstName.Text;
             string LastName = txtLastName.Text;
             string EduLevel = drpEduLevel.SelectedValue;
             string Experience = txtExperience.Text;
             string Salary = txtSalary.Text;
+            //savestaff is a boolean to make sure our query is good
             if (TPS.App_Code.clsDataLayer.SaveStaff(Server.MapPath("TPS.accdb"), FirstName, LastName, EduLevel, Experience, Salary))
             {
-                error.Text = "Success";
+                error.Text = "Successfully added staff member.";
+                //bind the data so it displays after user enters
+                grdViewStaff.DataBind();
             }
             else
             {
-                error.Text = "Fail";
+                error.Text = "Failed to add staff member.";
             }
        }
 }
