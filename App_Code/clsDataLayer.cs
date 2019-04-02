@@ -19,6 +19,37 @@ namespace TPS.App_Code
 {
     public class clsDataLayer
     {
+        //Add a new User
+        public static bool SaveUser(string Database, string UserName, string Password)
+        {
+            bool recordSaved;
+            OleDbTransaction myTranscation = null;
+            try
+            {
+                OleDbConnection conn = new OleDbConnection("PROVIDER=Microsoft.ACE.OLEDB.12.0;" +
+                    "Data Source=" + Database);
+                conn.Open();
+                OleDbCommand Command = conn.CreateCommand();
+                string strSQL;
+                myTransaction = conn.BeginTransaction();
+                command.Transaction = myTransaction;
+                strSQL = "Insert into tblUserAccess (Username, Password)" + "values ('" + Username + "','" 
+                    + Password + "' )";
+                command.CommandType = CommandType.Text;
+                command.CommandText = strSQL;
+                command.ExecutreNonQuery();
+                myTransaction.Commit();
+                conn.Close();
+                recordSaved = true;
+            }
+            catch (Exception ex)
+            {
+                myTransaction.Rollback();
+                recordSaved = false;
+            }
+        }
+        
+        //Add staff member
         public static bool SaveStaff(string Database, string FirstName, string LastName, string EduLevel, string Experience, string Salary)
         {
             bool recordSaved;
@@ -50,7 +81,8 @@ namespace TPS.App_Code
             }
             return recordSaved;
         }
-
+        
+        //delete staff member
         public static bool DeleteStaff(string Database,string MemberID) { 
             bool recordSaved;
             OleDbTransaction myTransaction = null;
@@ -147,6 +179,13 @@ namespace TPS.App_Code
             return DS;
         }
 
+        
+        
+        
+        
+        
+        
+        
         /*
         // This function verifies a user in the tblUser table
         public static dsUserLogin VerifyUser(string Database, string UserName, string UserPassword)
