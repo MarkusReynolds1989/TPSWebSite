@@ -95,7 +95,7 @@ namespace TPS.App_Code
                 string strSQL;
                 myTransaction = conn.BeginTransaction();
                 command.Transaction = myTransaction;
-                strSQL = "Delete from tblStaffMember where staffID =" + MemberID;
+                strSQL = "Delete from tblStaffMember where MemberID =" + MemberID;
                 command.CommandType = CommandType.Text;
                 command.CommandText = strSQL;
                 command.ExecuteNonQuery();
