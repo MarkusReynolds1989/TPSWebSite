@@ -14,7 +14,7 @@ public partial class Staff : System.Web.UI.Page
             //btnAddStaff.Attributes.Add("onclick", "return false;");
             //how do we get btnAddStaff to work on click after the validation?
             dsStaff myDataSet = new dsStaff();
-            myDataSet = TPS.App_Code.clsDataLayer.GetStaff(Server.MapPath("TPS.accdb"));
+            myDataSet = TPS.App_Code.clsDataLayer.AccessStaff(Server.MapPath("TPS.accdb"));
             //set the datagrid to datasource based on table
             grdViewStaff.DataSource = myDataSet.Tables["tblStaffMember"];
             //the datagrid

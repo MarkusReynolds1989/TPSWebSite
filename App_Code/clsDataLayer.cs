@@ -79,7 +79,8 @@ namespace TPS.App_Code
             return recordSaved;
         }
 
-        public static dsStaff GetStaff(string Database)
+        //Fill staff table
+        public static dsStaff AccessStaff(string Database)
         {
             dsStaff DS;
             //we call objects of the classes
@@ -92,6 +93,57 @@ namespace TPS.App_Code
             DS = new dsStaff();
             // method of sqlDA class to fill the table
             sqlDA.Fill(DS.tblStaffMember);
+            return DS;
+        }
+
+        //Fill Manager Table
+        public static dsManager AccessManager(string Database)
+        {
+            dsManager DS;
+            //Call objects
+            OleDbConnection sqlConn;
+            OleDbDataAdapter sqlDA;
+            //Methods for connection, query
+            sqlConn = new OleDbConnection("PROVIDER = Microsoft.ACE.OLEDB.12.0" + "Data Source =" + Database);
+            sqlDA = new OleDbDataAdapter("select * from tblManager", sqlConn);
+            //datastream class 
+            DS = new dsManager();
+            //fill table
+            sqlDA.Fill(DS.tblManager);
+            return DS;
+        }
+
+        //Fill Client Table
+        public static dsClient AccessClient(string Database)
+        {
+            dsClient DS;
+            //Call Objects
+            OleDbConnection sqlConn;
+            OleDbDataAdapter sqlDA;
+            //Methods for connection, query
+            sqlConn = new OleDbConnection("PROVIDER = Microsoft.ACE.OLEDB.12.0" + "Data Source =" + Database);
+            sqlDA = new OleDbDataAdapter("select * from tblClient", sqlConn);
+            //datastream class
+            DS = new dsClient();
+            //fill table
+            sqlDA.Fill(DS.tblClient);
+            return DS;
+        }
+
+        //Fill Users
+        public static dsUserAccess AcessUsers(string Database)
+        {
+            dsUserAccess DS;
+            //Call Objects
+            OleDbConnection sqlConn;
+            OleDbDataAdapter sqlDA;
+            //Methods for connection, query
+            sqlConn = new OleDbConnection("PROVIDER = Microsoft.ACE.OLEDB.12.0" + "Data Source =" + Database);
+            sqlDA = new OleDbDataAdapter("select * from tblUserAccess", sqlConn);
+            //datastream class
+            DS = new dsUserAccess();
+            //fill table
+            sqlDA.Fill(DS.tblUserAccess);
             return DS;
         }
 
