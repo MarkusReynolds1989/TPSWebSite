@@ -41,5 +41,11 @@ public partial class Staff : System.Web.UI.Page
                 error.Text = "Failed to add staff member.";
             }
        }
+        //Eddie
+        protected void grdViewStaff_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+        
+        }
+        
 }
 

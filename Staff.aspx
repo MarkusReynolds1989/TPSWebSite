@@ -95,8 +95,12 @@
                 Current Staff:
             </h2>
             <p>
-                <asp:GridView runat="server" ID="grdViewStaff" CssClass ="Grid" CellPadding="4" ForeColor="#333333" GridLines="None">
+                <asp:GridView runat="server" ID="grdViewStaff" CssClass ="Grid" CellPadding="4" ForeColor="#333333" GridLines="None"
+                    OnRowDeleting="grdViewStaff_RowDeleting">
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                    <Columns>
+                        <asp:CommandField ButtonType="Button" ShowDeleteButton="True" />
+                    </Columns>
                     <EditRowStyle BackColor="#999999" />
                     <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
                     <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
