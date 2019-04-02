@@ -19,7 +19,8 @@ namespace TPS.App_Code
 {
     public class clsDataLayer
     {
-        /*dd a new User
+        
+        /*Add a new User
         ////////////////////
         ///////////////////*/
         public static bool SaveUser(string Database, string UserName, string Password)
@@ -86,7 +87,13 @@ namespace TPS.App_Code
             return recordSaved;
         }
         
-        /*delete staff member
+        /*Add A Staff Request
+        ////////////////////
+        ///////////////////*/
+        
+        
+        
+        /*Delete Staff member
         ////////////////////
         ///////////////////*/
         public static bool DeleteStaff(string Database,string MemberID) { 
@@ -133,6 +140,25 @@ namespace TPS.App_Code
             DS = new dsStaff();
             // method of sqlDA class to fill the table
             sqlDA.Fill(DS.tblStaffMember);
+            return DS;
+        }
+        
+        /*Fill Contracts
+        ////////////////////
+        ///////////////////*/
+        public static dsContracts AccessContracts(string Database)
+        {
+            dsContracts DS;
+            //we call objects of the classes
+            OleDbConnection sqlConn;
+            OleDbDataAdapter sqlDA;
+            //we use the methods to create messages and connect to the database
+            sqlConn = new OleDbConnection("PROVIDER = Microsoft.ACE.OLEDB.12.0;" + "Data Source =" + Database);
+            sqlDA = new OleDbDataAdapter("select * from tblContracts", sqlConn); //How can we display salary as $
+            //new object of the DS class
+            DS = new dsContracts();
+            // method of sqlDA class to fill the table
+            sqlDA.Fill(DS.tblContracts);
             return DS;
         }
 
@@ -192,6 +218,8 @@ namespace TPS.App_Code
             sqlDA.Fill(DS.tblUserAccess);
             return DS;
         }
+    }
+}
 
         
         
