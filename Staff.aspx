@@ -91,17 +91,6 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox runat="server" CssClass ="Inputs" ID ="txtSalary"></asp:TextBox>
             </p>
             <p>
-                <asp:ScriptManager runat="server" ID="scriptManagerStaff"></asp:ScriptManager>
-                <asp:UpdatePanel runat="server" UpdateMode="Always">
-                    <ContentTemplate>
-                <asp:Button runat="server" Text="Add Staff" ID="btnAddStaff" OnClick ="btnAddStaff_Click" CssClass="Buttons"/> 
-                        </ContentTemplate>
-                    <Triggers>
-                        <asp:AsyncPostBackTrigger ControlID="btnAddStaff" EventName ="Click"/>
-                    </Triggers>
-                    </asp:UpdatePanel>
-            </p>
-            <p>
                 <asp:Label runat ="server" ID ="error" CssClass ="Error"></asp:Label>
             </p>
             <h2>
