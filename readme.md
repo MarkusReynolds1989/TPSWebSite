@@ -1,7 +1,7 @@
 # Taylor's Professional Services
 ## License
 This project is released under a GNU General Public License.
-However, this project is also an academic work so no one may use this software in any way to unfairly or illegitimately to gain an advantage or cheat in a college course. This includes turning in this software for a grade with the intent to claim it as your own work. Please see the attached GNU license or find it online.
+However, this project is also an academic work so no one may use this software in any way to unfairly or illegitimately gain an advantage or cheat in a college course. This includes turning in this software for a grade with the intent to claim it as your own work. Please see the attached GNU license or find it online.
 ## Original Team
 There are five team members that must be talked about here that helped develop this project and maintain it.
 - Nathaniel Perez (Form Designer and Documentation Manager)
