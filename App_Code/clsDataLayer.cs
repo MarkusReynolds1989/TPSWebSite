@@ -233,9 +233,10 @@ namespace TPS.App_Code
             OleDbDataAdapter sqlDA;
             //we use the methods to create messages and connect to the database
             sqlConn = new OleDbConnection("PROVIDER = Microsoft.ACE.OLEDB.12.0;" + "Data Source =" + Database);
-            if (Experience == null || Experience.Trim() == "")
+            if (Experience != null || Experience.Trim() != "")
             {
-                sqlDA = new OleDbDataAdapter("select * from tblStaffMember", sqlConn);
+                sqlDA = new OleDbDataAdapter("select * from tblStaffMember where Experience = '" + Experience
+                    + "'", sqlConn);
             }
             else
             {
