@@ -16,8 +16,23 @@
             $("#header").load("addons/header.html");
             $("#footer").load("addons/footer.html");
         });
-        //Use this commit
         //Generic validation function we will be using in all the forms
+        //Need to hack at this to make it work properly for our web validation
+        $(document).ready(function(){
+            $.ajax({
+                type: "POST",
+                url: "Staff.aspx/AddStaff",
+                contentType: "application/json; charset =utf-8",
+                dataType: "json",
+                success: function (response){
+                    great
+                },
+                failure: function (response){
+                    x
+                }
+            });
+        });
+        
         function doValidation() {
             //Declare our variables for the function
             let firstName;
@@ -90,6 +105,8 @@
                 <asp:Label runat="server" Text ="Salary: " CssClass ="Labels"></asp:Label>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox runat="server" CssClass ="Inputs" ID ="txtSalary"></asp:TextBox>
             </p>
+            <p>
+                <asp:Button runat="server" Text="Add Staff Member"></asp:Button>
             <p>
                 <asp:Label runat ="server" ID ="error" CssClass ="Error"></asp:Label>
             </p>
