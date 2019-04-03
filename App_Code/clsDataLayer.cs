@@ -19,7 +19,9 @@ namespace TPS.App_Code
 {
     public class clsDataLayer
     {
-
+   /* Adding to database codes
+        //////////////////////////
+        ////////////////////////*/
         /*Add a new User
         ////////////////////
         ///////////////////*/
@@ -123,7 +125,10 @@ namespace TPS.App_Code
             return recordSaved;
         }
 
-
+     /* Delete from tables
+     /////////////////////
+     ///////////////////*/
+        
         /*Delete Staff member
         ////////////////////
         ///////////////////*/
@@ -155,7 +160,22 @@ namespace TPS.App_Code
             }
             return recordSaved;
         }
-
+        
+    /*Updates
+    /////////////////
+    ///////////////*/
+        
+        
+        
+        
+        
+        
+        
+        
+    /*Fills
+    //////////////////
+    /////////////////*/
+        
         /*Fill staff table
         ////////////////////
         ///////////////////*/
@@ -250,7 +270,11 @@ namespace TPS.App_Code
             sqlDA.Fill(DS.tblUserAccess);
             return DS;
         }
-
+        
+     /* Special Methods
+     //////////////////
+     ////////////////*/
+        
         /*Search Through Staff for staffrequest
         ////////////////////////////
         /////////////////////////*/
