@@ -22,7 +22,7 @@ public partial class StaffRequest : System.Web.UI.Page
         int StaffID2;
         int StaffID3;
         //Get the currently selected row using the SelectedRow property.
-        GridViewRow row = dgCustomer.SelectedRow;
+        GridViewRow row = grdViewStaffRequest.SelectedRow;
         // And you respective cell's value
         StaffID1 = row.Cells[1].Text;
     }
