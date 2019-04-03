@@ -23,16 +23,16 @@ namespace TPS.App_Code
         /*Add a new User
         ////////////////////
         ///////////////////*/
-        public static bool SaveUser(string Database, string UserName, string Password)
+        public static bool SaveUser(string Database, string Username, string Password)
         {
             bool recordSaved;
-            OleDbTransaction myTranscation = null;
+            OleDbTransaction myTransaction = null;
             try
             {
                 OleDbConnection conn = new OleDbConnection("PROVIDER=Microsoft.ACE.OLEDB.12.0;" +
                     "Data Source=" + Database);
                 conn.Open();
-                OleDbCommand Command = conn.CreateCommand();
+                OleDbCommand command = conn.CreateCommand();
                 string strSQL;
                 myTransaction = conn.BeginTransaction();
                 command.Transaction = myTransaction;
@@ -40,7 +40,7 @@ namespace TPS.App_Code
                     + Password + "' )";
                 command.CommandType = CommandType.Text;
                 command.CommandText = strSQL;
-                command.ExecutreNonQuery();
+                command.ExecuteNonQuery();
                 myTransaction.Commit();
                 conn.Close();
                 recordSaved = true;
@@ -50,6 +50,7 @@ namespace TPS.App_Code
                 myTransaction.Rollback();
                 recordSaved = false;
             }
+            return recordSaved;
         }
         
         /*Add staff member
@@ -158,7 +159,7 @@ namespace TPS.App_Code
             //new object of the DS class
             DS = new dsContracts();
             // method of sqlDA class to fill the table
-            sqlDA.Fill(DS.tblContracts);
+            sqlDA.Fill(DS.tblContract);
             return DS;
         }
 
@@ -419,5 +420,5 @@ namespace TPS.App_Code
         }
     }
 */
-    }
-}
+    
+
