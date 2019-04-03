@@ -32,15 +32,19 @@
             //test to make sure all the fields are entered correctly
             if (firstName == "" || firstName == REGEXNAME) {
                 $("#error").text("Please enter first name.");
+                return false;
             }
             else if (lastName == "" || lastName == REGEXNAME) {
                 $("#error").text("Please enter last name.");
+                return false;
             }
             else if (salary == "" || salary == REGEXCURRENCY) {
                 $("#error").text("Please enter salary");
+                return false;
             }
             else {
                 $("#error").text("");
+                
                 return true;
             }
         }
@@ -69,7 +73,7 @@
             </p>
             <p>
                 <asp:Label runat="server" Text ="Education Level: " CssClass ="Labels"></asp:Label>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:DropDownList runat="server" CssClass ="Inputs" ID ="drpEduLevel">
+                <asp:DropDownList runat="server" CssClass ="Inputs" ID ="drpEduLevel">
                     <asp:ListItem Value="High School">High School</asp:ListItem>
                     <asp:ListItem Value="Bachelor">Bachelor</asp:ListItem>
                     <asp:ListItem Value="Masters">Masters</asp:ListItem>
@@ -86,7 +90,7 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox runat="server" CssClass ="Inputs" ID ="txtSalary"></asp:TextBox>
             </p>
             <p>
-                <asp:Button runat="server" Text="Add Staff" ID="btnAddStaff" OnClick ="btnAddStaff_Click" /> <!-- on client click is where the script runs -->
+                <asp:Button runat="server" Text="Add Staff" ID="btnAddStaff" OnClick ="btnAddStaff_Click" OnClientClick ="doValidation()" CssClass="Buttons" /> <!-- on client click is where the script runs -->
             </p>
             <p>
                 <asp:Label runat ="server" ID ="error" CssClass ="Error"></asp:Label>

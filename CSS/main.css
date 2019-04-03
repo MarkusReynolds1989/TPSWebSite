@@ -55,6 +55,7 @@
     display: inline-block;
     float: initial;
     width: auto;
+    height: auto;
 }
 
 .Error{
