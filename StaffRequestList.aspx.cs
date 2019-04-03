@@ -11,4 +11,10 @@ public partial class StaffRequestList : System.Web.UI.Page
     {
 
     }
+    protected void OnRowEvent_DeleteRow(object sender, EventArgs e)
+    {
+        GridViewRow row = dgStaffRequest.SelectedRow;
+        // And you respective cell's value
+        StaffID1 = row.Cells[1].Text;
+    }
 }
