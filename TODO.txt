@@ -7,6 +7,7 @@ MUST haves:
 5. Create a method that sends an email to the manager when a staff request is made.
 6. Create a method that searches the database based upon the parameters the customer gives.
 7. Add a feedback label to every page.
+8. Publish site to make sure deployment will work.
 
 NICE to haves:
 1. Make the frontend play nicely.
