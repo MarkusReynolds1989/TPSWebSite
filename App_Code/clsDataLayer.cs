@@ -91,7 +91,37 @@ namespace TPS.App_Code
         /*Add A Staff Request
         ////////////////////
         ///////////////////*/
-
+        public static bool SaveStaffRequest(string Database, string StaffID1, string StaffID2, string StaffID3)
+        {
+            bool recordSaved;
+            OleDbTransaction myTransaction = null;
+            try
+            {
+                OleDbConnection conn = new OleDbConnection("PROVIDER=Microsoft.ACE.OLEDB.12.0;" +
+                    "Data Source=" + Database);
+                conn.Open();
+                OleDbCommand command = conn.CreateCommand();
+                string strSQL;
+                myTransaction = conn.BeginTransaction();
+                command.Transaction = myTransaction;
+                strSQL = "Insert into tblStaffRequest (StaffID1 ,StaffID2 ,StaffID3) "
+                    + "values ('" + StaffID1 + "','"
+                    + StaffID2 + "','"
+                    + StaffID3 + "' ) ";
+                command.CommandType = CommandType.Text;
+                command.CommandText = strSQL;
+                command.ExecuteNonQuery();
+                myTransaction.Commit();
+                conn.Close();
+                recordSaved = true;
+            }
+            catch (Exception ex)
+            {
+                myTransaction.Rollback();
+                recordSaved = false;
+            }
+            return recordSaved;
+        }
 
 
         /*Delete Staff member
