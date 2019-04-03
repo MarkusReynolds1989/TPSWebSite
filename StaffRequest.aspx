@@ -49,7 +49,7 @@
             <h1>Staffing Request</h1>
             <p>
                 <asp:Label ID="Label2" runat="server" Text="Experience:" CssClass ="Labels"></asp:Label>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="txtExperience" runat="server" CssClass ="Inputs"></asp:TextBox>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="txtExperience" runat="server" CssClass ="Inputs"></asp:TextBox>
             </p>
             <p>
                 <asp:Label ID="Label3" runat="server" Text="Education:" CssClass ="Labels"></asp:Label>
