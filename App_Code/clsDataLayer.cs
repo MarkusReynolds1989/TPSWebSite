@@ -144,7 +144,7 @@ namespace TPS.App_Code
             return DS;
         }
         
-        /*Fill Contracts
+        /*Fill Contracts table
         ////////////////////
         ///////////////////*/
         public static dsContracts AccessContracts(string Database)
@@ -201,7 +201,7 @@ namespace TPS.App_Code
             return DS;
         }
 
-        /*Fill Users
+        /*Fill Users table
         ////////////////////
         ///////////////////*/
         public static dsUserAccess AcessUsers(string Database)
@@ -217,6 +217,35 @@ namespace TPS.App_Code
             DS = new dsUserAccess();
             //fill table
             sqlDA.Fill(DS.tblUserAccess);
+            return DS;
+        }
+
+        /*Search Through Staff for staffrequest
+        ////////////////////////////
+        /////////////////////////*/
+        //We only want them to be able to select three staff members, they can search by 
+        //Exp, edu, salary, and location
+        public static dsStaff SearchStaff(string Database, string Experience, string Education, string Salary, string Location)
+        {
+            dsStaff DS;
+            //we call objects of the classes
+            OleDbConnection sqlConn;
+            OleDbDataAdapter sqlDA;
+            //we use the methods to create messages and connect to the database
+            sqlConn = new OleDbConnection("PROVIDER = Microsoft.ACE.OLEDB.12.0;" + "Data Source =" + Database);
+            if (Experience == null || Experience.Trim() == "")
+            {
+                sqlDA = new OleDbDataAdapter("select * from tblStaffMember", sqlConn);
+            }
+            else
+            {
+                sqlDA = new OleDbDataAdapter("select * from tblPersonnel where Experience = '" + Experience
+                    + "'", sqlConn);
+            }
+            //new object of the DS class
+            DS = new dsStaff();
+            // method of sqlDA class to fill the table
+            sqlDA.Fill(DS.tblStaffMember);
             return DS;
         }
     }
