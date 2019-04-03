@@ -23,7 +23,7 @@ namespace TPS.App_Code
         /*Add a new User
         ////////////////////
         ///////////////////*/
-        public static bool SaveUser(string Database, string Username, string Password)
+        public static bool SaveUser(string Database, string UserName, string UserPassword)
         {
             bool recordSaved;
             OleDbTransaction myTransaction = null;
@@ -36,8 +36,8 @@ namespace TPS.App_Code
                 string strSQL;
                 myTransaction = conn.BeginTransaction();
                 command.Transaction = myTransaction;
-                strSQL = "Insert into tblUserAccess (Username, Password)" + "values ('" + Username + "','" 
-                    + Password + "' )";
+                strSQL = "Insert into tblUserAccess (Username, Password)" + "values ('" + UserName + "','" 
+                    + UserPassword + "' )";
                 command.CommandType = CommandType.Text;
                 command.CommandText = strSQL;
                 command.ExecuteNonQuery();
