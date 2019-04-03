@@ -21,7 +21,7 @@ public partial class Staff : System.Web.UI.Page
             grdViewStaff.DataBind();
         }
 
-        protected void btnAddStaff_Click(object sender, EventArgs e)
+        protected void AddStaff(object sender, EventArgs e)
         {
             //collect the text as variables
             string FirstName = txtFirstName.Text;
