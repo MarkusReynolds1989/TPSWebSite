@@ -32,6 +32,7 @@
             //test to make sure all the fields are entered correctly
             if (firstName == "" || firstName == REGEXNAME) {
                 $("#error").text("Please enter first name.");
+                
                 return false;
             }
             else if (lastName == "" || lastName == REGEXNAME) {
@@ -90,7 +91,15 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox runat="server" CssClass ="Inputs" ID ="txtSalary"></asp:TextBox>
             </p>
             <p>
-                <asp:Button runat="server" Text="Add Staff" ID="btnAddStaff" OnClick ="btnAddStaff_Click" OnClientClick ="doValidation()" CssClass="Buttons" /> <!-- on client click is where the script runs -->
+                <asp:ScriptManager runat="server" ID="scriptManagerStaff"></asp:ScriptManager>
+                <asp:UpdatePanel runat="server" UpdateMode="Always">
+                    <ContentTemplate>
+                <asp:Button runat="server" Text="Add Staff" ID="btnAddStaff" OnClick ="btnAddStaff_Click" CssClass="Buttons"/> 
+                        </ContentTemplate>
+                    <Triggers>
+                        <asp:AsyncPostBackTrigger ControlID="btnAddStaff" EventName ="Click"/>
+                    </Triggers>
+                    </asp:UpdatePanel>
             </p>
             <p>
                 <asp:Label runat ="server" ID ="error" CssClass ="Error"></asp:Label>
