@@ -48,21 +48,20 @@
             <br />
             <h1>Staffing Request</h1>
             <p>
-                <asp:Label ID="Label1" runat="server" Text="Client ID: " CssClass ="Labels"></asp:Label>
-                &nbsp;<asp:TextBox ID="txtClientID" runat="server" CssClass ="Inputs"></asp:TextBox>
+                <asp:Label ID="Label2" runat="server" Text="Experience:" CssClass ="Labels"></asp:Label>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="txtExperience" runat="server" CssClass ="Inputs"></asp:TextBox>
             </p>
             <p>
-                <asp:Label ID="Label2" runat="server" Text="Type: " CssClass ="Labels"></asp:Label>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="txtType" runat="server" CssClass ="Inputs"></asp:TextBox>
+                <asp:Label ID="Label3" runat="server" Text="Education:" CssClass ="Labels"></asp:Label>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="txtEducation" runat="server" CssClass ="Inputs"></asp:TextBox>
             </p>
             <p>
-                <asp:Label ID="Label3" runat="server" Text="Location: " CssClass ="Labels"></asp:Label>
-                &nbsp;<asp:TextBox ID="txtLocation" runat="server" CssClass ="Inputs"></asp:TextBox>
+                <asp:Label ID="Label4" runat="server" Text="Salary:" CssClass ="Labels"></asp:Label>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="txtSalary" runat="server" CssClass ="Inputs"></asp:TextBox>
             </p>
             <p>
-                <!-- should this be a drop down box? What is Status? -->
-                <asp:Label ID="Label4" runat="server" Text="Status: " CssClass ="Labels"></asp:Label>
-                &nbsp;&nbsp;&nbsp; <asp:TextBox ID="txtStatus" runat="server" CssClass ="Inputs"></asp:TextBox>
+                <asp:Label ID="Label1" runat="server" Text="Location:" CssClass ="Labels"></asp:Label>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="txtLocation" runat="server" CssClass ="Inputs"></asp:TextBox>
             </p>
             <!-- Microsoft buttons are very ugly, can I change this to make it look better? 
                 TODO: 1. Make Prettier Buttons-->
@@ -87,6 +86,9 @@
                         <asp:CommandField ButtonType="Button" HeaderText="Delete Staff from Request" ShowDeleteButton="True" />
                     </Columns>
                 </asp:GridView>
+            </p>
+            <p>
+                <asp:Button ID ="btnAdd" runat ="server" Text="Add Staff Request" />
             </p>
         </div>
     </form>
