@@ -126,10 +126,45 @@ namespace TPS.App_Code
             return recordSaved;
         }
 
-     /* Delete from tables
-     /////////////////////
-     ///////////////////*/
-        
+        /*Add staff info
+        ////////////////////
+        ///////////////////*/
+        public static bool UpdateStaffPortal(string Database, string Bio, string Avail, string Resume, byte[] Picture)
+        {
+            bool recordSaved;
+            OleDbTransaction myTransaction = null;
+            try
+            {
+                OleDbConnection conn = new OleDbConnection("PROVIDER=Microsoft.ACE.OLEDB.12.0;" +
+                    "Data Source=" + Database);
+                conn.Open();
+                OleDbCommand command = conn.CreateCommand();
+                string strSQL;
+                myTransaction = conn.BeginTransaction();
+                command.Transaction = myTransaction;
+                strSQL = "Insert into tblStaffProfile(Bio ,Avail ,Resume, Picture) "
+                    + "values ('" + Bio + "','"
+                    + Avail + "','"
+                    + Resume + "','" + Picture + ")'";
+                command.CommandType = CommandType.Text;
+                command.CommandText = strSQL;
+                command.ExecuteNonQuery();
+                myTransaction.Commit();
+                conn.Close();
+                recordSaved = true;
+            }
+            catch (Exception ex)
+            {
+                myTransaction.Rollback();
+                recordSaved = false;
+            }
+            return recordSaved;
+        }
+
+        /* Delete from tables
+        /////////////////////
+        ///////////////////*/
+
         /*Delete Staff member
         ////////////////////
         ///////////////////*/
