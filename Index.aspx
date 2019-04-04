@@ -14,6 +14,7 @@
             $("#footer").load("addons/footer.html");
         });
         //No Validation needed
+        //  test
     </script>
 </head>
 <body style="height: 859px; width: 1792px">
