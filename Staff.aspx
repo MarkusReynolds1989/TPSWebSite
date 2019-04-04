@@ -18,20 +18,7 @@
         });
         //Generic validation function we will be using in all the forms
         //Need to hack at this to make it work properly for our web validation
-        $(document).ready(function(){
-            $.ajax({
-                type: "POST",
-                url: "Staff.aspx/AddStaff",
-                contentType: "application/json; charset =utf-8",
-                dataType: "json",
-                success: function (response){
-                    great
-                },
-                failure: function (response){
-                    x
-                }
-            });
-        });
+
         
         function doValidation() {
             //Declare our variables for the function
@@ -58,10 +45,26 @@
                 $("#error").text("Please enter salary");
                 return false;
             }
-            else {
+            else
+            {
                 $("#error").text("");
-                
-                return true;
+                $(document).ready(function ()
+                {
+                    $.ajax(
+                        {
+                        type: "POST",
+                        url: "Staff.aspx.cs/AddStaff",
+                        contentType: "application/json; charset =utf-8",
+                        dataType: "json",
+                        success: function (response){
+                            Console.log("Succes");
+                            },
+                            failure: function (response)
+                            {
+                        Console.log("Fail");
+                        }
+                    });
+                });
             }
         }
     </script>
@@ -106,7 +109,7 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox runat="server" CssClass ="Inputs" ID ="txtSalary"></asp:TextBox>
             </p>
             <p>
-                <asp:Button runat="server" Text="Add Staff Member"></asp:Button>
+                <asp:Button runat="server" Text="Add Staff Member" OnClientClick="doValidation()" AutoPostBack="false"></asp:Button>
             <p>
                 <asp:Label runat ="server" ID ="error" CssClass ="Error"></asp:Label>
             </p>
