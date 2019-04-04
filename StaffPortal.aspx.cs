@@ -27,7 +27,14 @@ public partial class StaffPortal : System.Web.UI.Page
         //Convert the file to the byte array assign it to picture
         byte[] picture = File.ReadAllBytes(fl.FileName);
         //this doesn't work yet but class the updatestaffportal method
-        TPS.App_Code.clsDataLayer.UpdateStaffPortal(Server.MapPath("TPS.accdb"), null, null, null, picture);
+        if (TPS.App_Code.clsDataLayer.UpdateStaffPortal(Server.MapPath("TPS.accdb"), null, null, null, picture))
+        {
+            error.Text = "Successfully updated profile";
+        }
+        else
+        {
+            error.Text = "Failed to update profile";
+        }
         //File.ReadAllText(fileupResume); So we will save the file into a path first and then convert it
         //File.ReadAllBytes(fileupPicture); Just need to figure out how
     }

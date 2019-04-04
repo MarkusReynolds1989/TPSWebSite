@@ -49,6 +49,9 @@
             <p>
                 <asp:Button runat ="server" Text="Update" ID="btnUpdate" OnClick="btnUpdate_OnButtonClick"/>
             </p>
+            <p>
+                <asp:Label runat="server" CssClass="Error" ID="error"></asp:Label>
+            </p>
         </div>
     </form>
     <div id ="footer"></div>
