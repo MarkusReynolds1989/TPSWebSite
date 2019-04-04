@@ -47,7 +47,7 @@
                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:FileUpload runat ="server" CssClass ="Buttons" ID ="fileupPicture"></asp:FileUpload>
             </p>
             <p>
-                <asp:Button runat ="server" Text="Update" />
+                <asp:Button runat ="server" Text="Update" ID="btnUpdate" OnClick="btnUpdate_OnButtonClick"/>
             </p>
         </div>
     </form>

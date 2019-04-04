@@ -34,37 +34,30 @@
             //test to make sure all the fields are entered correctly
             if (firstName == "" || firstName == REGEXNAME) {
                 $("#error").text("Please enter first name.");
-                
-                return false;
             }
             else if (lastName == "" || lastName == REGEXNAME) {
                 $("#error").text("Please enter last name.");
-                return false;
             }
             else if (salary == "" || salary == REGEXCURRENCY) {
                 $("#error").text("Please enter salary");
-                return false;
             }
             else
             {
                 $("#error").text("");
-                $(document).ready(function ()
-                {
-                    $.ajax(
-                        {
+                Console.log("does it work?");
+                $.ajax(
+                    {
                         type: "POST",
                         url: "Staff.aspx.cs/AddStaff",
                         contentType: "application/json; charset =utf-8",
                         dataType: "json",
-                        success: function (response){
+                        success: function (response) {
                             Console.log("Succes");
-                            },
-                            failure: function (response)
-                            {
-                        Console.log("Fail");
+                        },
+                        failure: function (response) {
+                            Console.log("Fail");
                         }
                     });
-                });
             }
         }
     </script>
@@ -109,7 +102,7 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox runat="server" CssClass ="Inputs" ID ="txtSalary"></asp:TextBox>
             </p>
             <p>
-                <asp:Button runat="server" Text="Add Staff Member" OnClientClick="doValidation()" AutoPostBack="false"></asp:Button>
+                <asp:Button runat="server" ID="btnAddStaff" Text="Add Staff Member" OnClientClick="doValidation()" AutoPostBack="false"></asp:Button>
             <p>
                 <asp:Label runat ="server" ID ="error" CssClass ="Error"></asp:Label>
             </p>

@@ -12,7 +12,7 @@ public partial class Staff : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
         {
-            //btnAddStaff.Attributes.Add("onclick", "return false;");
+            btnAddStaff.Attributes.Add("onclick", "return false;");
             //how do we get btnAddStaff to work on click after the validation?
             dsStaff myDataSet = new dsStaff();
             myDataSet = TPS.App_Code.clsDataLayer.AccessStaff(Server.MapPath("TPS.accdb"));
