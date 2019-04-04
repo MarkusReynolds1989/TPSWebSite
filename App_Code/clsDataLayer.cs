@@ -281,6 +281,7 @@ namespace TPS.App_Code
         /////////////////////////*/
         //We only want them to be able to select three staff members, they can search by 
         //Exp, edu, salary, and location
+
         public static dsStaff SearchStaff(string Database, string Experience, string Education, string Salary, string Location)
         {
             dsStaff DS;
@@ -289,19 +290,15 @@ namespace TPS.App_Code
             OleDbDataAdapter sqlDA;
             //we use the methods to create messages and connect to the database
             sqlConn = new OleDbConnection("PROVIDER = Microsoft.ACE.OLEDB.12.0;" + "Data Source =" + Database);
-            if (Experience != null || Experience.Trim() != "" 
-                && Education != null || Education.Trim() != "" 
-                && Salary != null || Salary.trim() != ""
-                && Location != null || Location.trim() != "")
+            if (Experience != null || Experience.Trim() != "")
             {
                 //need to figure this out better, I don't want to have to write code for every combination
-                sqlDA = new OleDbDataAdapter("select * from tblStaffMember where Experience like '" + Experience
-                    + "'" + "and where Education like '" + Education + "'" "and where Salary like" + Salary + "'"
-                    + "and where Location like '" + Location "'" , sqlConn);
+                sqlDA = new OleDbDataAdapter("select * from tblStaffMember where Experience like '%" + 
+                    Experience + "%'" ,sqlConn);
             }
             else
             {
-                sqlDA = new OleDbDataAdapter("select * from tblPersonnel", sqlConn);
+                sqlDA = new OleDbDataAdapter("select * from tblStaffMember", sqlConn);
             }
             //new object of the DS class
             DS = new dsStaff();

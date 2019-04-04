@@ -65,7 +65,7 @@
             </p>
             <!-- Microsoft buttons are very ugly, can I change this to make it look better? 
                 TODO: 1. Make Prettier Buttons-->
-            <asp:Button ID="btnSearch" runat="server" Text="Search" OnClientClick="doValidation()" />
+            <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="OnButtonClick_btnSearch" />
             <br />
             <h3>
                 Your Results:
