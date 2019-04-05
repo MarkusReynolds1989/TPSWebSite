@@ -19,11 +19,45 @@ namespace TPS.App_Code
 {
     public class clsDataLayer
     {
-   /* Adding to database codes
-        //////////////////////////
-        ////////////////////////*/
-        
-        /*Add a new User
+        /* Adding to database codes
+             //////////////////////////
+             ////////////////////////*/
+
+        /*Approve a contract Manager only
+        ///////////////////////////
+        ///////////////////////*/
+        public static bool ApproveContract(string Database, string ContractID, string RequestID)
+        {
+            bool recordSaved;
+            OleDbTransaction myTransaction = null;
+            try
+            {
+                OleDbConnection conn = new OleDbConnection("PROVIDER=Microsoft.ACE.OLEDB.12.0;" +
+                    "Data Source=" + Database);
+                conn.Open();
+                OleDbCommand command = conn.CreateCommand();
+                string strSQL;
+                myTransaction = conn.BeginTransaction();
+                command.Transaction = myTransaction;
+                strSQL = "Insert into tblContracts (ContractID, RequestID)" + "values ('" + ContractID + "','"
+                    + RequestID + "')";
+                command.CommandType = CommandType.Text;
+                command.CommandText = strSQL;
+                command.ExecuteNonQuery();
+                myTransaction.Commit();
+                conn.Close();
+                recordSaved = true;
+            }
+            catch (Exception ex)
+            {
+                myTransaction.Rollback();
+                recordSaved = false;
+            }
+            return recordSaved;
+        }
+
+
+        /*Add a new User Admin only
         ////////////////////
         ///////////////////*/
         public static bool SaveUser(string Database, string UserName, string UserPassword, string AccessLevel)
@@ -56,7 +90,7 @@ namespace TPS.App_Code
             return recordSaved;
         }
 
-        /*Add staff member
+        /*Add staff member Staff and Manager only
         ////////////////////
         ///////////////////*/
         public static bool SaveStaff(string Database, string FirstName, string LastName, string EduLevel, string Experience, string Salary)
@@ -91,7 +125,7 @@ namespace TPS.App_Code
             return recordSaved;
         }
 
-        /*Add A Staff Request
+        /*Add A Staff Request Only Client
         ////////////////////
         ///////////////////*/
         public static bool SaveStaffRequest(string Database, string StaffID1, string StaffID2, string StaffID3)
@@ -126,7 +160,7 @@ namespace TPS.App_Code
             return recordSaved;
         }
 
-        /*Add staff info
+        /*Add staff profile info Only Staff
         ////////////////////
         ///////////////////*/
         public static bool UpdateStaffPortal(string Database, string Bio, string Avail, string Resume, string Picture)
@@ -165,7 +199,7 @@ namespace TPS.App_Code
         /////////////////////
         ///////////////////*/
 
-        /*Delete Staff member
+        /*Delete Staff Member Only Admin or Manager
         ////////////////////
         ///////////////////*/
         public static bool DeleteStaff(string Database, string MemberID)
@@ -196,22 +230,88 @@ namespace TPS.App_Code
             }
             return recordSaved;
         }
+
+        /* Deny Contract Manager Only
+        ////////////////////
+        //////////////////*/
         
-    /*Updates
-    /////////////////
-    ///////////////*/
-        
-        
-        
-        
-        
-        
-        
-        
-    /*Fills
-    //////////////////
-    /////////////////*/
-        
+        public static bool DenyRequest(string Database, string RequestID)
+        {
+            bool recordSaved;
+            OleDbTransaction myTransaction = null;
+            try
+            {
+                OleDbConnection conn = new OleDbConnection("PROVIDER=Microsoft.ACE.OLEDB.12.0;" +
+                    "Data Source=" + Database);
+                conn.Open();
+                OleDbCommand command = conn.CreateCommand();
+                string strSQL;
+                myTransaction = conn.BeginTransaction();
+                command.Transaction = myTransaction;
+                strSQL = "Delete from tblStaffRequest where RequestID =" + RequestID;
+                command.CommandType = CommandType.Text;
+                command.CommandText = strSQL;
+                command.ExecuteNonQuery();
+                myTransaction.Commit();
+                conn.Close();
+                recordSaved = true;
+            }
+            catch (Exception ex)
+            {
+                myTransaction.Rollback();
+                recordSaved = false;
+            }
+            return recordSaved;
+        }
+
+        /* Delete Contract Only Admin
+        //////////////////////////
+        ////////////////////////*/
+        ///
+        public static bool DeleteContract(string Database, string ContractID)
+        {
+            bool recordSaved;
+            OleDbTransaction myTransaction = null;
+            try
+            {
+                OleDbConnection conn = new OleDbConnection("PROVIDER=Microsoft.ACE.OLEDB.12.0;" +
+                    "Data Source=" + Database);
+                conn.Open();
+                OleDbCommand command = conn.CreateCommand();
+                string strSQL;
+                myTransaction = conn.BeginTransaction();
+                command.Transaction = myTransaction;
+                strSQL = "Delete from tblContracts where ContractID =" + ContractID;
+                command.CommandType = CommandType.Text;
+                command.CommandText = strSQL;
+                command.ExecuteNonQuery();
+                myTransaction.Commit();
+                conn.Close();
+                recordSaved = true;
+            }
+            catch (Exception ex)
+            {
+                myTransaction.Rollback();
+                recordSaved = false;
+            }
+            return recordSaved;
+        }
+
+        /*Updates
+        /////////////////
+        ///////////////*/
+
+
+
+
+
+
+
+
+        /*Fills
+        //////////////////
+        /////////////////*/
+
         /*Fill staff table
         ////////////////////
         ///////////////////*/
