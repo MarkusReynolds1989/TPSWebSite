@@ -33,20 +33,9 @@ public partial class StaffRequest : System.Web.UI.Page
         StaffID1 = row.Cells[1].Text;
         StaffID2 = row.Cells[2].Text;
         StaffID3 = row.Cells[3].Text;
-
-        if (StaffID1 == null) {
-            StaffID1 = 
-        }
-        else if (StaffID2 != null)
-        {
-
-        }
-        else if (StaffID3 != null)
-        {
-
-        }
     }
-    protected void OnButtonClick_btnAddStaff(object sender, EventArgs e)
+}
+    /*protected void OnButtonClick_btnAddStaff(object sender, EventArgs e)
     {
         TPS.App_Code.clsDataLayer.SaveStaffRequest(Server.MapPath("TPS.accdb"),StaffID1,StaffID2,StaffID3);
     }
@@ -57,5 +46,5 @@ public partial class StaffRequest : System.Web.UI.Page
         myDataSet = TPS.App_Code.clsDataLayer.SearchStaff(Server.MapPath("TPS.accdb"), Experience, null, null,null);
         grdViewSearch.DataSource = myDataSet.Tables["tblStaffMember"];
         grdViewSearch.DataBind();
-    }
-}
+    } */
+

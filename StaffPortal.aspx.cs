@@ -21,11 +21,11 @@ public partial class StaffPortal : System.Web.UI.Page
         
         //byte array of the picture
         //new object of fileupload class
-        FileUpload fl = new FileUpload();
+        FileUpload file = new FileUpload();
         //we take the content of fileupPicture and hold it in FileUpload
-        fl = fileupPicture;
+        file = fileupPicture;
         //Convert the file to the byte array assign it to picture
-        byte[] picture = File.ReadAllBytes(fl.FileName);
+        byte[] picture = File.ReadAllBytes(file.FileName);
         //this doesn't work yet but class the updatestaffportal method
         if (TPS.App_Code.clsDataLayer.UpdateStaffPortal(Server.MapPath("TPS.accdb"), null, null, null, picture))
         {
