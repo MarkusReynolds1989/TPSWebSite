@@ -10,7 +10,7 @@ public partial class StaffPortal : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        
+
     }
     protected void btnUpdate_OnButtonClick(object sender, EventArgs e)
     {
@@ -18,21 +18,26 @@ public partial class StaffPortal : System.Web.UI.Page
         //change the database to hold a huge amount of data, alternatively we might hold a file path
         //let's consider this carefully
         //This doesn't work, probably because the file type, but it tries
-        
+
         //Check this code out, it might work
-        String savePath = @"whatever the path is, I'll make a folder"
+        //string savePath = @"\Pictures" this is what we will use when we publish it
+        string savePath = @"C:\Users\Reynolds\source\repos\TPSWebSite\Pictures\";
         if (fileupPicture.HasFile)
         {
-        String picture = fileupPicture.FileName;
-        savePath += fileName;
-        fileupPicture.SaveAs(savePath);
-        error.Text = "Your file was uploaded as" + fileName;
+            Console.Write("Test");
+            string FileName = fileupPicture.FileName;
+            string picture = fileupPicture.FileName;
+            savePath += FileName;
+            fileupPicture.SaveAs(savePath);
+            error.Text = "Your file was uploaded as" + FileName;
         }
         else
         {
-        error.Text = "Please specify file to upload";
+            error.Text = "Please specify file to upload";
         }
-        
+    }
+}
+        /*
         //byte array of the picture
         //new object of fileupload class
         FileUpload file = new FileUpload();
