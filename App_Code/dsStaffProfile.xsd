@@ -43,7 +43,7 @@
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="dsStaffProfile" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="dsStaffProfile" msprop:Generator_UserDSName="dsStaffProfile">
+  <xs:element name="dsStaffProfile" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="dsStaffProfile" msprop:Generator_DataSetName="dsStaffProfile">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
         <xs:element name="tblStaffProfile" msprop:Generator_TableClassName="tblStaffProfileDataTable" msprop:Generator_TableVarName="tabletblStaffProfile" msprop:Generator_TablePropName="tblStaffProfile" msprop:Generator_RowDeletingName="tblStaffProfileRowDeleting" msprop:Generator_RowChangingName="tblStaffProfileRowChanging" msprop:Generator_RowEvHandlerName="tblStaffProfileRowChangeEventHandler" msprop:Generator_RowDeletedName="tblStaffProfileRowDeleted" msprop:Generator_UserTableName="tblStaffProfile" msprop:Generator_RowChangedName="tblStaffProfileRowChanged" msprop:Generator_RowEvArgName="tblStaffProfileRowChangeEvent" msprop:Generator_RowClassName="tblStaffProfileRow">

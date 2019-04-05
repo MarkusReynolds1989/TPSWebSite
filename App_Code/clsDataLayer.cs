@@ -129,7 +129,7 @@ namespace TPS.App_Code
         /*Add staff info
         ////////////////////
         ///////////////////*/
-        public static bool UpdateStaffPortal(string Database, string Bio, string Avail, string Resume, byte[] Picture)
+        public static bool UpdateStaffPortal(string Database, string Bio, string Avail, string Resume, string Picture)
         {
             bool recordSaved;
             OleDbTransaction myTransaction = null;
