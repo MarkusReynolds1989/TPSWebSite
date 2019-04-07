@@ -9,6 +9,7 @@ public partial class Login : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        //Try to use the code from the c# class or we can kill the login element
+        //and make our own login
     }
 }

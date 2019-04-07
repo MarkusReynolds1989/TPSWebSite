@@ -12,12 +12,15 @@ public partial class Staff : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
         {
+        if (!Page.IsPostBack)
+        {
             dsStaff myDataSet = new dsStaff();
             myDataSet = TPS.App_Code.clsDataLayer.AccessStaff(Server.MapPath("TPS.accdb"));
             //set the datagrid to datasource based on table
             grdViewStaff.DataSource = myDataSet.Tables["tblStaffMember"];
             //the datagrid
-            grdViewStaff.DataBind();
+        }
+        grdViewStaff.DataBind();
     }
 
         protected void AddStaff(object sender, EventArgs e)
@@ -32,7 +35,7 @@ public partial class Staff : System.Web.UI.Page
             if (TPS.App_Code.clsDataLayer.SaveStaff(Server.MapPath("TPS.accdb"), FirstName, LastName, EduLevel, Experience, Salary))
             {
                 error.Text = "Successfully added staff member.";
-                //bind the data so it displays after user enters
+            //bind the data so it displays after user enters
                 grdViewStaff.DataBind();
             }
             else
@@ -40,7 +43,23 @@ public partial class Staff : System.Web.UI.Page
                 error.Text = "Failed to add staff member.";
             }
        }
-   }
+
+    protected void grdViewStaff_OnRowDeleting(object sender, GridViewDeleteEventArgs e)
+    {
+        GridViewRow row = grdViewStaff.SelectedRow;
+        string MemberID = row.Cells[1].Text;
+        //this works, we just need to find out how to the get the selected row
+        if (TPS.App_Code.clsDataLayer.DeleteStaff(Server.MapPath("TPS.accdb"),MemberID))
+        {
+            error.Text = "Successful delete";
+            grdViewStaff.DataBind();
+        }
+        else
+        {
+            error.Text = "Delete Failed";
+        }
+    }
+}
 
 
 

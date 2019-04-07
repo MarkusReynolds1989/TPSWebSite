@@ -1,6 +1,6 @@
 ﻿TODO:
 MUST haves:
-1. Make the javascript run before the server side code.
+1. Make the javascript run before the server side code. We can call it from inside server code.
 2. Create a method that holds the 3 choices for staff request and fills them to a table as they are selected.
 3. Create a method for deleting from the staff request table.
 4. Add a method that adds staff requests to contracts table.
@@ -8,7 +8,9 @@ MUST haves:
 6. Create a method that searches the database based upon the parameters the customer gives.
 7. Add a feedback label to every page.
 8. Publish site to make sure deployment will work.
+9.
 
 NICE to haves:
 1. Make the frontend play nicely.
 2. Fix the tables going to the left.
+3. Make the grid views update when added, deleting, updating

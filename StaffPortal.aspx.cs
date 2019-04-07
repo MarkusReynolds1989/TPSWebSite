@@ -26,7 +26,7 @@ public partial class StaffPortal : System.Web.UI.Page
             fileupPicture.SaveAs(savePath);
             error.Text = "Your file was uploaded as" + FileName;
 
-            //This will not work
+            //This will not work, we will have to talk about this
             if (TPS.App_Code.clsDataLayer.UpdateStaffPortal(Server.MapPath("TPS.accdb"), null, null, null, picture))
             {
                 error.Text = "Successfully updated profile";
