@@ -71,6 +71,27 @@ public partial class Staff : System.Web.UI.Page
             error.Text = "Select a row first";
         }
     }
+    protected void OnRowEditing(object sender, EventArgs e)
+    {
+        try
+        {
+            error.Text = "TEst";
+        }
+        catch (RowCancelingEdit)
+        {
+
+        }
+    }
+
+    protected void RowCancelingEdit(object sender, EventArgs e)
+    {
+
+    }
+    
+    protected void OnRowUpdating(object sender, EventArgs e)
+    {
+
+    }
 }
 
 
