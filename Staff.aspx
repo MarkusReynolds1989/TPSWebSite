@@ -4,12 +4,11 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>
-        Staff
+    <title>Staff
     </title>
     <link rel="stylesheet" type="text/css" href="CSS/main.css" />
-    <script src ="Scripts/jquery-3.3.1.min.js"></script>
-    <script src ="Scripts/Globals.js"></script>
+    <script src="Scripts/jquery-3.3.1.min.js"></script>
+    <script src="Scripts/Globals.js"></script>
     <script>
         //Add the header and footer bars
         $(function () {
@@ -19,7 +18,7 @@
         //Generic validation function we will be using in all the forms
         //Need to hack at this to make it work properly for our web validation
 
-        
+
         function doValidation() {
             //Declare our variables for the function
             let firstName;
@@ -41,9 +40,8 @@
             else if (salary == "" || salary == REGEXCURRENCY) {
                 $("#error").text("Please enter salary");
             }
-            else
-            {
-            Console.log("Fail");
+            else {
+                Console.log("Fail");
             }
         }
     </script>
@@ -55,23 +53,26 @@
         <div id="Form">
             <p>
                 <asp:ImageButton ID="imgHome" runat="server" ImageUrl="images/TPS_Logo_Small.jpg" PostBackUrl="~/Index.aspx" CssClass="Logo" />
-&nbsp;</p>
+                &nbsp;
+            </p>
             <p>
-                <img src ="images/staff.jpg" class ="Icons" />
+                <img src="images/staff.jpg" class="Icons" />
             </p>
             <h1>Staff</h1>
             <h2>Add Staff</h2>
             <p>
-                <asp:Label runat="server" Text = "First Name: " CssClass ="Labels"></asp:Label>
-                &nbsp; <asp:TextBox runat="server" CssClass ="Inputs" ID="txtFirstName" Height="22px"></asp:TextBox>
+                <asp:Label runat="server" Text="First Name: " CssClass="Labels"></asp:Label>
+                &nbsp;
+                <asp:TextBox runat="server" CssClass="Inputs" ID="txtFirstName" Height="22px"></asp:TextBox>
             </p>
             <p>
-                <asp:Label runat="server" Text ="Last Name: " CssClass ="Labels"></asp:Label>
-                &nbsp; <asp:TextBox runat="server" CssClass ="Inputs" ID ="txtLastName"></asp:TextBox>
+                <asp:Label runat="server" Text="Last Name: " CssClass="Labels"></asp:Label>
+                &nbsp;
+                <asp:TextBox runat="server" CssClass="Inputs" ID="txtLastName"></asp:TextBox>
             </p>
             <p>
-                <asp:Label runat="server" Text ="Education Level: " CssClass ="Labels"></asp:Label>
-                <asp:DropDownList runat="server" CssClass ="Inputs" ID ="drpEduLevel">
+                <asp:Label runat="server" Text="Education Level: " CssClass="Labels"></asp:Label>
+                <asp:DropDownList runat="server" CssClass="Inputs" ID="drpEduLevel">
                     <asp:ListItem Value="High School">High School</asp:ListItem>
                     <asp:ListItem Value="Bachelor">Bachelor</asp:ListItem>
                     <asp:ListItem Value="Masters">Masters</asp:ListItem>
@@ -79,26 +80,32 @@
                     <asp:ListItem Value="Some College">Some College</asp:ListItem>
                 </asp:DropDownList>
             </p>
-             <p>
-                 <asp:Label runat="server" Text ="Experience: " CssClass ="Labels"></asp:Label>
-                &nbsp; <asp:TextBox runat="server" CssClass ="Inputs" ID ="txtExperience"></asp:TextBox>
+            <p>
+                <asp:Label runat="server" Text="Experience: " CssClass="Labels"></asp:Label>
+                &nbsp;
+                <asp:TextBox runat="server" CssClass="Inputs" ID="txtExperience"></asp:TextBox>
             </p>
             <p>
-                <asp:Label runat="server" Text ="Salary: " CssClass ="Labels"></asp:Label>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox runat="server" CssClass ="Inputs" ID ="txtSalary"></asp:TextBox>
+                <asp:Label runat="server" Text="Salary: " CssClass="Labels"></asp:Label>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:TextBox runat="server" CssClass="Inputs" ID="txtSalary"></asp:TextBox>
             </p>
             <p>
-                <asp:Button runat="server" ID="btnAddStaff" Text="Add Staff Member" OnClick ="AddStaff"></asp:Button>
+                <asp:Button runat="server" ID="btnAddStaff" Text="Add Staff Member" OnClick="AddStaff"></asp:Button>
             </p>
             <p>
-                <asp:Label runat ="server" ID ="error" CssClass ="Error"></asp:Label>
+                <asp:Label runat="server" ID="error" CssClass="Error"></asp:Label>
             </p>
-            <h2>
-                Current Staff:
+            <h2>Current Staff:
             </h2>
             <p>
-                <asp:GridView runat="server" ID="grdViewStaff" CssClass ="Grid" CellPadding="4" ForeColor="#333333" GridLines="Horizontal">
+                <asp:GridView runat="server" ID="grdViewStaff" CssClass="Grid" CellPadding="4" ForeColor="#333333" GridLines="Horizontal"
+                    OnSelectedIndexChanged="OnSelectedIndexChanged" OnRowDeleting="OnRowDeleting">
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                    <Columns>
+                        <asp:CommandField ButtonType="Button" ShowSelectButton="True" />
+                        <asp:CommandField ButtonType ="Button" ShowDeleteButton="True" />
+                    </Columns>
                     <EditRowStyle BackColor="#999999" />
                     <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
                     <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
@@ -111,16 +118,8 @@
                     <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                 </asp:GridView>
             </p>
-            <p>
-                <asp:Label runat="server" CssClass="Labels" Text="MemberID:"></asp:Label>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:TextBox runat="server" ID="txtDelete" CssClass ="Inputs"></asp:TextBox>
-            </p>
-            <p>
-                <asp:Button runat="server" ID="btnDelete" Text="Delete" OnClick="btnDelete_Click" />
-            </p>
         </div>
     </form>
-    <div id ="footer"></div>
+    <div id="footer"></div>
 </body>
 </html>
