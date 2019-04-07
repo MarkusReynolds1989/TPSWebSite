@@ -235,6 +235,39 @@ namespace TPS.App_Code
         ////////////////////
         //////////////////*/
         
+        public static bool DeleteUser(string Database, string UserID)
+        {
+            bool recordSaved;
+            OleDbTransaction myTransaction = null;
+            try
+            {
+                OleDbConnection conn = new OleDbConnection("PROVIDER=Microsoft.ACE.OLEDB.12.0;" +
+                    "Data Source=" + Database);
+                conn.Open();
+                OleDbCommand command = conn.CreateCommand();
+                string strSQL;
+                myTransaction = conn.BeginTransaction();
+                command.Transaction = myTransaction;
+                strSQL = "Delete from tblUserAccess where UserId=" + UserID;
+                command.CommandType = CommandType.Text;
+                command.CommandText = strSQL;
+                command.ExecuteNonQuery();
+                myTransaction.Commit();
+                conn.Close();
+                recordSaved = true;
+            }
+            catch (Exception ex)
+            {
+                myTransaction.Rollback();
+                recordSaved = false;
+            }
+            return recordSaved;
+        }
+
+        /* Deny Contract Manager Only
+        ////////////////////
+        //////////////////*/
+
         public static bool DenyRequest(string Database, string RequestID)
         {
             bool recordSaved;

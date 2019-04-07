@@ -11,5 +11,6 @@ public partial class Login : System.Web.UI.Page
     {
         //Try to use the code from the c# class or we can kill the login element
         //and make our own login
+        //Set up access level on startup
     }
 }
