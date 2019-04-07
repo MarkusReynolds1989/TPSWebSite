@@ -32,8 +32,8 @@
                 <!-- The following is how to add a control into the gridview -->
                 <asp:GridView ID="grdViewStaffRequests" runat="server" CssClass="Grid">
                     <Columns>
-                        <asp:ButtonField ButtonType="Button" Text="Approve" />
-                        <asp:ButtonField ButtonType="Button" Text="Deny" CommandName="denyRequest" />
+                        <asp:ButtonField ButtonType="Button" Text="Approve" CommandName="Approve"/>
+                        <asp:ButtonField ButtonType="Button" Text="Deny" CommandName="Deny" />
                     </Columns>
                 </asp:GridView>
             </p>

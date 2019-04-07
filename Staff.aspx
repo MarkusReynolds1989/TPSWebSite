@@ -43,21 +43,7 @@
             }
             else
             {
-                $("#error").text("");
-                Console.log("does it work?");
-                $.ajax(
-                    {
-                        type: "POST",
-                        url: "Staff.aspx.cs/AddStaff",
-                        contentType: "application/json; charset =utf-8",
-                        dataType: "json",
-                        success: function (response) {
-                            Console.log("Succes");
-                        },
-                        failure: function (response) {
-                            Console.log("Fail");
-                        }
-                    });
+            Console.log("Fail");
             }
         }
     </script>
@@ -102,7 +88,8 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox runat="server" CssClass ="Inputs" ID ="txtSalary"></asp:TextBox>
             </p>
             <p>
-                <asp:Button runat="server" ID="btnAddStaff" Text="Add Staff Member" OnClientClick="doValidation()" AutoPostBack="false"></asp:Button>
+                <asp:Button runat="server" ID="btnAddStaff" Text="Add Staff Member" OnClick ="AddStaff"></asp:Button>
+            </p>
             <p>
                 <asp:Label runat ="server" ID ="error" CssClass ="Error"></asp:Label>
             </p>
@@ -110,12 +97,8 @@
                 Current Staff:
             </h2>
             <p>
-                <asp:GridView runat="server" ID="grdViewStaff" CssClass ="Grid" CellPadding="4" ForeColor="#333333" GridLines="None"
-                    OnRowDeleting="grdViewStaff_RowDeleting">
+                <asp:GridView runat="server" ID="grdViewStaff" CssClass ="Grid" CellPadding="4" ForeColor="#333333" GridLines="Horizontal">
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-                    <Columns>
-                        <asp:CommandField ButtonType="Button" ShowDeleteButton="True" />
-                    </Columns>
                     <EditRowStyle BackColor="#999999" />
                     <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
                     <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />

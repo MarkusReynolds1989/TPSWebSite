@@ -90,7 +90,7 @@ namespace TPS.App_Code
             return recordSaved;
         }
 
-        /*Add staff member Staff and Manager only
+        /*Add staff member Staff Only
         ////////////////////
         ///////////////////*/
         public static bool SaveStaff(string Database, string FirstName, string LastName, string EduLevel, string Experience, string Salary)
@@ -199,7 +199,7 @@ namespace TPS.App_Code
         /////////////////////
         ///////////////////*/
 
-        /*Delete Staff Member Only Admin or Manager
+        /*Delete Staff Member Only Admin 
         ////////////////////
         ///////////////////*/
         public static bool DeleteStaff(string Database, string MemberID)
