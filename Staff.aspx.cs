@@ -45,21 +45,30 @@ public partial class Staff : System.Web.UI.Page
     //This section now works, it's still not updating the information correctly
     protected void OnSelectedIndexChanged(object sender, EventArgs e)
     {
-        MemberID = grdViewStaff.SelectedRow.Cells[2].Text;
+        MemberID = grdViewStaff.SelectedRow.Cells[3].Text;
         error.Text = MemberID;
     }
 
     protected void OnRowDeleting(object sender, EventArgs e)
     {
-        MemberID = grdViewStaff.SelectedRow.Cells[2].Text;
-        if (TPS.App_Code.clsDataLayer.DeleteStaff(Server.MapPath("TPS.accdb"), MemberID))
+        //Add try catch so user can't press this before select button
+        //Catch System.NullReferenceException
+        try
         {
-            error.Text = "Successfully delete staff";
-            grdViewStaff.DataBind();
+            MemberID = grdViewStaff.SelectedRow.Cells[3].Text;
+            if (TPS.App_Code.clsDataLayer.DeleteStaff(Server.MapPath("TPS.accdb"), MemberID))
+            {
+                error.Text = "Successfully delete staff";
+                grdViewStaff.DataBind();
+            }
+            else
+            {
+                error.Text = "Failed to delete staff";
+            }
         }
-        else
+        catch (NullReferenceException)
         {
-            error.Text = "Failed to delete staff";
+            error.Text = "Select a row first";
         }
     }
 }

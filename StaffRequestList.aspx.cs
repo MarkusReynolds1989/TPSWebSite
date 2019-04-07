@@ -11,10 +11,24 @@ public partial class StaffRequestList : System.Web.UI.Page
     {
 
     }
-    protected void OnRowEvent_DeleteRow(object sender, EventArgs e)
+
+    protected void OnSelectedIndexChanged(object sender, EventArgs e)
     {
-        GridViewRow row = grdViewStaffRequestList.SelectedRow;
-        // And your respective cell's value
-        //StaffID1 = row.Cells[1].Text;
+        MemberID = grdViewStaff.SelectedRow.Cells[3].Text;
+        error.Text = MemberID;
+    }
+
+    protected void OnRowDeleting(object sender, EventArgs e)
+    {
+        MemberID = grdViewStaff.SelectedRow.Cells[2].Text;
+        if (TPS.App_Code.clsDataLayer.DeleteStaff(Server.MapPath("TPS.accdb"), MemberID))
+        {
+            error.Text = "Successfully delete staff";
+            grdViewStaff.DataBind();
+        }
+        else
+        {
+            error.Text = "Failed to delete staff";
+        }
     }
 }

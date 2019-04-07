@@ -22,10 +22,12 @@
                 Staffing Request List
             </h1>
             <p>
-                <asp:GridView runat="server" ID="grdViewStaffRequestList" CssClass="Grid">
+                <asp:GridView runat="server" ID="grdViewStaffRequestList" CssClass="Grid" 
+                    OnSelectedIndexChanged="OnSelectedIndexChanged" OnRowDeleting="OnRowDeleting" OnRowUpdating="OnRowUpdating">
                     <Columns>
-                        <asp:CommandField ShowDeleteButton="True" />
-                        <asp:CommandField ShowEditButton="True" />
+                        <asp:CommandField ShowSelectButton="True" ButtonType="Button"/>
+                        <asp:CommandField ShowDeleteButton="True" ButtonType="Button"/>
+                        <asp:CommandField ShowEditButton="True" ButtonType="Button"/>
                     </Columns>
                 </asp:GridView>
             </p>

@@ -105,6 +105,7 @@
                     <Columns>
                         <asp:CommandField ButtonType="Button" ShowSelectButton="True" />
                         <asp:CommandField ButtonType ="Button" ShowDeleteButton="True" />
+                        <asp:CommandField ButtonType ="Button" ShowEditButton="True" />
                     </Columns>
                     <EditRowStyle BackColor="#999999" />
                     <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
