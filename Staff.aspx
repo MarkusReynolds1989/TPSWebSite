@@ -97,11 +97,8 @@
                 Current Staff:
             </h2>
             <p>
-                <asp:GridView runat="server" ID="grdViewStaff" CssClass ="Grid" CellPadding="4" ForeColor="#333333" GridLines="Horizontal" OnRowDeleting="grdViewStaff_OnRowDeleting">
+                <asp:GridView runat="server" ID="grdViewStaff" CssClass ="Grid" CellPadding="4" ForeColor="#333333" GridLines="Horizontal">
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-                    <Columns>
-                        <asp:CommandField ButtonType="Button" ShowDeleteButton="True" />
-                    </Columns>
                     <EditRowStyle BackColor="#999999" />
                     <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
                     <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
@@ -113,6 +110,14 @@
                     <SortedDescendingCellStyle BackColor="#FFFDF8" />
                     <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                 </asp:GridView>
+            </p>
+            <p>
+                <asp:Label runat="server" CssClass="Labels" Text="MemberID:"></asp:Label>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:TextBox runat="server" ID="txtDelete" CssClass ="Inputs"></asp:TextBox>
+            </p>
+            <p>
+                <asp:Button runat="server" ID="btnDelete" Text="Delete" OnClick="btnDelete_Click" />
             </p>
         </div>
     </form>

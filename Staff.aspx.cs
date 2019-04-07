@@ -44,12 +44,12 @@ public partial class Staff : System.Web.UI.Page
             }
        }
 
-    protected void grdViewStaff_OnRowDeleting(object sender, GridViewDeleteEventArgs e)
+
+    protected void btnDelete_Click(object sender, EventArgs e)
     {
-        GridViewRow row = grdViewStaff.SelectedRow;
-        string MemberID = row.Cells[1].Text;
-        //this works, we just need to find out how to the get the selected row
-        if (TPS.App_Code.clsDataLayer.DeleteStaff(Server.MapPath("TPS.accdb"),MemberID))
+        string MemberID = txtDelete.Text;
+
+        if (TPS.App_Code.clsDataLayer.DeleteStaff(Server.MapPath("TPS.accdb"), MemberID))
         {
             error.Text = "Successful delete";
             grdViewStaff.DataBind();
