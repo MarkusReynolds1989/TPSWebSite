@@ -37,6 +37,9 @@
                     </Columns>
                 </asp:GridView>
             </p>
+            <p>
+                <asp:Label ID="error" runat="server" CssClass="Error"></asp:Label>
+            </p>
             <h2> Approved Contracts</h2>
             <asp:GridView ID ="grdViewContracts" runat="server" CssClass="Grid" ></asp:GridView>
         </div>

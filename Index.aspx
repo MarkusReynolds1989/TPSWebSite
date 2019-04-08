@@ -39,14 +39,10 @@
             </p>
 
             <p>
-                <asp:ImageButton ID="imgStaffRequest" runat="server" CssClass="Icons"  ImageUrl="~/images/staffingrequest.jpg" PostBackUrl="~/StaffingRequest.aspx" />
+                <asp:ImageButton ID="imgStaffRequest" runat="server" CssClass="Icons"  ImageUrl="~/images/staffingrequest.jpg" PostBackUrl="~/StaffRequest.aspx" />
             &nbsp;<asp:HyperLink ID="lnkStaffRequest" runat="server" Text="Staff Request"></asp:HyperLink>
             </p>
             
-            <p>
-                <asp:ImageButton ID="imgStaffRequestList" runat="server" CssClass="Icons" ImageUrl="~/images/staffrequestlist.png" PostBackUrl="~/StaffingRequest.aspx" />
-                &nbsp;<asp:HyperLink ID ="lnkStaffRequestList" runat="server" Text="Staff Request List"></asp:HyperLink>            
-            </p>
             <p>
                 <asp:ImageButton ID="imgStaffPortal" runat="server" CssClass="Icons" ImageURL="~/images/staff.jpg" Height="50px" PostBackUrl="~/StaffPortal.aspx" />
                 &nbsp;<asp:HyperLink ID ="HyperLink1" runat="server" Text="Staff Portal"></asp:HyperLink>            

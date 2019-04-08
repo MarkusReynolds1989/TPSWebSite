@@ -15,6 +15,24 @@ public partial class StaffRequest : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (!IsPostBack)
+        {
+            BindDataSearch();
+            BindDataRequests();
+        }
+    }
+
+    protected void BindDataRequests()
+    {
+        dsStaffRequest myDataSet = new dsStaffRequest();
+        myDataSet = TPS.App_Code.clsDataLayer.AccessStaffRequests(Server.MapPath("TPS.accdb"));
+        //set the datagrid to datasource based on table
+        grdViewSearch.DataSource = myDataSet.Tables["tblStaffRequest"];
+        //the datagrid
+        grdViewRequest.DataBind();
+    }
+    protected void BindDataSearch()
+    {
         dsStaff myDataSet = new dsStaff();
         myDataSet = TPS.App_Code.clsDataLayer.AccessStaff(Server.MapPath("TPS.accdb"));
         //set the datagrid to datasource based on table
@@ -22,29 +40,37 @@ public partial class StaffRequest : System.Web.UI.Page
         //the datagrid
         grdViewSearch.DataBind();
     }
+
     protected void OnRowEvent_SelectRow(object sender, EventArgs e)
     {
-        //Eddie, check this out and let me know what you think
-        //We need to get the information from the currently selected row and pass it to
-        //The staffrequest table to build it, we can use this as a base and hack it
-        //Get the currently selected row using the SelectedRow property.
         GridViewRow row = grdViewSearch.SelectedRow;
-        // And you respective cell's value
         StaffID1 = row.Cells[1].Text;
         StaffID2 = row.Cells[2].Text;
         StaffID3 = row.Cells[3].Text;
     }
-}
-    /*protected void OnButtonClick_btnAddStaff(object sender, EventArgs e)
+
+
+    protected void OnButtonClick_AddStaff(object sender, EventArgs e)
     {
-        TPS.App_Code.clsDataLayer.SaveStaffRequest(Server.MapPath("TPS.accdb"),StaffID1,StaffID2,StaffID3);
+        if (TPS.App_Code.clsDataLayer.SaveStaffRequest(Server.MapPath("TPS.accdb"), StaffID1, StaffID2, StaffID3))
+        {
+            error.Text = "Successfully added";
+            BindDataRequests();
+            BindDataSearch();
+        }
+        else
+        {
+            error.Text = "Failed to add";
+        }
     }
+
     protected void OnButtonClick_btnSearch(object sender, EventArgs e)
     {
         string Experience = txtExperience.Text;
         dsStaff myDataSet = new dsStaff();
-        myDataSet = TPS.App_Code.clsDataLayer.SearchStaff(Server.MapPath("TPS.accdb"), Experience, null, null,null);
+        myDataSet = TPS.App_Code.clsDataLayer.SearchStaff(Server.MapPath("TPS.accdb"), Experience, null, null, null);
         grdViewSearch.DataSource = myDataSet.Tables["tblStaffMember"];
         grdViewSearch.DataBind();
-    } */
+    }
+}
 

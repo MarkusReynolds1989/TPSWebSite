@@ -478,7 +478,7 @@ namespace TPS.App_Code
         /* Fill Staff Requests Table
         ////////////////////////////
         //////////////////////////*/
-        public static dsStaffRequest AcessStaffRequests(string Database)
+        public static dsStaffRequest AccessStaffRequests(string Database)
         {
             dsStaffRequest DS;
             //Call Objects

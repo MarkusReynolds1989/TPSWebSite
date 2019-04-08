@@ -63,17 +63,18 @@
                 <asp:Label ID="Label1" runat="server" Text="Location:" CssClass ="Labels"></asp:Label>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="txtLocation" runat="server" CssClass ="Inputs"></asp:TextBox>
             </p>
-            <!-- Microsoft buttons are very ugly, can I change this to make it look better? 
-                TODO: 1. Make Prettier Buttons-->
             <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="OnButtonClick_btnSearch" />
             <br />
+            <p>
+                <asp:Label ID ="error" runat="server" CssClass="Error" ></asp:Label>
+            </p>
             <h3>
                 Your Results:
             </h3>
             <p>
-                <asp:GridView runat="server" ID="grdViewSearch" CssClass="Grid">
+                <asp:GridView runat="server" ID="grdViewSearch" CssClass="Grid" OnEventSelectRow="AddStaff">
                     <Columns>
-                        <asp:ButtonField ButtonType="Button" HeaderText="Add Staff to Request" ShowHeader="True" Text="Add" CommandName="addStaff" />
+                        <asp:ButtonField ButtonType="Button" HeaderText="Add Staff to Request" ShowHeader="True" Text="Add" CommandName="AddStaff" />
                     </Columns>
                 </asp:GridView>
             </p>
@@ -81,9 +82,11 @@
                 Your Request:
             </h3>
             <p>
-                &nbsp;</p>
+                <asp:GridView runat="server" ID="grdViewRequest" CssClass="Grid">
+                </asp:GridView>
+           </p>
             <p>
-                <asp:Button ID ="btnAdd" runat ="server" Text="Add Staff Request" />
+                <asp:Button ID ="btnAdd" runat ="server" Text="Add Staff Request" OnClick="OnButtonClick_AddStaff" />
             </p>
         </div>
     </form>
