@@ -16,13 +16,18 @@ public partial class Login : System.Web.UI.Page
     try{
         string UserName = txtUserName.Text;
         string Password = txtPassword.Text;
-        TPS.App_Code.clsDataLayer.Login(Server.MapPath("TPS.accdb)UserName,Password)
+        if (TPS.App_Code.clsDataLayer.Login(Server.MapPath("TPS.accdb)UserName,Password))
         {
-        
+            error.Text="Login Successful";
+            //gotourl = "Index"
+        }
+        else
+        {
+            error.Text="Invalid Username or password";
         }
     catch(NullReferenceException)
     {
-    
+        error.Text = "Please fill out all forms";
     }
     }
 }
