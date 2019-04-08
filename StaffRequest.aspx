@@ -81,12 +81,7 @@
                 Your Request:
             </h3>
             <p>
-                <asp:GridView runat="server" ID="grdViewRequest" CssClass="Grid">
-                    <Columns>
-                        <asp:CommandField ButtonType="Button" HeaderText="Delete Staff from Request" ShowDeleteButton="True" />
-                    </Columns>
-                </asp:GridView>
-            </p>
+                &nbsp;</p>
             <p>
                 <asp:Button ID ="btnAdd" runat ="server" Text="Add Staff Request" />
             </p>

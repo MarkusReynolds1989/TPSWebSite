@@ -9,12 +9,30 @@ public partial class Contracts : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        //Use AccessContracts() to fill the grdViewContracts table, managers can all share contracts
-        //Use AccessStaffRequests() to fill the grdViewStaffRequests gridview
+        if (!IsPostBack)
+        {
+            BindDataStaffRequest();
+            BindDataContracts();
+        }
+
     }
-    //add in two methods, both protected void
-    //one method should be something like 
-    //grdViewStaffRequest_OnRowDeny()
-    //grdViewStaffRequest_OnRowApprove()
+    protected void BindDataStaffRequest()
+    {   
+        dsStaffRequest myDataSet = new dsStaffRequest();
+        myDataSet = TPS.App_Code.clsDataLayer.AcessStaffRequests(Server.MapPath("TPS.accdb"));
+        //set the datagrid to datasource based on table
+        grdViewStaffRequests.DataSource = myDataSet.Tables["tblStaffRequest"];
+        //the datagrid
+        grdViewStaffRequests.DataBind();
+    }
+    protected void BindDataContracts()
+    {
+        dsContracts myDataSet = new dsContracts();
+        myDataSet = TPS.App_Code.clsDataLayer.AccessContracts(Server.MapPath("TPS.accdb"));
+        //set the datagrid to datasource based on table
+        grdViewContracts.DataSource = myDataSet.Tables["tblContract"];
+        //the datagrid
+        grdViewContracts.DataBind();
+    }
 
 }

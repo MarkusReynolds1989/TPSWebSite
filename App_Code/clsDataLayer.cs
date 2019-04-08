@@ -234,7 +234,7 @@ namespace TPS.App_Code
         /* Deny Contract Manager Only
         ////////////////////
         //////////////////*/
-        
+
         public static bool DeleteUser(string Database, string UserID)
         {
             bool recordSaved;
@@ -333,12 +333,12 @@ namespace TPS.App_Code
         /*Updates
         /////////////////
         ///////////////*/
-        
-            /*Update Staff///////
-            ////////////////////
-            ///////////////////*/
-            
-        public static bool UpdateStaff(string Database, string MemberID,string FirstName, string LastName, string EduLevel, string Experience, string Salary)
+
+        /*Update Staff///////
+        ////////////////////
+        ///////////////////*/
+
+        public static bool UpdateStaff(string Database, string MemberID, string FirstName, string LastName, string EduLevel, string Experience, string Salary)
         {
             bool recordSaved;
             OleDbTransaction myTransaction = null;
@@ -459,7 +459,7 @@ namespace TPS.App_Code
         /*Fill Users table
         ////////////////////
         ///////////////////*/
-        public static dsUserAccess AcessUsers(string Database)
+        public static dsUserAccess AccessUsers(string Database)
         {
             dsUserAccess DS;
             //Call Objects
@@ -474,11 +474,30 @@ namespace TPS.App_Code
             sqlDA.Fill(DS.tblUserAccess);
             return DS;
         }
-        
-     /* Special Methods
-     //////////////////
-     ////////////////*/
-        
+
+        /* Fill Staff Requests Table
+        ////////////////////////////
+        //////////////////////////*/
+        public static dsStaffRequest AcessStaffRequests(string Database)
+        {
+            dsStaffRequest DS;
+            //Call Objects
+            OleDbConnection sqlConn;
+            OleDbDataAdapter sqlDA;
+            //Methods for connection, query
+            sqlConn = new OleDbConnection("PROVIDER = Microsoft.ACE.OLEDB.12.0" + "Data Source =" + Database);
+            sqlDA = new OleDbDataAdapter("select * from tblStaffRequest", sqlConn);
+            //datastream class
+            DS = new dsStaffRequest();
+            //fill table
+            sqlDA.Fill(DS.tblStaffRequest);
+            return DS;
+        }
+
+        /* Special Methods
+        //////////////////
+        ////////////////*/
+
         /*Search Through Staff for staffrequest
         ////////////////////////////
         /////////////////////////*/
@@ -496,8 +515,8 @@ namespace TPS.App_Code
             if (Experience != null || Experience.Trim() != "")
             {
                 //need to figure this out better, I don't want to have to write code for every combination
-                sqlDA = new OleDbDataAdapter("select * from tblStaffMember where Experience like '%" + 
-                    Experience + "%'" ,sqlConn);
+                sqlDA = new OleDbDataAdapter("select * from tblStaffMember where Experience like '%" +
+                    Experience + "%'", sqlConn);
             }
             else
             {
@@ -560,5 +579,5 @@ namespace TPS.App_Code
 
     }
 }
-    
+
 

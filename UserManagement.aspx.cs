@@ -11,8 +11,22 @@ public partial class UserManagement : System.Web.UI.Page
     {
         //Eddie
         //Fill the gridView for Users here
+        if (!IsPostBack)
+        {
+            BindData();
+        }
 
     }
+    protected void BindData()
+    {
+        dsUserAccess myDataSet = new dsUserAccess();
+        myDataSet = TPS.App_Code.clsDataLayer.AccessUsers(Server.MapPath("TPS.accdb"));
+        //set the datagrid to datasource based on table
+        grdViewUsers.DataSource = myDataSet.Tables["tblStaffMember"];
+        //the datagrid
+        grdViewUsers.DataBind();
+    }
+
 
     //Add the method for selecting here (TPS.App_Code.clsDatalayer.SaveUser(Server.MapPath("TPS.accdb")UserID,Password,etc)
 

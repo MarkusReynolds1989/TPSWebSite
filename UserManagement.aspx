@@ -69,7 +69,7 @@
         </div>
         <div>
             <p>
-                <asp:GridView ID="GridView1" runat="server" CssClass="Grid">
+                <asp:GridView ID="grdViewUsers" runat="server" CssClass="Grid">
                     <Columns>
                         <asp:CommandField ShowEditButton="True" />
                         <asp:CommandField ShowSelectButton="True" />
