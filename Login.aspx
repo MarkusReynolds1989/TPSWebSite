@@ -35,6 +35,8 @@ Formatted HTML:
             <asp:TextBox runat="server" ID= "txtPassword" CssClass = "Inputs"/>
          </p>
          <p>
+            <asp:Label runat="server" ID="error" CssClass= "Error"/>
+         <p>
             <asp:Button runat=server" Text="Login" OnButtonClick="OnButtonClick_Login"/>
          </p>
       </form>
