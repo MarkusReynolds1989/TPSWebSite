@@ -333,7 +333,42 @@ namespace TPS.App_Code
         /*Updates
         /////////////////
         ///////////////*/
-
+        
+            /*Update Staff///////
+            ////////////////////
+            ///////////////////*/
+            
+        public static bool UpdateStaff(string Database, string MemberID,string FirstName, string LastName, string EduLevel, string Experience, string Salary)
+        {
+            bool recordSaved;
+            OleDbTransaction myTransaction = null;
+            try
+            {
+                OleDbConnection conn = new OleDbConnection("PROVIDER=Microsoft.ACE.OLEDB.12.0;" +
+                    "Data Source=" + Database);
+                conn.Open();
+                OleDbCommand command = conn.CreateCommand();
+                string strSQL;
+                myTransaction = conn.BeginTransaction();
+                command.Transaction = myTransaction;
+                strSQL = "Update tblStaffMember Set tblStaffMember FirstName = '"
+                    + FirstName + "' , LastName = '" + LastName
+                    + "' , EduLevel = '" + EduLevel + "' , Experience = '" + Experience
+                    + "' , Salary ='" + Salary + "' Where MemberID = " + MemberID + "";
+                command.CommandType = CommandType.Text;
+                command.CommandText = strSQL;
+                command.ExecuteNonQuery();
+                myTransaction.Commit();
+                conn.Close();
+                recordSaved = true;
+            }
+            catch (Exception ex)
+            {
+                myTransaction.Rollback();
+                recordSaved = false;
+            }
+            return recordSaved;
+        }
 
 
 

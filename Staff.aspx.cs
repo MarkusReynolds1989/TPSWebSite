@@ -13,6 +13,13 @@ public partial class Staff : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (!Page.IsPostBack)
+        {
+            BindData();
+        }
+    }
+    protected void BindData()
+    {
         dsStaff myDataSet = new dsStaff();
         myDataSet = TPS.App_Code.clsDataLayer.AccessStaff(Server.MapPath("TPS.accdb"));
         //set the datagrid to datasource based on table
@@ -33,8 +40,7 @@ public partial class Staff : System.Web.UI.Page
         if (TPS.App_Code.clsDataLayer.SaveStaff(Server.MapPath("TPS.accdb"), FirstName, LastName, EduLevel, Experience, Salary))
         {
             error.Text = "Successfully added staff member.";
-            //bind the data so it displays after user enters
-            grdViewStaff.DataBind();
+            BindData();
         }
         else
         {
@@ -46,7 +52,6 @@ public partial class Staff : System.Web.UI.Page
     protected void OnSelectedIndexChanged(object sender, EventArgs e)
     {
         MemberID = grdViewStaff.SelectedRow.Cells[3].Text;
-        error.Text = MemberID;
     }
 
     protected void OnRowDeleting(object sender, EventArgs e)
@@ -58,8 +63,8 @@ public partial class Staff : System.Web.UI.Page
             MemberID = grdViewStaff.SelectedRow.Cells[3].Text;
             if (TPS.App_Code.clsDataLayer.DeleteStaff(Server.MapPath("TPS.accdb"), MemberID))
             {
-                error.Text = "Successfully delete staff";
-                grdViewStaff.DataBind();
+                error.Text = "Successfully deleted staff";
+                BindData();
             }
             else
             {
@@ -73,24 +78,40 @@ public partial class Staff : System.Web.UI.Page
     }
     protected void OnRowEditing(object sender, EventArgs e)
     {
-        try
-        {
-            error.Text = "TEst";
+        try {
+        MemberID = grdViewStaff.SelectedRow.Cells[3].Text;
+        string FirstName = grdViewStaff.SelectedRow.Cells[4].Text;
+        string LastName = grdViewStaff.SelectedRow.Cells[5].Text;
+        string EduLevel = grdViewStaff.SelectedRow.Cells[6].Text;
+        string Experience = grdViewStaff.SelectedRow.Cells[7].Text;
+        string Salary = grdViewStaff.SelectedRow.Cells[8].Text;
+            if (TPS.App_Code.clsDataLayer.UpdateStaff(Server.MapPath("TPS.accdb"), MemberID, FirstName, LastName, EduLevel, Experience, Salary))
+            { 
+                error.Text = "Successfully Updated";
+                BindData();
+                grdViewStaff.EditIndex = -1;
+            }
+            else
+            {
+                error.Text = "Update failed";
+            }
         }
-        catch (RowCancelingEdit)
+        catch(NullReferenceException)
         {
-
+            error.Text = "Select a row first";
         }
     }
 
-    protected void RowCancelingEdit(object sender, EventArgs e)
+    protected void OnRowCancelingEdit(object sender, EventArgs e)
     {
-
+        grdViewStaff.EditIndex = -1; //swicth back to default mode
+        BindData(); // Rebind GridView to show the data in default mode
+        error.Text = "";
     }
     
     protected void OnRowUpdating(object sender, EventArgs e)
     {
-
+        error.Text = "";
     }
 }
 

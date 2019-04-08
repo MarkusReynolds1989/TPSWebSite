@@ -101,7 +101,7 @@
             <p>
                 <asp:GridView runat="server" ID="grdViewStaff" CssClass="Grid" CellPadding="4" ForeColor="#333333" GridLines="Horizontal"
                     OnSelectedIndexChanged="OnSelectedIndexChanged" OnRowDeleting="OnRowDeleting" OnRowEditing="OnRowEditing"
-                    RowCancelingEdit ="RowCancelingEdit" OnRowUpdating="OnRowUpdating">
+                    OnRowCancelingEdit ="OnRowCancelingEdit" OnRowUpdating="OnRowUpdating">
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                     <Columns>
                         <asp:CommandField ButtonType="Button" ShowSelectButton="True" />
