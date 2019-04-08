@@ -9,8 +9,20 @@ public partial class Login : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        //Try to use the code from the c# class or we can kill the login element
-        //and make our own login
-        //Set up access level on startup
+        ///Setup access level, code in other file
+    }
+    protected void OnButtonClick_Login(object sender, EventArgs e)
+    {
+    try{
+        string UserName = txtUserName.Text;
+        string Password = txtPassword.Text;
+        TPS.App_Code.clsDataLayer.Login(Server.MapPath("TPS.accdb)UserName,Password)
+        {
+        
+        }
+    catch(NullReferenceException)
+    {
+    
+    }
     }
 }
