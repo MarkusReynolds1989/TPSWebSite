@@ -47,6 +47,10 @@
                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:FileUpload runat ="server" CssClass ="Buttons" ID ="fileupPicture"></asp:FileUpload>
             </p>
             <p>
+                <asp:Label runat="server" Text="StaffID: " CssClass = "Labels"/>
+                <asp:TextBox runat="server" ID="txtStaffID" CssClass="Inputs"/>
+            </p>
+            <p>
                 <asp:Button runat ="server" Text="Update" ID="btnUpdate" OnClick="btnUpdate_OnButtonClick"/>
             </p>
             <p>
