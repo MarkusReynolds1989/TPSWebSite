@@ -27,21 +27,28 @@
             <p>
                 <img src ="images/contract.png" class ="Icons"/>
             </p>
-           <h1>Requests List</h1>
+            
+           <h1>
+               Requests List
+            </h1>
             <p>
-                <!-- The following is how to add a control into the gridview -->
-                <asp:GridView ID="grdViewStaffRequests" runat="server" CssClass="Grid">
-                    <Columns>
-                        <asp:ButtonField ButtonType="Button" Text="Approve" CommandName="Approve"/>
-                        <asp:ButtonField ButtonType="Button" Text="Deny" CommandName="Deny" />
-                    </Columns>
-                </asp:GridView>
+                <asp:GridView ID="grdViewStaffRequests" runat="server" CssClass="Grid"/>
             </p>
+            <p>
+                <asp:Label runat="server" Text="RequestID" CssClass="Labels"/>
+                <asp:TextBox runat="server" ID="txtApproveID" CssClass="Inputs"/>
+            </p>
+            <p>
+                <asp:Button runat="server" ID="btnAddRequest" Text="Approve Contract" />
             <p>
                 <asp:Label ID="error" runat="server" CssClass="Error"></asp:Label>
             </p>
-            <h2> Approved Contracts</h2>
-            <asp:GridView ID ="grdViewContracts" runat="server" CssClass="Grid" ></asp:GridView>
+            <h2> 
+                Approved Contracts
+            </h2>
+            <p>
+            <asp:GridView ID ="grdViewContracts" runat="server" CssClass="Grid" />
+            </p>
         </div>
     </form>
     <div id ="footer"></div>
