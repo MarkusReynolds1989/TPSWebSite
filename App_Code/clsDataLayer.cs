@@ -410,7 +410,7 @@ namespace TPS.App_Code
             OleDbDataAdapter sqlDA;
             //we use the methods to create messages and connect to the database
             sqlConn = new OleDbConnection("PROVIDER = Microsoft.ACE.OLEDB.12.0;" + "Data Source =" + Database);
-            sqlDA = new OleDbDataAdapter("select * from tblContracts", sqlConn); //How can we display salary as $
+            sqlDA = new OleDbDataAdapter("select * from tblContract", sqlConn); //How can we display salary as $
             //new object of the DS class
             DS = new dsContracts();
             // method of sqlDA class to fill the table
@@ -428,7 +428,7 @@ namespace TPS.App_Code
             OleDbConnection sqlConn;
             OleDbDataAdapter sqlDA;
             //Methods for connection, query
-            sqlConn = new OleDbConnection("PROVIDER = Microsoft.ACE.OLEDB.12.0" + "Data Source =" + Database);
+            sqlConn = new OleDbConnection("PROVIDER = Microsoft.ACE.OLEDB.12.0;" + "Data Source =" + Database);
             sqlDA = new OleDbDataAdapter("select * from tblManager", sqlConn);
             //datastream class 
             DS = new dsManager();
@@ -447,7 +447,7 @@ namespace TPS.App_Code
             OleDbConnection sqlConn;
             OleDbDataAdapter sqlDA;
             //Methods for connection, query
-            sqlConn = new OleDbConnection("PROVIDER = Microsoft.ACE.OLEDB.12.0" + "Data Source =" + Database);
+            sqlConn = new OleDbConnection("PROVIDER = Microsoft.ACE.OLEDB.12.0;" + "Data Source =" + Database);
             sqlDA = new OleDbDataAdapter("select * from tblClient", sqlConn);
             //datastream class
             DS = new dsClient();
@@ -466,7 +466,7 @@ namespace TPS.App_Code
             OleDbConnection sqlConn;
             OleDbDataAdapter sqlDA;
             //Methods for connection, query
-            sqlConn = new OleDbConnection("PROVIDER = Microsoft.ACE.OLEDB.12.0" + "Data Source =" + Database);
+            sqlConn = new OleDbConnection("PROVIDER = Microsoft.ACE.OLEDB.12.0;" + "Data Source =" + Database);
             sqlDA = new OleDbDataAdapter("select * from tblUserAccess", sqlConn);
             //datastream class
             DS = new dsUserAccess();
@@ -485,7 +485,7 @@ namespace TPS.App_Code
             OleDbConnection sqlConn;
             OleDbDataAdapter sqlDA;
             //Methods for connection, query
-            sqlConn = new OleDbConnection("PROVIDER = Microsoft.ACE.OLEDB.12.0" + "Data Source =" + Database);
+            sqlConn = new OleDbConnection("PROVIDER = Microsoft.ACE.OLEDB.12.0;" + "Data Source =" + Database);
             sqlDA = new OleDbDataAdapter("select * from tblStaffRequest", sqlConn);
             //datastream class
             DS = new dsStaffRequest();
