@@ -16,7 +16,7 @@ public partial class Login : System.Web.UI.Page
     try{
         string UserName = txtUserName.Text;
         string Password = txtPassword.Text;
-        if (TPS.App_Code.clsDataLayer.Login(Server.MapPath("TPS.accdb)UserName,Password))
+        if (TPS.App_Code.clsDataLayer.VerifyUser(Server.MapPath("TPS.accdb)UserName,Password))
         {
             error.Text="Login Successful";
             //gotourl = "Index"
