@@ -12,6 +12,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "TPSWebSite", "TPSWebSite\",
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug="True"
 		Debug.AspNetCompiler.Debug = "True"
 		Release.AspNetCompiler.VirtualPath = "/localhost_63312"
 		Release.AspNetCompiler.PhysicalPath = "TPSWebSite\"
