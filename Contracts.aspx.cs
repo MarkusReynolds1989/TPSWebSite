@@ -19,7 +19,7 @@ public partial class Contracts : System.Web.UI.Page
     protected void BindDataStaffRequest()
     {   
         dsStaffRequest myDataSet = new dsStaffRequest();
-        myDataSet = TPS.App_Code.clsDataLayer.AcessStaffRequests(Server.MapPath("TPS.accdb"));
+        myDataSet = TPS.App_Code.clsDataLayer.AccessStaffRequests(Server.MapPath("TPS.accdb"));
         //set the datagrid to datasource based on table
         grdViewStaffRequests.DataSource = myDataSet.Tables["tblStaffRequest"];
         //the datagrid
