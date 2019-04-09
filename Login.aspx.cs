@@ -13,21 +13,15 @@ public partial class Login : System.Web.UI.Page
     }
     protected void OnButtonClick_Login(object sender, EventArgs e)
     {
-    try{
-        string UserName = txtUserName.Text;
-        string Password = txtPassword.Text;
-        if (TPS.App_Code.clsDataLayer.VerifyUser(Server.MapPath("TPS.accdb)UserName,Password))
+        try
         {
-            error.Text="Login Successful";
-            //gotourl = "Index"
+            string UserName = txtUserName.Text;
+            string Password = txtPassword.Text;
+            TPS.App_Code.clsDataLayer.VerifyUser(Server.MapPath("TPS.accdb"), UserName, Password);
         }
-        else
+        catch (NullReferenceException)
         {
-            error.Text="Invalid Username or password";
+            error.Text = "Please fill out all forms";
         }
-    catch(NullReferenceException)
-    {
-        error.Text = "Please fill out all forms";
-    }
     }
 }

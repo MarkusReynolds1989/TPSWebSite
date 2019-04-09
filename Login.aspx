@@ -37,7 +37,7 @@ Formatted HTML:
          <p>
             <asp:Label runat="server" ID="error" CssClass= "Error"/>
          <p>
-            <asp:Button runat=server" Text="Login" OnButtonClick="OnButtonClick_Login"/>
+            <asp:Button runat="server" Text="Login" OnButtonClick="OnButtonClick_Login"/>
          </p>
       </form>
       <br />
