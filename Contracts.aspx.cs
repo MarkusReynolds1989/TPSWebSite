@@ -36,7 +36,11 @@ public partial class Contracts: System.Web.UI.Page {
     string ApproveID = txtRequestID.Text;
     if (TPS.App_Code.clsDataLayer.ApproveRequest(Server.MapPath("TPS.accdb"), RequestID) {
       error.Text = "Successfully approved";
-     } else {
+      BindDataStaffRequest();
+      BindDataContracts();
+     } 
+        else 
+     {
       error.Text = "Failed to approve";
      }
     }
