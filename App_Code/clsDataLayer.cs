@@ -26,7 +26,7 @@ namespace TPS.App_Code
         /*Approve a contract Manager only
         ///////////////////////////
         ///////////////////////*/
-        public static bool ApproveContract(string Database, string ContractID, string RequestID)
+        public static bool ApproveRequest(string Database, string RequestID)
         {
             bool recordSaved;
             OleDbTransaction myTransaction = null;
@@ -39,8 +39,8 @@ namespace TPS.App_Code
                 string strSQL;
                 myTransaction = conn.BeginTransaction();
                 command.Transaction = myTransaction;
-                strSQL = "Insert into tblContracts (ContractID, RequestID)" + "values ('" + ContractID + "','"
-                    + RequestID + "')";
+                strSQL = "Insert into tblContract (RequestID)" + "values ('" + 
+                    RequestID + "')";
                 command.CommandType = CommandType.Text;
                 command.CommandText = strSQL;
                 command.ExecuteNonQuery();

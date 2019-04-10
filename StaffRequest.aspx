@@ -72,8 +72,10 @@
                 Your Results:
             </h3>
             <p>
-                <asp:GridView runat="server" ID="grdViewSearch" CssClass="Grid" OnEventSelectRow="AddStaff">
+                <asp:GridView runat="server" ID="grdViewSearch" CssClass="Grid" OnSelectedIndexChanged="OnSelectedIndexChanged"
+                    OnRowCommand="grdViewSearch_RowCommand">
                     <Columns>
+                        <asp:CommandField ButtonType="Button" ShowSelectButton="True" />
                         <asp:ButtonField ButtonType="Button" HeaderText="Add Staff to Request" ShowHeader="True" Text="Add" CommandName="AddStaff" />
                     </Columns>
                 </asp:GridView>
@@ -86,7 +88,7 @@
                 </asp:GridView>
            </p>
             <p>
-                <asp:Button ID ="btnAdd" runat ="server" Text="Add Staff Request" OnClick="OnButtonClick_AddStaff" />
+                <asp:Button ID ="btnAdd" runat ="server" Text="Add Staff Request" OnClick="OnButtonClick_AddStaffRequest" />
             </p>
         </div>
     </form>

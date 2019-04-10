@@ -36,10 +36,11 @@
             </p>
             <p>
                 <asp:Label runat="server" Text="RequestID" CssClass="Labels"/>
-                <asp:TextBox runat="server" ID="txtApproveID" CssClass="Inputs"/>
+                <asp:TextBox runat="server" ID="txtRequestID" CssClass="Inputs"/>
             </p>
             <p>
-                <asp:Button runat="server" ID="btnAddRequest" Text="Approve Contract" />
+                <asp:Button runat="server" ID="btnAddRequest" Text="Approve Contract" OnClick="btnAddRequest_Click" />
+            </p>
             <p>
                 <asp:Label ID="error" runat="server" CssClass="Error"></asp:Label>
             </p>
