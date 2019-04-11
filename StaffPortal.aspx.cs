@@ -1,4 +1,9 @@
-﻿using System;
+﻿//Staff Portal Code TPS Website
+//Programmed by: Markus Reynolds
+//3/31/2019
+//Open source avaiable under GNU License
+//A GNU License should be included in the documentation for this code but you can also find it online
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
