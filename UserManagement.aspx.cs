@@ -12,6 +12,8 @@ using System.Web.UI.WebControls;
 
 public partial class UserManagement : System.Web.UI.Page
 {
+    private string UserID { get; set; }
+
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
@@ -44,6 +46,34 @@ public partial class UserManagement : System.Web.UI.Page
             error.Text = "Plese fill out all fields";
         }
     }
+    protected void OnSelectedIndexChanged(object sender, EventArgs e)
+    {
+        UserID = grdViewUsers.SelectedRow.Cells[3].Text;
+        error.Text = UserID;
+    }
 
-    
+    protected void OnRowDeleting(object sender, EventArgs e)
+    {
+        //Add try catch so user can't press this before select button
+        //Catch System.NullReferenceException
+        try
+        {
+            UserID= grdViewUsers.SelectedRow.Cells[3].Text;
+            if (TPS.App_Code.clsDataLayer.DeleteUser(Server.MapPath("TPS.accdb"), UserID))
+            {
+                error.Text = "Successfully deleted user";
+                BindData();
+            }
+            else
+            {
+                error.Text = "Failed to delete user";
+            }
+        }
+        catch (NullReferenceException)
+        {
+            error.Text = "Select a row first";
+        }
+    }
+
+
 }

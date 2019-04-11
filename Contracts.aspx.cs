@@ -49,8 +49,11 @@ public partial class Contracts : System.Web.UI.Page
             if (TPS.App_Code.clsDataLayer.ApproveRequest(Server.MapPath("TPS.accdb"), RequestID))
             {
                 error.Text = "Successfully approved";
-                BindDataStaffRequest();
-                BindDataContracts();
+                if (TPS.App_Code.clsDataLayer.DeleteRequest(Server.MapPath("TPS.accdb"), RequestID))
+                {
+                    BindDataStaffRequest();
+                    BindDataContracts();
+                }
             }
             else
             {

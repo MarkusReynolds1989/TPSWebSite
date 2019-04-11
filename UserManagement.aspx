@@ -77,7 +77,8 @@
         </div>
         <div>
             <p>
-                <asp:GridView ID="grdViewUsers" runat="server" CssClass="Grid">
+                <asp:GridView ID="grdViewUsers" runat="server" CssClass="Grid" OnRowDeleting ="OnRowDeleting" 
+                    OnSelectedIndexChanged="OnSelectedIndexChanged">
                     <Columns>
                         <asp:CommandField ShowEditButton="True" />
                         <asp:CommandField ShowSelectButton="True" />

@@ -228,7 +228,7 @@ namespace TPS.App_Code
             return recordSaved;
         }
 
-        /* Deny Contract Manager Only
+        /* Delete User Manager Only
         ////////////////////
         //////////////////*/
 
@@ -265,7 +265,7 @@ namespace TPS.App_Code
         ////////////////////
         //////////////////*/
 
-        public static bool DenyRequest(string Database, string RequestID)
+        public static bool DeleteRequest(string Database, string RequestID)
         {
             bool recordSaved;
             OleDbTransaction myTransaction = null;
