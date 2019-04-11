@@ -12,9 +12,6 @@ using System.Data.OleDb;
 using System.Net;
 using System.Data;
 
-/// this is code from my other class I'm using as a guide
-/// we will be basically using this as it's perfectly good for getting items from a database
-
 namespace TPS.App_Code
 {
     public class clsDataLayer
@@ -73,7 +70,7 @@ namespace TPS.App_Code
                 string strSQL;
                 myTransaction = conn.BeginTransaction();
                 command.Transaction = myTransaction;
-                strSQL = "Insert into tblUserAccess (Username, Password, AccessLevel)" + "values ('" + UserName + "','"
+                strSQL = "Insert into tblUserAccess (UserName, UserPassword, SecurityLevel)" + "values ('" + UserName + "','"
                     + UserPassword + "','" + AccessLevel + "' )";
                 command.CommandType = CommandType.Text;
                 command.CommandText = strSQL;
