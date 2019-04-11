@@ -11,17 +11,41 @@ public partial class Login : System.Web.UI.Page
     {
         ///Setup access level, code in other file
     }
-    protected void OnButtonClick_Login(object sender, EventArgs e)
+    protected void Login1_Authenticate(object sender, AuthenticateEventArgs e)
     {
-        try
         {
-            string UserName = txtUserName.Text;
-            string Password = txtPassword.Text;
-            TPS.App_Code.clsDataLayer.VerifyUser(Server.MapPath("TPS.accdb"), UserName, Password);
-        }
-        catch (NullReferenceException)
-        {
-            error.Text = "Please fill out all forms";
+            // Add your comments here
+            dsUserAccess dsUserAccess;
+
+            string SecurityLevel;
+  
+            dsUserAccess = TPS.App_Code.clsDataLayer.VerifyUser(Server.MapPath("PayrollSystem_DB.accdb"),
+            Login1.UserName, Login1.Password);
+
+            if (dsUserAccess.tblUserAccess.Count < 1)
+            {
+                e.Authenticated = false;
+                return;
+            }
+          
+            SecurityLevel = dsUserAccess.tblUserAccess[0].SecurityLevel.ToString();
+         
+            switch (SecurityLevel)
+            {
+                case "A":
+                   
+                    e.Authenticated = true;
+                    Session["SecurityLevel"] = "0";
+                    break;
+                case "U":
+               
+                    e.Authenticated = true;
+                    Session["SecurityLevel"] = "1";
+                    break;
+                default:
+                    e.Authenticated = false;
+                    break;
+            }
         }
     }
 }

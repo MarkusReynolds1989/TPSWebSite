@@ -56,14 +56,17 @@
                 <asp:Label ID="Label3" runat="server" Text="Access Code: "></asp:Label>
                 &nbsp;&nbsp;&nbsp;
                 <asp:DropDownList ID="DropDownList1" runat="server" CssClass="Inputs">
-                    <asp:ListItem>Admin</asp:ListItem>
-                    <asp:ListItem>Manager</asp:ListItem>
-                    <asp:ListItem>Client</asp:ListItem>
+                    <asp:ListItem Value ="0">Admin</asp:ListItem>
+                    <asp:ListItem Value ="1">Manager</asp:ListItem>
+                    <asp:ListItem Value ="2">Client</asp:ListItem>
                     <asp:ListItem Value="3">Staff</asp:ListItem>
                 </asp:DropDownList>
             </p>
             <p>
-                <asp:Button ID="btnAddUser" runat="server" Text="Add" OnClientClick="doValidation()" />
+                <asp:Label ID="error" runat="server" CssClass="Error" />
+            </p>
+            <p>
+                <asp:Button ID="btnAddUser" runat="server" Text="Add" OnClick="OnButtonClick_AddUser" />
             </p>
             <h3>Current Users:</h3>
         </div>

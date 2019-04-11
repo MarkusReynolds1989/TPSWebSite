@@ -23,21 +23,10 @@ Formatted HTML:
          <br />
          <br />
          <br />
-         <H2>
-            Login
-         </H2>
+         <h2Login
+         </h2>
          <p>
-            <asp:Label runat="server" Text = "Username: " CssClass="Labels"/>
-            <asp:TextBox runat="server" ID = "txtUserName" CssClass="Inputs"/>
-         </p>
-         <p>
-            <asp:Label runat="server" Text = "Password: " CssClass = "Labels"/>
-            <asp:TextBox runat="server" ID= "txtPassword" CssClass = "Inputs"/>
-         </p>
-         <p>
-            <asp:Label runat="server" ID="error" CssClass= "Error"/>
-         <p>
-            <asp:Button runat="server" Text="Login" OnButtonClick="OnButtonClick_Login"/>
+            <asp:Login runat="server" ID="Login1" CssClass="Inputs" Login1_Authenticate="Login1_Authenticate" DestinationPageUrl="~/Index.aspx"/>
          </p>
       </form>
       <br />
