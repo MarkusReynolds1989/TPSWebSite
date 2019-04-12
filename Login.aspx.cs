@@ -14,7 +14,7 @@ public partial class Login : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        ///Setup access level, code in other file
+        
     }
     protected void Login1_Authenticate(object sender, AuthenticateEventArgs e)
     {
@@ -28,7 +28,7 @@ public partial class Login : System.Web.UI.Page
                 dsUserAccess = TPS.App_Code.clsDataLayer.VerifyUser(Server.MapPath("TPS.accdb"),
                 Login1.UserName, Login1.Password);
 
-                SecurityLevel = dsUserAccess.tblUserAccess[3].SecurityLevel.ToString();
+                SecurityLevel = dsUserAccess.tblUserAccess[0].SecurityLevel;
 
                 switch (SecurityLevel)
                 {

@@ -537,7 +537,7 @@ namespace TPS.App_Code
             OleDbDataAdapter sqlDA;
             sqlConn = new OleDbConnection("PROVIDER=Microsoft.ACE.OLEDB.12.0;" +
             "Data Source=" + Database);
-            sqlDA = new OleDbDataAdapter("Select SecurityLevel from tblUserLogin " +
+            sqlDA = new OleDbDataAdapter("Select SecurityLevel from tblUserAccess " +
             "where UserName like '" + UserName + "' " +
             "and UserPassword like '" + UserPassword + "'", sqlConn);
             DS = new dsUserAccess();
