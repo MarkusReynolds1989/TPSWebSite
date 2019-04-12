@@ -23,31 +23,44 @@ public partial class Login : System.Web.UI.Page
             dsUserAccess dsUserAccess;
 
             string SecurityLevel;
-  
-            dsUserAccess = TPS.App_Code.clsDataLayer.VerifyUser(Server.MapPath("PayrollSystem_DB.accdb"),
+
+            dsUserAccess = TPS.App_Code.clsDataLayer.VerifyUser(Server.MapPath("TPS.accdb"),
             Login1.UserName, Login1.Password);
 
             if (dsUserAccess.tblUserAccess.Count < 1)
             {
                 e.Authenticated = false;
+                error.Text = "Login failed";
                 return;
             }
-          
-            SecurityLevel = dsUserAccess.tblUserAccess[0].SecurityLevel.ToString();
-         
+
+            SecurityLevel = dsUserAccess.tblUserAccess[3].SecurityLevel.ToString();
+
             switch (SecurityLevel)
             {
-                case "A":
-                   
+                case "0":
                     e.Authenticated = true;
                     Session["SecurityLevel"] = "0";
                     break;
-                case "U":
-               
+
+                case "1":
+
                     e.Authenticated = true;
                     Session["SecurityLevel"] = "1";
                     break;
+
+                case "2":
+                    e.Authenticated = true;
+                    Session["SecurityLevel"] = "2";
+                    break;
+
+                case "3":
+                    e.Authenticated = true;
+                    Session["SecuirtyLevel"] = "3";
+                    break;
+
                 default:
+                    error.Text = "login failed";
                     e.Authenticated = false;
                     break;
             }
