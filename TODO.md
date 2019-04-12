@@ -1,14 +1,14 @@
-﻿TODO:
-MUST haves:
+﻿# TODO:
+## MUST haves:
 - 1. Create a method that holds the 3 choices for staff request and fills them to a table as they are selected.
 - 2. Create a method that searches the database based upon the parameters the customer gives.
 - ~~3. Add a feedback label to every page.~~
 - ~~4. Publish site to make sure deployment will work.~~
 - 5. Find a way to upload MDAC to the azure server.
+- 6. Make the grid views update when ~~added, deleting,~~ updating
 
-NICE to haves:
-1. Make the frontend play nicely.
-2. Fix the tables going to the left.
-3. Make the grid views update when ~~added, deleting,~~ updating
-4. Make the javascript run before the server side code. We can call it from inside server code.
-5. Create a method that sends an email to the manager when a staff request is made.
+## NICE to haves:
+- 1. Make the frontend play nicely.
+- 2. Fix the tables going to the left.
+- 3. Make the javascript run before the server side code. We can call it from inside server code.
+- 4. Create a method that sends an email to the manager when a staff request is made.
