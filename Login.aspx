@@ -31,7 +31,7 @@
         <h2>Login
         </h2>
         <p>
-            <asp:Login runat="server" ID="Login1" CssClass="Inputs" Login1_Authenticate="Login1_Authenticate" DestinationPageUrl="~/Index.aspx" />
+            <asp:Login runat="server" ID="Login1" CssClass="Inputs" OnAuthenticate="Login1_Authenticate" DestinationPageUrl="~/Index.aspx" />
         </p>
         <p>
             <asp:Label runat="server" ID="error" CssClass="Error" />
