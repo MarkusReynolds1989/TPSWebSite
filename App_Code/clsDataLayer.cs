@@ -36,7 +36,7 @@ namespace TPS.App_Code
                 string strSQL;
                 myTransaction = conn.BeginTransaction();
                 command.Transaction = myTransaction;
-                strSQL = "Insert into tblContract (RequestID)" + "values ('" + 
+                strSQL = "Insert into tblContract (RequestID)" + "values ('" +
                     RequestID + "')";
                 command.CommandType = CommandType.Text;
                 command.CommandText = strSQL;
@@ -511,9 +511,23 @@ namespace TPS.App_Code
             sqlConn = new OleDbConnection("PROVIDER = Microsoft.ACE.OLEDB.12.0;" + "Data Source =" + Database);
             if (Experience != null || Experience.Trim() != "")
             {
-                //need to figure this out better, I don't want to have to write code for every combination
                 sqlDA = new OleDbDataAdapter("select * from tblStaffMember where Experience like '%" +
                     Experience + "%'", sqlConn);
+            }
+            else if (Education != null || Education.Trim() != "")
+            {
+                sqlDA = new OleDbDataAdapter("select * from tblStaffMember where Education like '%" +
+                    Education + "%'", sqlConn);
+            }
+            else if (Salary != null || Salary.Trim() != "")
+            {
+                sqlDA = new OleDbDataAdapter("select * from tblStaffMember where Salary like '%" +
+                    Salary + "%'", sqlConn);
+            }
+            else if (Location != null || Location.Trim() != "")
+            {
+                sqlDA = new OleDbDataAdapter("select * from tblStaffMember where Location like '%" +
+                    Location + "%'", sqlConn);
             }
             else
             {
