@@ -5,7 +5,9 @@
 3. ~~Add a feedback label to every page.~~
 4. ~~Publish site to make sure deployment will work.~~
 5. Find a way to upload MDAC to the azure server.
-6. Make the grid views update when ~~added, deleting,~~ updating
+6. Make the grid views update when ~~added, deleting,~~ editing
+7. Hide controls depending on staff level.
+8. Make the update method for staff portal work properly.
 
 ## NICE to haves:
 1. Make the frontend play nicely.

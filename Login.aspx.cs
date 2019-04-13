@@ -59,9 +59,12 @@ public partial class Login : System.Web.UI.Page
                         break;
                 }
             }
-            catch (NullReferenceException)
+            catch (Exception ex)
             {
-                error.Text = "Incorrect login credintials.";
+                if (ex is NullReferenceException || ex is IndexOutOfRangeException)
+                {
+                    error.Text = "Incorrect login credintials.";
+                }
             }
         }
     }
