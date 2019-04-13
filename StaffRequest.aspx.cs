@@ -22,9 +22,9 @@ public partial class StaffRequest : System.Web.UI.Page
             error.Text = "";
         }
     }
-    private string StaffID1 { get; set; }
-    private string StaffID2 { get; set; }
-    private string StaffID3 { get; set; }
+    private static string StaffID1 { get; set; }
+    private static string StaffID2 { get; set; }
+    private static string StaffID3 { get; set; }
 
     protected void BindDataRequests()
     {
@@ -57,23 +57,23 @@ public partial class StaffRequest : System.Web.UI.Page
         {
             if (e.CommandName == "AddStaff")
             {
-                if (StaffID3 == null)
+                if (StaffID3 == null || StaffID3.Trim() == "")
                 {
                     GridViewRow row = grdViewSearch.SelectedRow;
                     StaffID3 = grdViewSearch.SelectedRow.Cells[2].Text;
-                    error.Text = StaffID3;
+                    error.Text = StaffID3 + "ID3";
                 }
-                else if (StaffID2 == null)
+                else if (StaffID2 == null || StaffID2.Trim() == "")
                 {
                     GridViewRow row = grdViewSearch.SelectedRow;
                     StaffID2 = grdViewSearch.SelectedRow.Cells[2].Text;
-                    error.Text = StaffID2;
+                    error.Text = StaffID2 + "ID2";
                 }
-                else if (StaffID1 == null)
+                else if (StaffID1 == null || StaffID1.Trim() == "")
                 {
                     GridViewRow row = grdViewSearch.SelectedRow;
                     StaffID1 = grdViewSearch.SelectedRow.Cells[2].Text;
-                    error.Text = StaffID1;
+                    error.Text = StaffID1 + "ID1";
                 }
                 else
                 {
@@ -94,13 +94,13 @@ public partial class StaffRequest : System.Web.UI.Page
         {
             if (TPS.App_Code.clsDataLayer.SaveStaffRequest(Server.MapPath("TPS.accdb"), StaffID1, StaffID2, StaffID3))
             {
-                error.Text = "Successfully added";
+                error.Text = "Successfully added request for approval.";
                 BindDataRequests();
                 BindDataSearch();
             }
             else
             {
-                error.Text = "Failed to add";
+                error.Text = "Failed to add request.";
             }
         }
         catch (NullReferenceException)
