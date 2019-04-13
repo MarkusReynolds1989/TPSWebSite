@@ -501,7 +501,7 @@ namespace TPS.App_Code
         //We only want them to be able to select three staff members, they can search by 
         //Exp, edu, salary, and location
 
-        public static dsStaff SearchStaff(string Database, string Experience, string Education, string Salary, string Location)
+        public static dsStaff SearchStaff(string Database, string Experience, string Education, string Salary)
         {
             dsStaff DS;
             //we call objects of the classes
@@ -509,25 +509,12 @@ namespace TPS.App_Code
             OleDbDataAdapter sqlDA;
             //we use the methods to create messages and connect to the database
             sqlConn = new OleDbConnection("PROVIDER = Microsoft.ACE.OLEDB.12.0;" + "Data Source =" + Database);
-            if (Experience != null || Experience.Trim() != "")
+            if (Experience != null || Experience.Trim() != "" && Education != null || Education.Trim() != ""
+                && Salary != null || Salary.Trim()!="")
             {
                 sqlDA = new OleDbDataAdapter("select * from tblStaffMember where Experience like '%" +
-                    Experience + "%'", sqlConn);
-            }
-            else if (Education != null || Education.Trim() != "")
-            {
-                sqlDA = new OleDbDataAdapter("select * from tblStaffMember where Education like '%" +
-                    Education + "%'", sqlConn);
-            }
-            else if (Salary != null || Salary.Trim() != "")
-            {
-                sqlDA = new OleDbDataAdapter("select * from tblStaffMember where Salary like '%" +
+                    Experience + "%' and EduLevel like '%" + Education + "%' and Salary like '%" + 
                     Salary + "%'", sqlConn);
-            }
-            else if (Location != null || Location.Trim() != "")
-            {
-                sqlDA = new OleDbDataAdapter("select * from tblStaffMember where Location like '%" +
-                    Location + "%'", sqlConn);
             }
             else
             {

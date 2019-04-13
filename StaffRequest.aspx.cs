@@ -111,15 +111,20 @@ public partial class StaffRequest : System.Web.UI.Page
 
     protected void OnButtonClick_btnSearch(object sender, EventArgs e)
     {
-
+        try
+        {
             string Experience = txtExperience.Text;
             string Edulevel = txtEducation.Text;
-            string Location = txtLocation.Text;
             string Salary = txtSalary.Text;
             dsStaff myDataSet = new dsStaff();
-            myDataSet = TPS.App_Code.clsDataLayer.SearchStaff(Server.MapPath("TPS.accdb"), Experience, Edulevel, Salary, Location);
+            myDataSet = TPS.App_Code.clsDataLayer.SearchStaff(Server.MapPath("TPS.accdb"), Experience, Edulevel, Salary);
             grdViewSearch.DataSource = myDataSet.Tables["tblStaffMember"];
             grdViewSearch.DataBind();
+        }
+        catch (NullReferenceException)
+        {
+            error.Text = "Please complete search field properly.";
+        }
     }
 }
 
