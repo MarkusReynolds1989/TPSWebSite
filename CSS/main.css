@@ -7,7 +7,6 @@
 
 .Images {
     display: block;
-    text-align: left;
     margin-left: auto;
     margin-right: auto;
 }
@@ -23,13 +22,12 @@
 .Grid {
     width: 80%;
     height: 200px;
-    position: relative;
+    position: center;
     display: table-cell;
-    vertical-align: middle;
+    vertical-align: central;
     text-align: center;
-    margin: 0px auto auto auto;
+    margin: auto auto auto auto;
     top: 0px;
-    left: -2px;
 }
 
 .Labels{

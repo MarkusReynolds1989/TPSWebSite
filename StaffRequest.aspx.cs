@@ -61,27 +61,20 @@ public partial class StaffRequest : System.Web.UI.Page
                 {
                     GridViewRow row = grdViewSearch.SelectedRow;
                     StaffID3 = grdViewSearch.SelectedRow.Cells[2].Text;
-                    error.Text = StaffID3 + "ID3";
-                    grdViewSearch.CssClass = "Gridview";
                 }
                 else if (StaffID2 == null || StaffID2.Trim() == "")
                 {
                     GridViewRow row = grdViewSearch.SelectedRow;
                     StaffID2 = grdViewSearch.SelectedRow.Cells[2].Text;
-                    error.Text = StaffID2 + "ID2";
-                    grdViewSearch.CssClass = "Gridview";
                 }
                 else if (StaffID1 == null || StaffID1.Trim() == "")
                 {
                     GridViewRow row = grdViewSearch.SelectedRow;
                     StaffID1 = grdViewSearch.SelectedRow.Cells[2].Text;
-                    error.Text = StaffID1 + "ID1";
-                    grdViewSearch.CssClass = "Gridview";
                 }
                 else
                 {
-                    error.Text = "You have already selected " + StaffID1 + StaffID2 + StaffID3;
-                    grdViewSearch.CssClass = "Gridview";
+                    error.Text = "You have already selected : " + StaffID1 + ", " + StaffID2+ ", " + StaffID3;
                 }
             }
         }
@@ -100,8 +93,6 @@ public partial class StaffRequest : System.Web.UI.Page
             {
                 error.Text = "Successfully added request for approval.";
                 BindDataRequests();
-                grdViewRequest.CssClass = "Gridview";
-                grdViewSearch.CssClass = "Gridview";
                 BindDataSearch();
                 StaffID1 = "";
                 StaffID2 = "";
@@ -125,8 +116,9 @@ public partial class StaffRequest : System.Web.UI.Page
             string Experience = txtExperience.Text;
             string Edulevel = txtEducation.Text;
             string Salary = txtSalary.Text;
+            string Location = txtLocation.Text;
             dsStaff myDataSet = new dsStaff();
-            myDataSet = TPS.App_Code.clsDataLayer.SearchStaff(Server.MapPath("TPS.accdb"), Experience, Edulevel, Salary);
+            myDataSet = TPS.App_Code.clsDataLayer.SearchStaff(Server.MapPath("TPS.accdb"), Experience, Edulevel, Salary,Location);
             grdViewSearch.DataSource = myDataSet.Tables["tblStaffMember"];
             grdViewSearch.DataBind();
         }

@@ -501,7 +501,7 @@ namespace TPS.App_Code
         //We only want them to be able to select three staff members, they can search by 
         //Exp, edu, salary, and location
 
-        public static dsStaff SearchStaff(string Database, string Experience, string Education, string Salary)
+        public static dsStaff SearchStaff(string Database, string Experience, string Education, string Salary, string Location)
         {
             dsStaff DS;
             //we call objects of the classes
@@ -510,11 +510,11 @@ namespace TPS.App_Code
             //we use the methods to create messages and connect to the database
             sqlConn = new OleDbConnection("PROVIDER = Microsoft.ACE.OLEDB.12.0;" + "Data Source =" + Database);
             if (Experience != null || Experience.Trim() != "" && Education != null || Education.Trim() != ""
-                && Salary != null || Salary.Trim()!="")
+                && Salary != null || Salary.Trim() !="" && Location != null || Location.Trim() != "")
             {
                 sqlDA = new OleDbDataAdapter("select * from tblStaffMember where Experience like '%" +
                     Experience + "%' and EduLevel like '%" + Education + "%' and Salary like '%" + 
-                    Salary + "%'", sqlConn);
+                    Salary + "%' and Location like '%" + Location + "%'" , sqlConn);
             }
             else
             {
