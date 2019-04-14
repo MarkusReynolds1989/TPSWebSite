@@ -41,7 +41,7 @@
             <p>
                 <asp:Label runat="server" Text="Availability: " CssClass ="Labels"></asp:Label>
                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                 &nbsp;<asp:TextBox runat ="server" CssClass ="Inputs" ID ="textAvail"></asp:TextBox>
+                 &nbsp;<asp:TextBox runat ="server" CssClass ="Inputs" ID ="txtAvail"></asp:TextBox>
             </p>
             <p>
                 <asp:Label runat="server" Text="Resume: " CssClass ="Labels"></asp:Label>

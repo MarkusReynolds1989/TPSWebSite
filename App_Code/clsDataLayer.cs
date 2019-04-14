@@ -510,11 +510,11 @@ namespace TPS.App_Code
             //we use the methods to create messages and connect to the database
             sqlConn = new OleDbConnection("PROVIDER = Microsoft.ACE.OLEDB.12.0;" + "Data Source =" + Database);
             if (Experience != null || Experience.Trim() != "" && Education != null || Education.Trim() != ""
-                && Salary != null || Salary.Trim() !="" && Location != null || Location.Trim() != "")
+                && Salary != null || Salary.Trim() != "" && Location != null || Location.Trim() != "")
             {
                 sqlDA = new OleDbDataAdapter("select * from tblStaffMember where Experience like '%" +
-                    Experience + "%' and EduLevel like '%" + Education + "%' and Salary like '%" + 
-                    Salary + "%' and Location like '%" + Location + "%'" , sqlConn);
+                    Experience + "%' and EduLevel like '%" + Education + "%' and Salary like '%" +
+                    Salary + "%' and Location like '%" + Location + "%'", sqlConn);
             }
             else
             {
@@ -544,35 +544,6 @@ namespace TPS.App_Code
             DS = new dsUserAccess();
             sqlDA.Fill(DS.tblUserAccess);
             return DS;
-        }
-
-        /*IP4 For Security/
-        ///////////////////
-        //////////////////*/
-        public static string GetIP4Address()
-        {
-            string IP4Address = string.Empty;
-            foreach (IPAddress IPA in Dns.GetHostAddresses(HttpContext.Current.Request.UserHostAddress))
-            {
-                if (IPA.AddressFamily.ToString() == "InterNetwork")
-                {
-                    IP4Address = IPA.ToString();
-                    break;
-                }
-            }
-            if (IP4Address != string.Empty)
-            {
-                return IP4Address;
-            }
-            foreach (IPAddress IPA in Dns.GetHostAddresses(Dns.GetHostName()))
-            {
-                if (IPA.AddressFamily.ToString() == "InterNetwork")
-                {
-                    IP4Address = IPA.ToString();
-                }
-                break;
-            }
-            return IP4Address;
         }
 
     }

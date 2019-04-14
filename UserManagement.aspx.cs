@@ -11,7 +11,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 
 public partial class UserManagement : System.Web.UI.Page
-{
+{  
+    //consider making this static
     private string UserID { get; set; }
 
     protected void Page_Load(object sender, EventArgs e)
@@ -58,7 +59,7 @@ public partial class UserManagement : System.Web.UI.Page
         //Catch System.NullReferenceException
         try
         {
-            UserID= grdViewUsers.SelectedRow.Cells[3].Text;
+            UserID = grdViewUsers.SelectedRow.Cells[3].Text;
             if (TPS.App_Code.clsDataLayer.DeleteUser(Server.MapPath("TPS.accdb"), UserID))
             {
                 error.Text = "Successfully deleted user";

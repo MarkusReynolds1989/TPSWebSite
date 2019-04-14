@@ -19,16 +19,22 @@ public partial class StaffPortal : System.Web.UI.Page
     }
     protected void btnUpdate_OnButtonClick(object sender, EventArgs e)
     {
-        string savePath = @"C:\Users\Reynolds\source\repos\MarkusReynolds1989\TPSWebSite\Pictures\";
+        string savePath = Server.MapPath("~/StaffPortalUploads/");
+        string MemberID = txtStaffID.Text;
+        string Bio = txtBio.Text;
+        string Avail = txtAvail.Text;
+
         if (fileupPicture.HasFile)
         {
-            string FileName = fileupPicture.FileName;
             string picture = fileupPicture.FileName;
-            savePath += FileName;
+            string resume = fileupResume.FileName;
+            savePath += picture;
             fileupPicture.SaveAs(savePath);
-            error.Text = "Your file was uploaded as" + FileName;
+            savePath += resume;
+            fileupResume.SaveAs(savePath);
+            error.Text = "Your file was uploaded as" + picture;
 
-            if (TPS.App_Code.clsDataLayer.UpdateStaffPortal(Server.MapPath("TPS.accdb"), null, null, null, picture))
+            if (TPS.App_Code.clsDataLayer.UpdateStaffPortal(Server.MapPath("TPS.accdb"), Bio, Avail, resume, picture))
             {
                 error.Text = "Successfully updated profile";
             }
