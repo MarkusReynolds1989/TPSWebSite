@@ -335,7 +335,7 @@ namespace TPS.App_Code
         ////////////////////
         ///////////////////*/
 
-        public static bool UpdateStaff(string Database, string MemberID, string FirstName, string LastName, string EduLevel, string Experience, string Salary)
+        public static bool UpdateStaff(string Database, string MemberID, string FirstName, string LastName, string EduLevel, string Experience, string Salary,string Location)
         {
             bool recordSaved;
             OleDbTransaction myTransaction = null;
@@ -351,7 +351,7 @@ namespace TPS.App_Code
                 strSQL = "Update tblStaffMember Set tblStaffMember FirstName = '"
                     + FirstName + "' , LastName = '" + LastName
                     + "' , EduLevel = '" + EduLevel + "' , Experience = '" + Experience
-                    + "' , Salary ='" + Salary + "' Where MemberID = " + MemberID + "";
+                    + "' , Salary ='" + Salary + "', Location ='" + Location + "' where MemberID = " + MemberID + "";
                 command.CommandType = CommandType.Text;
                 command.CommandText = strSQL;
                 command.ExecuteNonQuery();
