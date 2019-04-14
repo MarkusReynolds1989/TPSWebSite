@@ -20,19 +20,19 @@ public partial class StaffPortal : System.Web.UI.Page
     protected void btnUpdate_OnButtonClick(object sender, EventArgs e)
     {
         string savePath = Server.MapPath("~/StaffPortalUploads/");
-        string MemberID = txtStaffID.Text;
+        string savePath2 = Server.MapPath("~/StaffPortalUploads/");
         string Bio = txtBio.Text;
         string Avail = txtAvail.Text;
 
-        if (fileupPicture.HasFile)
+        if (fileupPicture.HasFile && fileupResume.HasFile)
         {
             string picture = fileupPicture.FileName;
             string resume = fileupResume.FileName;
             savePath += picture;
             fileupPicture.SaveAs(savePath);
-            savePath += resume;
-            fileupResume.SaveAs(savePath);
-            error.Text = "Your file was uploaded as" + picture;
+            savePath2 += resume;
+            fileupResume.SaveAs(savePath2);
+            error.Text = "Your file was uploaded as" + picture + "and " + resume;
 
             if (TPS.App_Code.clsDataLayer.UpdateStaffPortal(Server.MapPath("TPS.accdb"), Bio, Avail, resume, picture))
             {

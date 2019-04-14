@@ -29,28 +29,28 @@
             <asp:ImageButton ID="btnHome" runat="server" ImageUrl="images/TPS_Logo_Small.jpg" PostBackUrl="~/Index.aspx" CssClass="Logo" />
 &nbsp;<h1>Navigation</h1>
             <p>
-                <asp:ImageButton ID="btnUser" runat="server" ImageUrl="~/images/user.png" Width="61px" CssClass="Icons" PostBackUrl="~/UserManagement.aspx" />
-                &nbsp;<asp:HyperLink ID="lnkUserManagement" runat="server" Text="User Management"></asp:HyperLink>
+                <asp:ImageButton ID="btnUser" runat="server" ImageUrl="~/images/user.png" Width="61px" CssClass="Icons" PostBackUrl="~/UserManagement.aspx" Visible="False" />
+                &nbsp;<asp:HyperLink ID="lnkUserManagement" runat="server" Text="User Management" Visible="False"></asp:HyperLink>
             </p>
             
             <p>
-                <asp:ImageButton ID="btnStaff" runat="server" CssClass="Icons"  ImageUrl="~/images/staff.jpg" PostBackUrl="~/Staff.aspx" />
-            &nbsp;<asp:HyperLink ID="lnkStaff" runat="server" Text="Staff"></asp:HyperLink>
+                <asp:ImageButton ID="btnStaff" runat="server" CssClass="Icons"  ImageUrl="~/images/staff.jpg" PostBackUrl="~/Staff.aspx" Visible="False" />
+            &nbsp;<asp:HyperLink ID="lnkStaff" runat="server" Text="Staff" Visible="False"></asp:HyperLink>
             </p>
 
             <p>
-                <asp:ImageButton ID="btnContracts" runat="server" CssClass="Icons"  ImageUrl="~/images/contract.png" PostBackUrl="~/Contracts.aspx" />
-            &nbsp;<asp:HyperLink ID="lnkContracts" runat="server" Text="Contracts"></asp:HyperLink>
+                <asp:ImageButton ID="btnContracts" runat="server" CssClass="Icons"  ImageUrl="~/images/contract.png" PostBackUrl="~/Contracts.aspx" Visible="False" />
+            &nbsp;<asp:HyperLink ID="lnkContracts" runat="server" Text="Contracts" Visible="False"></asp:HyperLink>
             </p>
 
             <p>
-                <asp:ImageButton ID="imgStaffRequest" runat="server" CssClass="Icons"  ImageUrl="~/images/staffingrequest.jpg" PostBackUrl="~/StaffRequest.aspx" />
-            &nbsp;<asp:HyperLink ID="lnkStaffRequest" runat="server" Text="Staff Request"></asp:HyperLink>
+                <asp:ImageButton ID="btnStaffRequest" runat="server" CssClass="Icons"  ImageUrl="~/images/staffingrequest.jpg" PostBackUrl="~/StaffRequest.aspx" Visible="False" />
+            &nbsp;<asp:HyperLink ID="lnkStaffRequest" runat="server" Text="Staff Request" Visible="False"></asp:HyperLink>
             </p>
             
             <p>
-                <asp:ImageButton ID="imgStaffPortal" runat="server" CssClass="Icons" ImageURL="~/images/staffportal.jpg"  PostBackUrl="~/StaffPortal.aspx" />
-                &nbsp;<asp:HyperLink ID ="HyperLink1" runat="server" Text="Staff Portal"></asp:HyperLink>            
+                <asp:ImageButton ID="btnStaffPortal" runat="server" CssClass="Icons" ImageURL="~/images/staffportal.jpg"  PostBackUrl="~/StaffPortal.aspx" />
+                &nbsp;<asp:HyperLink ID ="lnkStaffPortal" runat="server" Text="Staff Portal" NavigateUrl="~/StaffPortal.aspx"></asp:HyperLink>            
             </p>
         </div>
     </form>
