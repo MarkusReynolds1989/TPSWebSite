@@ -11,22 +11,21 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 
 public partial class UserManagement : System.Web.UI.Page
-{  
+{
     //consider making this static
     private string UserID { get; set; }
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!IsPostBack)
+        if (!Page.IsPostBack)
         {
             BindData();
         }
-
     }
     protected void BindData()
     {
         dsUserAccess myDataSet = new dsUserAccess();
-        dsUserAccess myDataSet = TPS.App_Code.clsDataLayer.AccessUsers(Server.MapPath("TPS.accdb"));
+        myDataSet = TPS.App_Code.clsDataLayer.AccessUsers(Server.MapPath("TPS.accdb"));
         //set the datagrid to datasource based on table
         grdViewUsers.DataSource = myDataSet.Tables["tblUserAccess"];
         //the datagrid
@@ -75,7 +74,7 @@ public partial class UserManagement : System.Web.UI.Page
             error.Text = "Select a row first";
         }
     }
-    
+
     protected void OnRowEditing(object sender, GridViewEditEventArgs e)
     {
         grdViewUsers.EditIndex = e.NewEditIndex;
@@ -94,12 +93,12 @@ public partial class UserManagement : System.Web.UI.Page
     {
         try
         {
-            TextBox txtUserId= (TextBox)grdViewUsers.SelectedRow.Cells[3].Controls[0];
+            TextBox txtUserId = (TextBox)grdViewUsers.SelectedRow.Cells[3].Controls[0];
             string UserId = txtUserId.Text;
-            TextBox txtUserName= (TextBox)grdViewUsers.SelectedRow.Cells[4].Controls[0];
+            TextBox txtUserName = (TextBox)grdViewUsers.SelectedRow.Cells[4].Controls[0];
             string UserName = txtUserName.Text;
             TextBox txtUserPassword = (TextBox)grdViewUsers.SelectedRow.Cells[5].Controls[0];
-            string UserPassword= txtUserPassword.Text;
+            string UserPassword = txtUserPassword.Text;
             TextBox txtSecurityLevel = (TextBox)grdViewUsers.SelectedRow.Cells[6].Controls[0];
             string SecurityLevel = txtSecurityLevel.Text;
 

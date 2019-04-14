@@ -21,7 +21,7 @@ public partial class Contracts : System.Web.UI.Page
             BindDataContracts();
         }
     }
-    //2019 test
+
     protected void BindDataStaffRequest()
     {
         dsStaffRequest myDataSet = new dsStaffRequest();
