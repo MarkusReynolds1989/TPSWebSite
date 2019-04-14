@@ -83,8 +83,8 @@
                     OnRowCancelingEdit ="OnRowCancelingEdit" OnRowUpdating="OnRowUpdating">
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                     <Columns>
-                        <asp:CommandField ShowEditButton="True" ButtonType="Button" />
                         <asp:CommandField ShowSelectButton="True" ButtonType="Button" />
+                        <asp:CommandField ShowEditButton="True" ButtonType="Button" />
                         <asp:CommandField ShowDeleteButton="True" ButtonType="Button" />
                     </Columns>
                     <EditRowStyle BackColor="#999999" />
