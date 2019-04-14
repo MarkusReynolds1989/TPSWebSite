@@ -30,7 +30,7 @@
                 <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="images/TPS_Logo_Small.jpg" PostBackUrl="~/Index.aspx" />
             </p>
             <p>
-                <img src="images/staff.jpg" class="Icons" />
+                <img src="images/staffportal.jpg" class="Icons" />
             </p>
             <h1>Staff Portal</h1>
             <p>

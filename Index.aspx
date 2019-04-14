@@ -49,7 +49,7 @@
             </p>
             
             <p>
-                <asp:ImageButton ID="imgStaffPortal" runat="server" CssClass="Icons" ImageURL="~/images/staff.jpg"  PostBackUrl="~/StaffPortal.aspx" />
+                <asp:ImageButton ID="imgStaffPortal" runat="server" CssClass="Icons" ImageURL="~/images/staffportal.jpg"  PostBackUrl="~/StaffPortal.aspx" />
                 &nbsp;<asp:HyperLink ID ="HyperLink1" runat="server" Text="Staff Portal"></asp:HyperLink>            
             </p>
         </div>
