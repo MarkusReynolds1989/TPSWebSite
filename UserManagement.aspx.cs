@@ -26,7 +26,7 @@ public partial class UserManagement : System.Web.UI.Page
     protected void BindData()
     {
         dsUserAccess myDataSet = new dsUserAccess();
-        myDataSet = TPS.App_Code.clsDataLayer.AccessUsers(Server.MapPath("TPS.accdb"));
+        dsUserAccess myDataSet = TPS.App_Code.clsDataLayer.AccessUsers(Server.MapPath("TPS.accdb"));
         //set the datagrid to datasource based on table
         grdViewUsers.DataSource = myDataSet.Tables["tblUserAccess"];
         //the datagrid
@@ -47,10 +47,10 @@ public partial class UserManagement : System.Web.UI.Page
             error.Text = "Plese fill out all fields";
         }
     }
+
     protected void OnSelectedIndexChanged(object sender, EventArgs e)
     {
         UserID = grdViewUsers.SelectedRow.Cells[3].Text;
-        error.Text = UserID;
     }
 
     protected void OnRowDeleting(object sender, EventArgs e)
@@ -75,6 +75,49 @@ public partial class UserManagement : System.Web.UI.Page
             error.Text = "Select a row first";
         }
     }
+    
+    protected void OnRowEditing(object sender, GridViewEditEventArgs e)
+    {
+        grdViewUsers.EditIndex = e.NewEditIndex;
+        BindData();
+    }
 
 
+    protected void OnRowCancelingEdit(object sender, EventArgs e)
+    {
+        grdViewUsers.EditIndex = -1; //swicth back to default mode
+        BindData(); // Rebind GridView to show the data in default mode
+        error.Text = "";
+    }
+
+    protected void OnRowUpdating(object sender, EventArgs e)
+    {
+        try
+        {
+            TextBox txtUserId= (TextBox)grdViewUsers.SelectedRow.Cells[3].Controls[0];
+            string UserId = txtUserId.Text;
+            TextBox txtUserName= (TextBox)grdViewUsers.SelectedRow.Cells[4].Controls[0];
+            string UserName = txtUserName.Text;
+            TextBox txtUserPassword = (TextBox)grdViewUsers.SelectedRow.Cells[5].Controls[0];
+            string UserPassword= txtUserPassword.Text;
+            TextBox txtSecurityLevel = (TextBox)grdViewUsers.SelectedRow.Cells[6].Controls[0];
+            string SecurityLevel = txtSecurityLevel.Text;
+
+            if (TPS.App_Code.clsDataLayer.UpdateUser(Server.MapPath("TPS.accdb"), UserId, UserName, UserPassword, SecurityLevel))
+            {
+                error.Text = "Successfully Updated";
+                BindData();
+                grdViewUsers.EditIndex = -1;
+            }
+            else
+            {
+                error.Text = "Update failed";
+            }
+        }
+
+        catch (NullReferenceException)
+        {
+            error.Text = "Please select a row first";
+        }
+    }
 }
