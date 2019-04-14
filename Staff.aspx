@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Staff.aspx.cs" Inherits="Staff" %>
+
 <!--Staff Form Code TPS Website
 //Programmed by: Markus Reynolds
 //3/31/2019
@@ -96,6 +97,11 @@
                 <asp:TextBox runat="server" CssClass="Inputs" ID="txtSalary"></asp:TextBox>
             </p>
             <p>
+                <asp:Label runat="server" Text="Location: " CssClass="Labels"></asp:Label>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:TextBox runat="server" CssClass="Inputs" ID="txtLocation"></asp:TextBox>
+            </p>
+            <p>
                 <asp:Button runat="server" ID="btnAddStaff" Text="Add Staff Member" OnClick="AddStaff"></asp:Button>
             </p>
             <p>
@@ -106,12 +112,12 @@
             <p>
                 <asp:GridView runat="server" ID="grdViewStaff" CssClass="Grid" CellPadding="4" ForeColor="#333333" GridLines="Horizontal"
                     OnSelectedIndexChanged="OnSelectedIndexChanged" OnRowDeleting="OnRowDeleting" OnRowEditing="OnRowEditing"
-                    OnRowCancelingEdit ="OnRowCancelingEdit" OnRowUpdating="OnRowUpdating">
+                    OnRowCancelingEdit="OnRowCancelingEdit" OnRowUpdating="OnRowUpdating">
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                     <Columns>
                         <asp:CommandField ButtonType="Button" ShowSelectButton="True" />
-                        <asp:CommandField ButtonType ="Button" ShowDeleteButton="True" />
-                        <asp:CommandField ButtonType ="Button" ShowEditButton="True" />
+                        <asp:CommandField ButtonType="Button" ShowEditButton="True" />
+                        <asp:CommandField ButtonType="Button" ShowDeleteButton="True" />
                     </Columns>
                     <EditRowStyle BackColor="#999999" />
                     <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />

@@ -367,6 +367,41 @@ namespace TPS.App_Code
             return recordSaved;
         }
 
+        /*Update User///////
+        ////////////////////
+        ///////////////////*/
+        public static bool UpdateUser(string Database, string UserId, string UserName, string UserPassword, string SecurityLevel)
+        {
+            bool recordSaved;
+            OleDbTransaction myTransaction = null;
+            try
+            {
+                OleDbConnection conn = new OleDbConnection("PROVIDER=Microsoft.ACE.OLEDB.12.0;" +
+                    "Data Source=" + Database);
+                conn.Open();
+                OleDbCommand command = conn.CreateCommand();
+                string strSQL;
+                myTransaction = conn.BeginTransaction();
+                command.Transaction = myTransaction;
+                strSQL = "Update tblUserAccess Set UserId= '"
+                    + UserId + "' , UserName = '" + UserName
+                    + "' , UserPassword = '" + UserPassword + "' , SecurityLevel = '" + SecurityLevel
+                    + "' where UserId = " + UserId + "";
+                command.CommandType = CommandType.Text;
+                command.CommandText = strSQL;
+                command.ExecuteNonQuery();
+                myTransaction.Commit();
+                conn.Close();
+                recordSaved = true;
+            }
+            catch (Exception ex)
+            {
+                myTransaction.Rollback();
+                recordSaved = false;
+            }
+            return recordSaved;
+        }
+
 
 
 

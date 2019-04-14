@@ -77,12 +77,14 @@
         </div>
         <div>
             <p>
-                <asp:GridView ID="grdViewUsers" runat="server" CssClass="Grid" OnRowDeleting ="OnRowDeleting" 
-                    OnSelectedIndexChanged="OnSelectedIndexChanged" CellPadding="4" ForeColor="#333333" GridLines="None">
+                <asp:GridView ID="grdViewUsers" runat="server" CssClass="Grid" CellPadding="4" ForeColor="#333333" GridLines="None"
+                    OnSelectedIndexChanged="OnSelectedIndexChanged" OnRowDeleting="OnRowDeleting" 
+                    OnRowEditing="OnRowEditing"
+                    OnRowCancelingEdit ="OnRowCancelingEdit" OnRowUpdating="OnRowUpdating">
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                     <Columns>
-                        <asp:CommandField ShowEditButton="True" ButtonType="Button" />
                         <asp:CommandField ShowSelectButton="True" ButtonType="Button" />
+                        <asp:CommandField ShowEditButton="True" ButtonType="Button" />
                         <asp:CommandField ShowDeleteButton="True" ButtonType="Button" />
                     </Columns>
                     <EditRowStyle BackColor="#999999" />

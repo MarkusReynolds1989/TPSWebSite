@@ -25,8 +25,7 @@ public partial class Staff : System.Web.UI.Page
     }
     protected void BindData()
     {
-        dsStaff myDataSet = new dsStaff();
-        myDataSet = TPS.App_Code.clsDataLayer.AccessStaff(Server.MapPath("TPS.accdb"));
+        dsStaff myDataSet = TPS.App_Code.clsDataLayer.AccessStaff(Server.MapPath("TPS.accdb"));
         //set the datagrid to datasource based on table
         grdViewStaff.DataSource = myDataSet.Tables["tblStaffMember"];
         //the datagrid
