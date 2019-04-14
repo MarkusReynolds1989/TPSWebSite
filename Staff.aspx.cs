@@ -14,7 +14,7 @@ using System.Web.UI.WebControls;
 
 public partial class Staff : System.Web.UI.Page
 {
-    private static string MemberID { get; set;}
+    string MemberID;
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -43,9 +43,8 @@ public partial class Staff : System.Web.UI.Page
             string EduLevel = drpEduLevel.SelectedValue;
             string Experience = txtExperience.Text;
             string Salary = txtSalary.Text;
-            string Location = txtLocation.Text;
             //savestaff is a boolean to make sure our query is good
-            if (TPS.App_Code.clsDataLayer.SaveStaff(Server.MapPath("TPS.accdb"), FirstName, LastName, EduLevel, Experience, Salary,Location))
+            if (TPS.App_Code.clsDataLayer.SaveStaff(Server.MapPath("TPS.accdb"), FirstName, LastName, EduLevel, Experience, Salary))
             {
                 error.Text = "Successfully added staff member.";
                 BindData();
@@ -67,7 +66,7 @@ public partial class Staff : System.Web.UI.Page
         MemberID = grdViewStaff.SelectedRow.Cells[3].Text;
     }
 
-    protected void OnRowDeleting(object sender, GridViewDeleteEventArgs e)
+    protected void OnRowDeleting(object sender, EventArgs e)
     {
         //Add try catch so user can't press this before select button
         //Catch System.NullReferenceException
@@ -89,10 +88,10 @@ public partial class Staff : System.Web.UI.Page
             error.Text = "Select a row first";
         }
     }
-    protected void OnRowEditing(object sender, GridViewEditEventArgs e)
+    protected void OnRowEditing(object sender, EventArgs e)
     {
-        grdViewStaff.EditIndex = e.NewEditIndex;
-        BindData();
+
+
     }
 
     protected void OnRowCancelingEdit(object sender, EventArgs e)
@@ -106,22 +105,13 @@ public partial class Staff : System.Web.UI.Page
     {
         try
         {
-            TextBox txtMemberID = (TextBox)grdViewStaff.SelectedRow.Cells[3].Controls[0];
-            MemberID = txtMemberID.Text;
-            TextBox txtFirstName = (TextBox) grdViewStaff.SelectedRow.Cells[4].Controls[0];
-            string FirstName = txtFirstName.Text;
-            TextBox txtLastName = (TextBox)grdViewStaff.SelectedRow.Cells[5].Controls[0];
-            string LastName = txtLastName.Text;
-            TextBox txtEduLevel = (TextBox)grdViewStaff.SelectedRow.Cells[6].Controls[0];
-            string EduLevel= txtEduLevel.Text;
-            TextBox txtExperience = (TextBox)grdViewStaff.SelectedRow.Cells[7].Controls[0];
-            string Experience = txtExperience.Text;
-            TextBox txtSalary = (TextBox)grdViewStaff.SelectedRow.Cells[8].Controls[0];
-            string Salary = txtSalary.Text;
-            TextBox txtLocation = (TextBox)grdViewStaff.SelectedRow.Cells[9].Controls[0];
-            string Location = txtLocation.Text;
-
-            if (TPS.App_Code.clsDataLayer.UpdateStaff(Server.MapPath("TPS.accdb"), MemberID, FirstName, LastName, EduLevel, Experience, Salary, Location))
+            MemberID = grdViewStaff.SelectedRow.Cells[3].Text;
+            string FirstName = grdViewStaff.SelectedRow.Cells[4].Text;
+            string LastName = grdViewStaff.SelectedRow.Cells[5].Text;
+            string EduLevel = grdViewStaff.SelectedRow.Cells[6].Text;
+            string Experience = grdViewStaff.SelectedRow.Cells[7].Text;
+            string Salary = grdViewStaff.SelectedRow.Cells[8].Text;
+            if (TPS.App_Code.clsDataLayer.UpdateStaff(Server.MapPath("TPS.accdb"), MemberID, FirstName, LastName, EduLevel, Experience, Salary))
             {
                 error.Text = "Successfully Updated";
                 BindData();

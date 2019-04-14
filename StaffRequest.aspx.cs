@@ -97,7 +97,7 @@ public partial class StaffRequest : System.Web.UI.Page
                 StaffID1 = "";
                 StaffID2 = "";
                 StaffID3 = "";
-                if(TPS.App_Code.clsBusinessLayer.SendEmail("Server@server.com", "manager@TPSWebsite.com",null,null,"New Request","New Staff Request waiting, you have 48 hours to decide."))
+                if(TPS.App_Code.clsBusinessLayer.SendEmail("markusreynolds1989@gmail.com", "marsatreus@gmail.com",null,null,"New Request","New Staff Request waiting, you have 48 hours to decide."))
                 {
 
                 }
