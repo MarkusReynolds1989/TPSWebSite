@@ -90,7 +90,7 @@ namespace TPS.App_Code
         /*Add staff member Staff Only
         ////////////////////
         ///////////////////*/
-        public static bool SaveStaff(string Database, string FirstName, string LastName, string EduLevel, string Experience, string Salary)
+        public static bool SaveStaff(string Database, string FirstName, string LastName, string EduLevel, string Experience, string Salary, string Location)
         {
             bool recordSaved;
             OleDbTransaction myTransaction = null;

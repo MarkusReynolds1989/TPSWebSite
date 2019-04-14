@@ -23,7 +23,7 @@
     width: 80%;
     height: 200px;
     position: center;
-    display: table-cell;
+    display: table-column;
     vertical-align: central;
     text-align: center;
     margin: auto auto auto auto;
