@@ -196,6 +196,7 @@ namespace TPS.App_Code
         /////////////////////
         ///////////////////*/
 
+
         /*Delete Staff Member Only Admin 
         ////////////////////
         ///////////////////*/
@@ -311,7 +312,7 @@ namespace TPS.App_Code
                 string strSQL;
                 myTransaction = conn.BeginTransaction();
                 command.Transaction = myTransaction;
-                strSQL = "Delete from tblContracts where ContractID =" + ContractID;
+                strSQL = "Delete from tblContract where ContractID =" + ContractID;
                 command.CommandType = CommandType.Text;
                 command.CommandText = strSQL;
                 command.ExecuteNonQuery();

@@ -103,8 +103,6 @@ public partial class Staff : System.Web.UI.Page
     {
         try
         {
-            TextBox txtMemberID = (TextBox)grdViewStaff.SelectedRow.Cells[3].Controls[0];
-            MemberID = txtMemberID.Text;
             TextBox txtFirstName = (TextBox)grdViewStaff.SelectedRow.Cells[4].Controls[0];
             string FirstName = txtFirstName.Text;
             TextBox txtLastName = (TextBox)grdViewStaff.SelectedRow.Cells[5].Controls[0];

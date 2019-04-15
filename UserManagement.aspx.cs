@@ -13,7 +13,7 @@ using System.Web.UI.WebControls;
 public partial class UserManagement : System.Web.UI.Page
 {
     //consider making this static
-    private string UserID { get; set; }
+    private string UserId { get; set; }
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -46,19 +46,19 @@ public partial class UserManagement : System.Web.UI.Page
         }
     }
 
-    protected void OnSelectedIndexChanged(object sender, EventArgs e)
+    protected void OnSelectedIndexChanged(object sender, GridViewSelectEventArgs e)
     {
-        UserID = grdViewUsers.SelectedRow.Cells[3].Text;
+        UserId = grdViewUsers.SelectedRow.Cells[3].Text;
     }
 
-    protected void OnRowDeleting(object sender, EventArgs e)
+    protected void OnRowDeleting(object sender, GridViewDeleteEventArgs e)
     {
         //Add try catch so user can't press this before select button
         //Catch System.NullReferenceException
         try
         {
-            UserID = grdViewUsers.SelectedRow.Cells[3].Text;
-            if (TPS.App_Code.clsDataLayer.DeleteUser(Server.MapPath("TPS.accdb"), UserID))
+            UserId = grdViewUsers.SelectedRow.Cells[3].Text;
+            if (TPS.App_Code.clsDataLayer.DeleteUser(Server.MapPath("TPS.accdb"), UserId))
             {
                 error.Text = "Successfully deleted user";
                 BindData();
@@ -81,10 +81,10 @@ public partial class UserManagement : System.Web.UI.Page
     }
 
 
-    protected void OnRowCancelingEdit(object sender, EventArgs e)
+    protected void OnRowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
     {
+        BindData();
         grdViewUsers.EditIndex = -1; //swicth back to default mode
-        BindData(); // Rebind GridView to show the data in default mode
         error.Text = "";
     }
 
@@ -92,8 +92,6 @@ public partial class UserManagement : System.Web.UI.Page
     {
         try
         {
-            TextBox txtUserId = (TextBox)grdViewUsers.SelectedRow.Cells[3].Controls[0];
-            UserID = txtUserId.Text;
             TextBox txtUserName = (TextBox)grdViewUsers.SelectedRow.Cells[4].Controls[0];
             string UserName = txtUserName.Text;
             TextBox txtUserPassword = (TextBox)grdViewUsers.SelectedRow.Cells[5].Controls[0];
@@ -101,7 +99,7 @@ public partial class UserManagement : System.Web.UI.Page
             TextBox txtSecurityLevel = (TextBox)grdViewUsers.SelectedRow.Cells[6].Controls[0];
             string SecurityLevel = txtSecurityLevel.Text;
 
-            if (TPS.App_Code.clsDataLayer.UpdateUser(Server.MapPath("TPS.accdb"), UserID, UserName, UserPassword, SecurityLevel))
+            if (TPS.App_Code.clsDataLayer.UpdateUser(Server.MapPath("TPS.accdb"), UserId, UserName, UserPassword, SecurityLevel))
             {
                 error.Text = "Successfully Updated";
                 BindData();

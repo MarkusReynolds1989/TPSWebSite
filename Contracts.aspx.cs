@@ -12,6 +12,8 @@ using System.Web.UI.WebControls;
 
 public partial class Contracts : System.Web.UI.Page
 {
+    private static string ContractID { get; set; }
+
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
@@ -23,8 +25,7 @@ public partial class Contracts : System.Web.UI.Page
 
     protected void BindDataStaffRequest()
     {
-        dsStaffRequest myDataSet = new dsStaffRequest();
-        myDataSet = TPS.App_Code.clsDataLayer.AccessStaffRequests(Server.MapPath("TPS.accdb"));
+        dsStaffRequest myDataSet = TPS.App_Code.clsDataLayer.AccessStaffRequests(Server.MapPath("TPS.accdb"));
         //set the datagrid to datasource based on table
         grdViewStaffRequests.DataSource = myDataSet.Tables["tblStaffRequest"];
         //the datagrid
@@ -33,8 +34,7 @@ public partial class Contracts : System.Web.UI.Page
 
     protected void BindDataContracts()
     {
-        dsContracts myDataSet = new dsContracts();
-        myDataSet = TPS.App_Code.clsDataLayer.AccessContracts(Server.MapPath("TPS.accdb"));
+        dsContracts myDataSet = TPS.App_Code.clsDataLayer.AccessContracts(Server.MapPath("TPS.accdb"));
         //set the datagrid to datasource based on table
         grdViewContracts.DataSource = myDataSet.Tables["tblContract"];
         //the datagrid
@@ -63,6 +63,46 @@ public partial class Contracts : System.Web.UI.Page
         catch (NullReferenceException)
         {
             error.Text = "Please input request ID";
+        }
+    }
+    protected void OnSelectedIndexChanged(object sender, EventArgs e)
+    {
+        ContractID = grdViewContracts.SelectedRow.Cells[2].Text;
+    }
+
+    protected void OnRowDeleting(object sender, GridViewDeleteEventArgs e)
+    {
+        //Add try catch so user can't press this before select button
+        //Catch System.NullReferenceException
+        try
+        {
+            ContractID = grdViewContracts.SelectedRow.Cells[2].Text;
+            if (TPS.App_Code.clsDataLayer.DeleteContract(Server.MapPath("TPS.accdb"), ContractID))
+            {
+                error.Text = "Successfully deleted contract";
+                BindDataContracts();
+            }
+            else
+            {
+                error.Text = "Failed to delete contract";
+            }
+        }
+        catch (NullReferenceException)
+        {
+            error.Text = "Select a row first";
+        }
+    }
+
+    protected void btnDenyRequest_Click(object sender, EventArgs e)
+    {
+        string RequestID = txtRequestID.Text;
+        if (TPS.App_Code.clsDataLayer.DeleteRequest(Server.MapPath("TPS.accdb"), RequestID)){
+            error.Text = "Request denied successfully.";
+            BindDataStaffRequest();
+        }
+        else
+        {
+            error.Text = "Failed to deny";
         }
     }
 }
