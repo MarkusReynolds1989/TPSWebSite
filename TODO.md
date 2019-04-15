@@ -7,7 +7,7 @@
 3. ~~Add a feedback label to every page.~~
 4. ~~Publish site to make sure deployment will work.~~
 5. Find a way to upload MDAC to the azure server.
-6. Make the grid views update when ~~added, deleting,~~ editing
+6. ~~Make the grid views update when adding, deleting,editing~~
 7. ~~Hide controls depending on staff level.~~
 8. Make the update method for staff portal work properly.
 
@@ -19,3 +19,4 @@
 4. ~~Create a method that sends an email to the manager when a staff request is made.~~
 5. Union tables so they look better, Contract only has 2 Columns.
 6. Implement Client and Manager table, associate login
+7. StaffRequest edit.
