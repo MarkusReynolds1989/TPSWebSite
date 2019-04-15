@@ -96,11 +96,12 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:TextBox runat="server" CssClass="Inputs" ID="txtSalary"></asp:TextBox>
             </p>
-                <p>
+            <p>
                 <asp:Label runat="server" Text="Location: " CssClass="Labels"></asp:Label>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:TextBox runat="server" CssClass="Inputs" ID="txtLocation"></asp:TextBox>
             </p>
+            <p>
                 <asp:Button runat="server" ID="btnAddStaff" Text="Add Staff Member" OnClick="AddStaff"></asp:Button>
             </p>
             <p>

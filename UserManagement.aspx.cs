@@ -24,8 +24,7 @@ public partial class UserManagement : System.Web.UI.Page
     }
     protected void BindData()
     {
-        dsUserAccess myDataSet = new dsUserAccess();
-        myDataSet = TPS.App_Code.clsDataLayer.AccessUsers(Server.MapPath("TPS.accdb"));
+        dsUserAccess myDataSet = TPS.App_Code.clsDataLayer.AccessUsers(Server.MapPath("TPS.accdb"));
         //set the datagrid to datasource based on table
         grdViewUsers.DataSource = myDataSet.Tables["tblUserAccess"];
         //the datagrid
@@ -89,12 +88,12 @@ public partial class UserManagement : System.Web.UI.Page
         error.Text = "";
     }
 
-    protected void OnRowUpdating(object sender, EventArgs e)
+    protected void OnRowUpdating(object sender, GridViewUpdateEventArgs e)
     {
         try
         {
             TextBox txtUserId = (TextBox)grdViewUsers.SelectedRow.Cells[3].Controls[0];
-            string UserId = txtUserId.Text;
+            UserID = txtUserId.Text;
             TextBox txtUserName = (TextBox)grdViewUsers.SelectedRow.Cells[4].Controls[0];
             string UserName = txtUserName.Text;
             TextBox txtUserPassword = (TextBox)grdViewUsers.SelectedRow.Cells[5].Controls[0];
@@ -102,7 +101,7 @@ public partial class UserManagement : System.Web.UI.Page
             TextBox txtSecurityLevel = (TextBox)grdViewUsers.SelectedRow.Cells[6].Controls[0];
             string SecurityLevel = txtSecurityLevel.Text;
 
-            if (TPS.App_Code.clsDataLayer.UpdateUser(Server.MapPath("TPS.accdb"), UserId, UserName, UserPassword, SecurityLevel))
+            if (TPS.App_Code.clsDataLayer.UpdateUser(Server.MapPath("TPS.accdb"), UserID, UserName, UserPassword, SecurityLevel))
             {
                 error.Text = "Successfully Updated";
                 BindData();

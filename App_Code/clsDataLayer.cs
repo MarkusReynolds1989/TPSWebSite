@@ -348,7 +348,7 @@ namespace TPS.App_Code
                 string strSQL;
                 myTransaction = conn.BeginTransaction();
                 command.Transaction = myTransaction;
-                strSQL = "Update tblStaffMember Set tblStaffMember FirstName = '"
+                strSQL = "Update tblStaffMember Set FirstName = '"
                     + FirstName + "' , LastName = '" + LastName
                     + "' , EduLevel = '" + EduLevel + "' , Experience = '" + Experience
                     + "' , Salary ='" + Salary + "', Location ='" + Location + "' where MemberID = " + MemberID + "";
@@ -383,8 +383,7 @@ namespace TPS.App_Code
                 string strSQL;
                 myTransaction = conn.BeginTransaction();
                 command.Transaction = myTransaction;
-                strSQL = "Update tblUserAccess Set UserId= '"
-                    + UserId + "' , UserName = '" + UserName
+                strSQL = "Update tblUserAccess set UserName = '" + UserName
                     + "' , UserPassword = '" + UserPassword + "' , SecurityLevel = '" + SecurityLevel
                     + "' where UserId = " + UserId + "";
                 command.CommandType = CommandType.Text;

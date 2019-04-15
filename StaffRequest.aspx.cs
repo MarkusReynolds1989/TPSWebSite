@@ -28,8 +28,7 @@ public partial class StaffRequest : System.Web.UI.Page
 
     protected void BindDataRequests()
     {
-        dsStaffRequest myDataSet = new dsStaffRequest();
-        myDataSet = TPS.App_Code.clsDataLayer.AccessStaffRequests(Server.MapPath("TPS.accdb"));
+        dsStaffRequest myDataSet = TPS.App_Code.clsDataLayer.AccessStaffRequests(Server.MapPath("TPS.accdb"));
         //set the datagrid to datasource based on table
         grdViewRequest.DataSource = myDataSet.Tables["tblStaffRequest"];
         //the datagrid
