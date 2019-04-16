@@ -19,16 +19,6 @@
     width: 350px;
 }
 
-.Grid {
-    width: 80%;
-    height: 200px;
-    position: center;
-    display: table-cell;
-    vertical-align: central;
-    text-align: center;
-    margin: auto auto auto auto;
-    top: 0px;
-}
 
 .Labels{
     display: inline-block;

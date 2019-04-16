@@ -6,7 +6,7 @@
 //A GNU License should be included in the documentation for this code but you can also find it online
 -->
 <!DOCTYPE html>
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <link rel ="stylesheet" type ="text/css" href="CSS/main.css" />

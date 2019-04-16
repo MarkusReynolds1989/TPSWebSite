@@ -6,7 +6,7 @@
 //A GNU License should be included in the documentation for this code but you can also find it online
 -->
 <!DOCTYPE html>
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <link rel="stylesheet" type="text/css" href="CSS/main.css" />
@@ -77,7 +77,7 @@
         </div>
         <div>
             <p>
-                <asp:GridView ID="grdViewUsers" runat="server" CssClass="Grid" CellPadding="4" ForeColor="#333333" GridLines="None"
+                <asp:GridView ID="grdViewUsers" runat="server" CssClass="w3-table-all w3-card-4" CellPadding="4" ForeColor="#333333" GridLines="None"
                     OnSelectedIndexChanged="OnSelectedIndexChanged" OnRowDeleting="OnRowDeleting" 
                     OnRowEditing="OnRowEditing"
                     OnRowCancelingEdit ="OnRowCancelingEdit" OnRowUpdating="OnRowUpdating">

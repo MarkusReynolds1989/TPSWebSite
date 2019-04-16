@@ -6,7 +6,7 @@
 //A GNU License should be included in the documentation for this code but you can also find it online
 -->
 <!DOCTYPE html>
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Staffing Request</title>
@@ -77,7 +77,7 @@
                 Your Results:
             </h3>
             <p>
-                <asp:GridView runat="server" ID="grdViewSearch" CssClass="Grid" OnSelectedIndexChanged="OnSelectedIndexChanged"
+                <asp:GridView runat="server" ID="grdViewSearch" CssClass="w3-table-all w3-card-4" OnSelectedIndexChanged="OnSelectedIndexChanged"
                     OnRowCommand="grdViewSearch_RowCommand" CellPadding="4" ForeColor="#333333" GridLines="None">
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                     <Columns>
@@ -100,7 +100,7 @@
                 Your Request:
             </h3>
             <p>
-                <asp:GridView runat="server" ID="grdViewRequest" CssClass="Grid" CellPadding="4" ForeColor="#333333" GridLines="None">
+                <asp:GridView runat="server" ID="grdViewRequest" CssClass="w3-table-all w3-card-4" CellPadding="4" ForeColor="#333333" GridLines="None">
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                     <EditRowStyle BackColor="#999999" />
                     <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
