@@ -20,3 +20,4 @@
 5. Union tables so they look better, Contract only has 2 Columns.
 6. Implement Client and Manager table, associate login
 7. StaffRequest edit.
+8. Refactor classes for each kind of query.
