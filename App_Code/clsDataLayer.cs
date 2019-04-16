@@ -526,6 +526,26 @@ namespace TPS.App_Code
             return DS;
         }
 
+
+        /* Fill Staff Profile
+        //////////////////
+        ////////////////*/
+        public static dsStaffProfile AccessStaffProfile(string Database)
+        {
+            dsStaffProfile DS;
+            //Call Objects
+            OleDbConnection sqlConn;
+            OleDbDataAdapter sqlDA;
+            //Methods for connection, query
+            sqlConn = new OleDbConnection("PROVIDER = Microsoft.ACE.OLEDB.12.0;" + "Data Source =" + Database);
+            sqlDA = new OleDbDataAdapter("select * from tblStaffProfile", sqlConn);
+            //datastream class
+            DS = new dsStaffRequest();
+            //fill table
+            sqlDA.Fill(DS.tblStaffProfile);
+            return DS;
+        }
+
         /* Special Methods
         //////////////////
         ////////////////*/
