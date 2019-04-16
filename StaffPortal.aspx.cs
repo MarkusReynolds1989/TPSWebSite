@@ -17,32 +17,40 @@ public partial class StaffPortal : System.Web.UI.Page
     {
 
     }
+
     protected void btnUpdate_OnButtonClick(object sender, EventArgs e)
     {
-        string savePath = Server.MapPath("~/StaffPortalUploads/");
-        string savePath2 = Server.MapPath("~/StaffPortalUploads/");
-        string Bio = txtBio.Text;
-        string Avail = txtAvail.Text;
-
-        if (fileupPicture.HasFile && fileupResume.HasFile)
+        try
         {
-            string picture = fileupPicture.FileName;
-            string resume = fileupResume.FileName;
-            savePath += picture;
-            fileupPicture.SaveAs(savePath);
-            savePath2 += resume;
-            fileupResume.SaveAs(savePath2);
-            error.Text = "Your file was uploaded as" + picture + "and " + resume;
-            if (TPS.App_Code.clsDataLayer.UpdateStaffPortal(Server.MapPath("TPS.accdb"), Bio, Avail, savePath, savePath2))
+            string savePath = Server.MapPath("~/StaffPortalUploads/");
+            string savePath2 = Server.MapPath("~/StaffPortalUploads/");
+            string Bio = txtBio.Text;
+            string Avail = txtAvail.Text;
+
+            if (fileupPicture.HasFile && fileupResume.HasFile)
             {
-                error.Text = "Successfully updated profile";
+                string picture = fileupPicture.FileName;
+                string resume = fileupResume.FileName;
+                savePath += picture;
+                fileupPicture.SaveAs(savePath);
+                savePath2 += resume;
+                fileupResume.SaveAs(savePath2);
+
+                if (TPS.App_Code.clsDataLayer.UpdateStaffPortal(Server.MapPath("TPS.accdb"), Bio, Avail, savePath, savePath2))
+                {
+                    error.Text = "Your files were uploaded as" + picture + "and " + resume;
+                }
+                else
+                {
+                    error.Text = "Failed to update profile";
+                }
             }
             else
             {
-                error.Text = "Failed to update profile";
+                error.Text = "Please specify file to upload";
             }
         }
-        else
+        catch (NullReferenceException)
         {
             error.Text = "Please specify file to upload";
         }

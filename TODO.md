@@ -9,7 +9,7 @@
 5. Find a way to upload MDAC to the azure server.
 6. ~~Make the grid views update when adding, deleting,editing~~
 7. ~~Hide controls depending on staff level.~~
-8. Make the update method for staff portal work properly.
+8. ~~Make the update method for staff portal work properly~~.
 
 
 ## NICE to haves:

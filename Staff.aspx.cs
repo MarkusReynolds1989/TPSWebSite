@@ -116,7 +116,7 @@ public partial class Staff : System.Web.UI.Page
             TextBox txtLocation = (TextBox)grdViewStaff.SelectedRow.Cells[9].Controls[0];
             string Location = txtLocation.Text;
 
-            if (TPS.App_Code.clsDataLayer.UpdateStaff(Server.MapPath("TPS.accdb"), MemberID, FirstName, LastName, EduLevel, Experience, Salary,Location))
+            if (TPS.App_Code.clsDataLayer.UpdateStaff(Server.MapPath("TPS.accdb"), MemberID, FirstName, LastName, EduLevel, Experience, Salary, Location))
             {
                 error.Text = "Successfully Updated";
                 BindData();

@@ -47,11 +47,10 @@
                 $("#error").text("Please enter salary");
             }
             else {
-                Console.log("Fail");
+                $(btnAddStaff.OnClick) = "AddStaff";
             }
         }
     </script>
-
 </head>
 <body>
     <div id="header"></div>
@@ -66,47 +65,53 @@
             </p>
             <h1>Staff</h1>
             <h2>Add Staff</h2>
-            <p>
-                <asp:Label runat="server" Text="First Name: " CssClass="Labels"></asp:Label>
-                &nbsp;
-                <asp:TextBox runat="server" CssClass="Inputs" ID="txtFirstName" Height="22px"></asp:TextBox>
-            </p>
-            <p>
-                <asp:Label runat="server" Text="Last Name: " CssClass="Labels"></asp:Label>
-                &nbsp;
-                <asp:TextBox runat="server" CssClass="Inputs" ID="txtLastName"></asp:TextBox>
-            </p>
-            <p>
-                <asp:Label runat="server" Text="Education Level: " CssClass="Labels"></asp:Label>
-                <asp:DropDownList runat="server" CssClass="Inputs" ID="drpEduLevel">
-                    <asp:ListItem Value="High School">High School</asp:ListItem>
-                    <asp:ListItem Value="Bachelor">Bachelor</asp:ListItem>
-                    <asp:ListItem Value="Masters">Masters</asp:ListItem>
-                    <asp:ListItem Value="Doctorate">Doctorate</asp:ListItem>
-                    <asp:ListItem Value="Some College">Some College</asp:ListItem>
-                </asp:DropDownList>
-            </p>
-            <p>
-                <asp:Label runat="server" Text="Experience: " CssClass="Labels"></asp:Label>
-                &nbsp;
+            <asp:ScriptManager ID="MainScriptManager" runat="server" />
+            <asp:UpdatePanel ID="pnlStaff" runat="server">
+                <ContentTemplate>
+                    <p>
+                        <asp:Label runat="server" Text="First Name: " CssClass="Labels"></asp:Label>
+                        &nbsp;
+                        <asp:TextBox runat="server" CssClass="Inputs" ID="txtFirstName" Height="22px"></asp:TextBox>
+                    </p>
+                    <p>
+                        <asp:Label runat="server" Text="Last Name: " CssClass="Labels"></asp:Label>
+                        &nbsp;
+                        <asp:TextBox runat="server" CssClass="Inputs" ID="txtLastName"></asp:TextBox>
+                    </p>
+                    <p>
+                        <asp:Label runat="server" Text="Education Level: " CssClass="Labels"></asp:Label>
+                        <asp:DropDownList runat="server" CssClass="Inputs" ID="drpEduLevel">
+                            <asp:ListItem Value="High School">High School</asp:ListItem>
+                            <asp:ListItem Value="Bachelor">Bachelor</asp:ListItem>
+                            <asp:ListItem Value="Masters">Masters</asp:ListItem>
+                            <asp:ListItem Value="Doctorate">Doctorate</asp:ListItem>
+                            <asp:ListItem Value="Some College">Some College</asp:ListItem>
+                        </asp:DropDownList>
+                    </p>
+                    <p>
+                        <asp:Label runat="server" Text="Experience: " CssClass="Labels"></asp:Label>
+                        &nbsp;
                 <asp:TextBox runat="server" CssClass="Inputs" ID="txtExperience"></asp:TextBox>
-            </p>
-            <p>
-                <asp:Label runat="server" Text="Salary: " CssClass="Labels"></asp:Label>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </p>
+                    <p>
+                        <asp:Label runat="server" Text="Salary: " CssClass="Labels"></asp:Label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:TextBox runat="server" CssClass="Inputs" ID="txtSalary"></asp:TextBox>
-            </p>
-            <p>
-                <asp:Label runat="server" Text="Location: " CssClass="Labels"></asp:Label>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </p>
+                    <p>
+                        <asp:Label runat="server" Text="Location: " CssClass="Labels"></asp:Label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:TextBox runat="server" CssClass="Inputs" ID="txtLocation"></asp:TextBox>
-            </p>
-            <p>
-                <asp:Button runat="server" ID="btnAddStaff" Text="Add Staff Member" OnClick="AddStaff"></asp:Button>
-            </p>
-            <p>
-                <asp:Label runat="server" ID="error" CssClass="Error"></asp:Label>
-            </p>
+                    </p>
+                    <p>
+                        <asp:Button runat="server" ID="btnAddStaff" Text="Add Staff Member" 
+                            OnClick="AddStaff" OnClientClick="doValidation()"></asp:Button>
+                    </p>
+                    <p>
+                        <asp:Label runat="server" ID="error" CssClass="Error"></asp:Label>
+                    </p>
+                </ContentTemplate>
+            </asp:UpdatePanel>
             <h2>Current Staff:
             </h2>
             <p>
