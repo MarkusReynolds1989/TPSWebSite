@@ -4,9 +4,6 @@
 //Open source avaiable under GNU License
 //A GNU License should be included in the documentation for this code but you can also find it online
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -46,7 +43,7 @@ public partial class UserManagement : System.Web.UI.Page
         }
     }
 
-    protected void OnSelectedIndexChanged(object sender, GridViewSelectEventArgs e)
+    protected void OnSelectedIndexChanged(object sender, EventArgs e)
     {
         UserId = grdViewUsers.SelectedRow.Cells[3].Text;
     }

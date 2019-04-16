@@ -21,35 +21,6 @@
             $("#header").load("addons/header.html");
             $("#footer").load("addons/footer.html");
         });
-        //Generic validation function we will be using in all the forms
-        //Need to hack at this to make it work properly for our web validation
-
-
-        function doValidation() {
-            //Declare our variables for the function
-            let firstName;
-            let lastName;
-            let salary;
-            //regex variables to check the text
-            //consider making these global
-            //set the variables from the fields
-            firstName = $("#txtFirstName").val();
-            lastName = $("#txtLastName").val();
-            salary = $("#txtSalary").val();
-            //test to make sure all the fields are entered correctly
-            if (firstName == "" || firstName == REGEXNAME) {
-                $("#error").text("Please enter first name.");
-            }
-            else if (lastName == "" || lastName == REGEXNAME) {
-                $("#error").text("Please enter last name.");
-            }
-            else if (salary == "" || salary == REGEXCURRENCY) {
-                $("#error").text("Please enter salary");
-            }
-            else {
-                $(btnAddStaff.OnClick) = "AddStaff";
-            }
-        }
     </script>
 </head>
 <body>
@@ -68,6 +39,38 @@
             <asp:ScriptManager ID="MainScriptManager" runat="server" />
             <asp:UpdatePanel ID="pnlStaff" runat="server">
                 <ContentTemplate>
+                    <script>
+                        function doValidation() {
+                            //Declare our variables for the function
+                            let firstName;
+                            let lastName;
+                            let salary;
+                            let location;
+                            //regex variables to check the text
+                            //consider making these global
+                            //set the variables from the fields
+                            firstName = $("#txtFirstName").val();
+                            lastName = $("#txtLastName").val();
+                            salary = $("#txtSalary").val();
+                            location = $("#txtLocation").val();
+                            //test to make sure all the fields are entered correctly
+                            if (firstName == "" || firstName == REGEXNAME) {
+                                $("#error").text("Please enter first name.");
+                            }
+                            else if (lastName == "" || lastName == REGEXNAME) {
+                                $("#error").text("Please enter last name.");
+                            }
+                            else if (salary == "" || salary == REGEXCURRENCY) {
+                                $("#error").text("Please enter salary.");
+                            }
+                            else if (location == "" || location == REGEXNAME) {
+                                $("#error").text("Please enter a locaation.");
+                            }
+                            else {
+
+                            }
+                        }
+                    </script>
                     <p>
                         <asp:Label runat="server" Text="First Name: " CssClass="Labels"></asp:Label>
                         &nbsp;
@@ -104,8 +107,8 @@
                 <asp:TextBox runat="server" CssClass="Inputs" ID="txtLocation"></asp:TextBox>
                     </p>
                     <p>
-                        <asp:Button runat="server" ID="btnAddStaff" Text="Add Staff Member" 
-                            OnClick="AddStaff" OnClientClick="doValidation()"></asp:Button>
+                        <asp:Button runat="server" ID="btnAddStaff" Text="Add Staff Member"
+                            OnClick="btnAddStaff_Click"></asp:Button>
                     </p>
                     <p>
                         <asp:Label runat="server" ID="error" CssClass="Error"></asp:Label>

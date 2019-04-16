@@ -4,11 +4,6 @@
 //Open source avaiable under GNU License
 //A GNU License should be included in the documentation for this code but you can also find it online
 using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Web;
-using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -132,6 +127,11 @@ public partial class Staff : System.Web.UI.Page
         {
             error.Text = "Select first";
         }
+    }
+
+    protected void btnAddStaff_Click(object sender, EventArgs e)
+    {
+
     }
 }
 
