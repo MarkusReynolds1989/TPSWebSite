@@ -2,7 +2,7 @@
 ## MUST haves:
 1. ~~Create a method that holds the 3 choices for staff request and fills them to a table as they are selected.~~
 - Note, I solved this by switching the variables to static.
-2. ~~Create a method that searches the database based upon the parameters the customer gives.~~ 
+2. ~~Create a method that searches the database based upon the parameters the customer gives.~~
 - ~~Add location to database and search parameters~~
 3. ~~Add a feedback label to every page.~~
 4. ~~Publish site to make sure deployment will work.~~

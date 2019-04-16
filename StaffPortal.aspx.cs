@@ -1,4 +1,4 @@
-﻿//Staff Portal Code TPS Website
+//Staff Portal Code TPS Website
 //Programmed by: Markus Reynolds
 //3/31/2019
 //Open source avaiable under GNU License
@@ -15,7 +15,16 @@ public partial class StaffPortal : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if(!IsPostBack){
+            BindData();
+        }
+    }
+    protected void BindData(){
+        dsStaffProfile myDataSet = TPS.App_Code.clsDataLayer.AccessStaffProfile(Server.MapPath("TPS.accdb"));
+        //set the datagrid to datasource based on table
+        grdViewStaffPortal.DataSource = myDataSet.Tables["tblStaffProfile"];
+        //the datagrid
+        grdViewStaffPortal.DataBind();
     }
 
     protected void btnUpdate_OnButtonClick(object sender, EventArgs e)
