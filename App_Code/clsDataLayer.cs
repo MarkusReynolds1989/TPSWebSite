@@ -160,7 +160,7 @@ namespace TPS.App_Code
         /*Add staff profile info Only Staff
         ////////////////////
         ///////////////////*/
-        public static bool UpdateStaffPortal(string Database, string Bio, string Avail, string Resume, string Picture)
+        public static bool UpdateStaffPortal(string Database, string Bio, string Availability, string Resume, string Picture)
         {
             bool recordSaved;
             OleDbTransaction myTransaction = null;
@@ -173,10 +173,10 @@ namespace TPS.App_Code
                 string strSQL;
                 myTransaction = conn.BeginTransaction();
                 command.Transaction = myTransaction;
-                strSQL = "Insert into tblStaffProfile(Bio ,Avail ,Resume, Picture) "
+                strSQL = "Insert into tblStaffProfile(Bio ,Availability ,Resume, Picture) "
                     + "values ('" + Bio + "','"
-                    + Avail + "','"
-                    + Resume + "','" + Picture + ")'";
+                    + Availability + "','"
+                    + Resume + "','" + Picture + "' ) ";
                 command.CommandType = CommandType.Text;
                 command.CommandText = strSQL;
                 command.ExecuteNonQuery();

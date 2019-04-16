@@ -33,8 +33,7 @@ public partial class StaffPortal : System.Web.UI.Page
             savePath2 += resume;
             fileupResume.SaveAs(savePath2);
             error.Text = "Your file was uploaded as" + picture + "and " + resume;
-
-            if (TPS.App_Code.clsDataLayer.UpdateStaffPortal(Server.MapPath("TPS.accdb"), Bio, Avail, resume, picture))
+            if (TPS.App_Code.clsDataLayer.UpdateStaffPortal(Server.MapPath("TPS.accdb"), Bio, Avail, savePath, savePath2))
             {
                 error.Text = "Successfully updated profile";
             }
@@ -47,5 +46,6 @@ public partial class StaffPortal : System.Web.UI.Page
         {
             error.Text = "Please specify file to upload";
         }
+
     }
 }
