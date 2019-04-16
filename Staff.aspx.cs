@@ -9,6 +9,7 @@ using System.Web.UI.WebControls;
 
 public partial class Staff : System.Web.UI.Page
 {
+
     private static string MemberID { get; set; }
 
     protected void Page_Load(object sender, EventArgs e)
@@ -27,10 +28,12 @@ public partial class Staff : System.Web.UI.Page
         grdViewStaff.DataBind();
     }
 
+    [System.Web.Services.WebMethod()]
+    [System.Web.Script.Services.ScriptMethod()]
     protected void AddStaff(object sender, EventArgs e)
     {
-        try
-        {
+        try{
+            
             //collect the text as variables
             string FirstName = txtFirstName.Text;
             string LastName = txtLastName.Text;
@@ -53,6 +56,8 @@ public partial class Staff : System.Web.UI.Page
             error.Text = "Please fully complete the form";
         }
     }
+
+
 
     protected void OnSelectedIndexChanged(object sender, EventArgs e)
     {
@@ -129,10 +134,6 @@ public partial class Staff : System.Web.UI.Page
         }
     }
 
-    protected void btnAddStaff_Click(object sender, EventArgs e)
-    {
-
-    }
 }
 
 

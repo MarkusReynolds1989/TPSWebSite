@@ -36,7 +36,7 @@
             </p>
             <h1>Staff</h1>
             <h2>Add Staff</h2>
-            <asp:ScriptManager ID="MainScriptManager" runat="server" />
+            <asp:ScriptManager ID="MainScriptManager" runat="server" EnablePageMethods="true" />
             <asp:UpdatePanel ID="pnlStaff" runat="server">
                 <ContentTemplate>
                     <script>
@@ -67,7 +67,7 @@
                                 $("#error").text("Please enter a locaation.");
                             }
                             else {
-
+                                PageMethods.AddStaff;
                             }
                         }
                     </script>
@@ -108,7 +108,8 @@
                     </p>
                     <p>
                         <asp:Button runat="server" ID="btnAddStaff" Text="Add Staff Member"
-                            OnClick="btnAddStaff_Click"></asp:Button>
+                            OnClientClick = "doValidation" 
+                            CausesValidation="true" ></asp:Button>
                     </p>
                     <p>
                         <asp:Label runat="server" ID="error" CssClass="Error"></asp:Label>
