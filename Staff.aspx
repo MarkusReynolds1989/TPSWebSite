@@ -49,7 +49,14 @@
                 $("#error").text("Please enter a locaation.");
             }
             else {
-                return true;
+                //ajax
+                $.ajax({
+                    type: "POST",
+                    url: 'Staff.aspx.cs/AddStaff',
+                    data: "",
+                    contentType: "application/json,
+                    dataType: "json"
+                });
             }
         }
     </script>
@@ -104,7 +111,7 @@
             </p>
             <p>
                 <asp:Button runat="server" ID="btnAddStaff" Text="Add Staff Member"
-                    OnClientClick="doValidation()" OnClick="AddStaff" CssClass="Inputs" />
+                    OnClientClick="doValidation()" CssClass="Inputs" />
             </p>
             <h2>
                 Current Staff:
