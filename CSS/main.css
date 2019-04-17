@@ -23,14 +23,14 @@
 .Labels{
     display:block;
     float: left;
-    margin-left: 500px;
+    margin-left: 750px;
     width: 10%;
 }
 
 .Inputs {
     display:block;
     float: right;
-    margin-right: 500px;
+    margin-right: 750px;
     width: 10%;
 }
 

@@ -45,11 +45,11 @@
             </p>
             <p>
                 <asp:Label runat="server" Text="Resume: " CssClass="Labels"></asp:Label>
-                <asp:FileUpload runat="server" CssClass="Buttons" ID="fileupResume"></asp:FileUpload>
+                <asp:FileUpload runat="server" CssClass="Inputs" ID="fileupResume"></asp:FileUpload>
             </p>
             <p>
                 <asp:Label runat="server" Text="Picture: " CssClass="Labels"></asp:Label>
-                <asp:FileUpload runat="server" CssClass="Buttons" ID="fileupPicture"></asp:FileUpload>
+                <asp:FileUpload runat="server" CssClass="Inputs" ID="fileupPicture"></asp:FileUpload>
             </p>
             <p>
                 <asp:Label runat="server" Text="StaffID: " CssClass="Labels" />
