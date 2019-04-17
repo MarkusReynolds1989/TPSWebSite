@@ -13,11 +13,12 @@
 
 
 ## NICE to haves:
-1. Make the front-end play nicely.
-2. Fix the tables going to the left.
+1. Make the front-end play nicely. A lot of weird errors.
+2. ~~Fix the tables going to the left.~~
 3. Make the javascript run before the server side code. We can call it from inside server code.
 4. ~~Create a method that sends an email to the manager when a staff request is made.~~
 5. Union tables so they look better, Contract only has 2 Columns.
 6. Implement Client and Manager table, associate login
 7. StaffRequest edit.
 8. Refactor classes for each kind of query.
+9. Switch the front end CSS to gridview.

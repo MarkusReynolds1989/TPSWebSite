@@ -31,7 +31,7 @@
         <br />
         <div class="w3-container w3-center">
             <p>
-                <asp:Login runat="server" ID="Login1" CssClass="w3-card-4" OnAuthenticate="Login1_Authenticate" DestinationPageUrl="~/Index.aspx" />
+                <asp:Login runat="server" ID="Login1" CssClass="w3-center w3-card-4" OnAuthenticate="Login1_Authenticate" DestinationPageUrl="~/Index.aspx" />
             </p>
         </div>
         <p>

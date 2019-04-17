@@ -22,6 +22,36 @@
             $("#header").load("addons/header.html");
             $("#footer").load("addons/footer.html");
         });
+        function doValidation() {
+            //Declare our variables for the function
+            let firstName;
+            let lastName;
+            let salary;
+            let location;
+            //regex variables to check the text
+            //consider making these global
+            //set the variables from the fields
+            firstName = $("#txtFirstName").val();
+            lastName = $("#txtLastName").val();
+            salary = $("#txtSalary").val();
+            location = $("#txtLocation").val();
+            //test to make sure all the fields are entered correctly
+            if (firstName == "" || firstName == REGEXNAME) {
+                $("#error").text("Please enter first name.");
+            }
+            else if (lastName == "" || lastName == REGEXNAME) {
+                $("#error").text("Please enter last name.");
+            }
+            else if (salary == "" || salary == REGEXCURRENCY) {
+                $("#error").text("Please enter salary.");
+            }
+            else if (location == "" || location == REGEXNAME) {
+                $("#error").text("Please enter a locaation.");
+            }
+            else {
+                return true;
+            }
+        }
     </script>
 </head>
 <body>
@@ -38,6 +68,7 @@
             <h1>Staff Member Management</h1>
 
             <h2>Add Staff</h2>
+            <asp:ScriptManager runat="server" />
             <p>
                 <asp:Label runat="server" Text="First Name: " CssClass="Labels"></asp:Label>
                 <asp:TextBox runat="server" CssClass="Inputs" ID="txtFirstName"></asp:TextBox>
@@ -68,25 +99,15 @@
                 <asp:Label runat="server" Text="Location: " CssClass="Labels"></asp:Label>
                 <asp:TextBox runat="server" CssClass="Inputs" ID="txtLocation"></asp:TextBox>
             </p>
-
+            <p>
+                <asp:Label runat="server" ID="error" CssClass="w3-red w-3 panel"></asp:Label>
+            </p>
+            <p>
                 <asp:Button runat="server" ID="btnAddStaff" Text="Add Staff Member"
-                    OnClick="AddStaff"
-                    CausesValidation="true" CssClass="Inputs"></asp:Button>
-
-
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-
-            <div class="w3-container w3-border w3-panel w3-pale-red">
-                <p>
-                    <asp:Label runat="server" ID="error"></asp:Label>
-                </p>
-            </div>
-
-            <h2>Current Staff:
+                    OnClientClick="doValidation()" OnClick="AddStaff" CssClass="Inputs" />
+            </p>
+            <h2>
+                Current Staff:
             </h2>
             <asp:GridView runat="server" ID="grdViewStaff" CssClass="w3-table-all w3-card-4" CellPadding="4" ForeColor="#333333" GridLines="Horizontal"
                 OnSelectedIndexChanged="OnSelectedIndexChanged" OnRowDeleting="OnRowDeleting" OnRowEditing="OnRowEditing"

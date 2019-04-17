@@ -29,7 +29,6 @@
     <form id="frmContracts" runat="server">
         <p>
             <asp:ImageButton ID="btnHome" runat="server" ImageUrl="images/TPS_Logo_Small.jpg" PostBackUrl="~/Index.aspx" CssClass="Logo" />
-            &nbsp;
         </p>
         <div id="Form">
             <p>
