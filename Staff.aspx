@@ -74,12 +74,10 @@
                     </script>
                     <p>
                         <asp:Label runat="server" Text="First Name: " CssClass="Labels"></asp:Label>
-                        &nbsp;
                         <asp:TextBox runat="server" CssClass="Inputs" ID="txtFirstName" Height="22px"></asp:TextBox>
                     </p>
                     <p>
                         <asp:Label runat="server" Text="Last Name: " CssClass="Labels"></asp:Label>
-                        &nbsp;
                         <asp:TextBox runat="server" CssClass="Inputs" ID="txtLastName"></asp:TextBox>
                     </p>
                     <p>
@@ -112,33 +110,35 @@
                             OnClick="AddStaff"
                             CausesValidation="true"></asp:Button>
                     </p>
-                    <p>
-                        <asp:Label runat="server" ID="error" CssClass="Error"></asp:Label>
-                    </p>
+                    <div class="w3-container w3-border w3-panel w3-pale-red">
+                        <p>
+                            <asp:Label runat="server" ID="error"></asp:Label>
+                        </p>
+                    </div>
                 </ContentTemplate>
             </asp:UpdatePanel>
             <h2>Current Staff:
             </h2>
-                    <asp:GridView runat="server" ID="grdViewStaff" CssClass="w3-table-all w3-card-4" CellPadding="4" ForeColor="#333333" GridLines="Horizontal"
-                        OnSelectedIndexChanged="OnSelectedIndexChanged" OnRowDeleting="OnRowDeleting" OnRowEditing="OnRowEditing"
-                        OnRowCancelingEdit="OnRowCancelingEdit" OnRowUpdating="OnRowUpdating">
-                        <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-                        <Columns>
-                            <asp:CommandField ButtonType="Button" ShowSelectButton="True" />
-                            <asp:CommandField ButtonType="Button" ShowEditButton="True" />
-                            <asp:CommandField ButtonType="Button" ShowDeleteButton="True" />
-                        </Columns>
-                        <EditRowStyle BackColor="#999999" />
-                        <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                        <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                        <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                        <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
-                        <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-                        <SortedAscendingCellStyle BackColor="#E9E7E2" />
-                        <SortedAscendingHeaderStyle BackColor="#506C8C" />
-                        <SortedDescendingCellStyle BackColor="#FFFDF8" />
-                        <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
-                    </asp:GridView>
+            <asp:GridView runat="server" ID="grdViewStaff" CssClass="w3-table-all w3-card-4" CellPadding="4" ForeColor="#333333" GridLines="Horizontal"
+                OnSelectedIndexChanged="OnSelectedIndexChanged" OnRowDeleting="OnRowDeleting" OnRowEditing="OnRowEditing"
+                OnRowCancelingEdit="OnRowCancelingEdit" OnRowUpdating="OnRowUpdating">
+                <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                <Columns>
+                    <asp:CommandField ButtonType="Button" ShowSelectButton="True" />
+                    <asp:CommandField ButtonType="Button" ShowEditButton="True" />
+                    <asp:CommandField ButtonType="Button" ShowDeleteButton="True" />
+                </Columns>
+                <EditRowStyle BackColor="#999999" />
+                <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+            </asp:GridView>
         </div>
     </form>
     <div id="footer"></div>

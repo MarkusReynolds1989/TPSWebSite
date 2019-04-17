@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="UserManagement.aspx.cs" Inherits="UserManagement" %>
+
 <!--UserManagement Form Code TPS Website
 //Programmed by: Markus Reynolds
 //3/31/2019
@@ -10,15 +11,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <link rel="stylesheet" type="text/css" href="CSS/main.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
     <title>User Management</title>
-    <script src ="Scripts/jquery-3.3.1.min.js"></script>
+    <script src="Scripts/jquery-3.3.1.min.js"></script>
     <script>
         //Add the header and footer bars
         $(function () {
             $("#header").load("addons/header.html");
             $("#footer").load("addons/footer.html");
         });
-        function doValidation(){
+        function doValidation() {
             //Function Scope Variables
             let userName;
             let password;
@@ -39,9 +41,9 @@
     </script>
 </head>
 <body>
-    <div id ="header"></div>
+    <div id="header"></div>
     <form id="frmUserManagement" runat="server">
-        <div id ="Main">
+        <div id="Main">
 
             <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="images/TPS_Logo_Small.jpg" PostBackUrl="~/Index.aspx" />
             <br />
@@ -61,15 +63,17 @@
                 <asp:Label ID="Label3" runat="server" Text="Access Code: "></asp:Label>
                 &nbsp;&nbsp;&nbsp;
                 <asp:DropDownList ID="DropDownList1" runat="server" CssClass="Inputs">
-                    <asp:ListItem Value ="0">Admin</asp:ListItem>
-                    <asp:ListItem Value ="1">Manager</asp:ListItem>
-                    <asp:ListItem Value ="2">Client</asp:ListItem>
+                    <asp:ListItem Value="0">Admin</asp:ListItem>
+                    <asp:ListItem Value="1">Manager</asp:ListItem>
+                    <asp:ListItem Value="2">Client</asp:ListItem>
                     <asp:ListItem Value="3">Staff</asp:ListItem>
                 </asp:DropDownList>
             </p>
-            <p>
-                <asp:Label ID="error" runat="server" CssClass="Error" />
-            </p>
+            <div class="w3-container w3-border w3-panel w3-pale-red">
+                <p>
+                    <asp:Label runat="server" ID="error"></asp:Label>
+                </p>
+            </div>
             <p>
                 <asp:Button ID="btnAddUser" runat="server" Text="Add" OnClick="OnButtonClick_AddUser" />
             </p>
@@ -78,9 +82,9 @@
         <div>
             <p>
                 <asp:GridView ID="grdViewUsers" runat="server" CssClass="w3-table-all w3-card-4" CellPadding="4" ForeColor="#333333" GridLines="None"
-                    OnSelectedIndexChanged="OnSelectedIndexChanged" OnRowDeleting="OnRowDeleting" 
+                    OnSelectedIndexChanged="OnSelectedIndexChanged" OnRowDeleting="OnRowDeleting"
                     OnRowEditing="OnRowEditing"
-                    OnRowCancelingEdit ="OnRowCancelingEdit" OnRowUpdating="OnRowUpdating">
+                    OnRowCancelingEdit="OnRowCancelingEdit" OnRowUpdating="OnRowUpdating">
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                     <Columns>
                         <asp:CommandField ShowSelectButton="True" ButtonType="Button" />
@@ -101,6 +105,6 @@
             </p>
         </div>
     </form>
-    <div id ="footer"></div>
+    <div id="footer"></div>
 </body>
 </html>

@@ -13,6 +13,7 @@
     <title>Login</title>
     <!-- Main Css Sheet -->
     <link rel="stylesheet" type="text/css" href="CSS/main.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
     <script src="Scripts/jquery-3.3.1.min.js"></script>
     <script>
         //Add the header and footer bars
@@ -25,14 +26,11 @@
 <body>
     <form id="lgn" runat="server">
         <img class="Logo" src="images/TPS_Logo_Small.jpg" />
-        &nbsp;
         <br />
         <br />
         <br />
-        <h2>Login
-        </h2>
         <p>
-            <asp:Login runat="server" ID="Login1" CssClass="Inputs" OnAuthenticate="Login1_Authenticate" DestinationPageUrl="~/Index.aspx" />
+            <asp:Login runat="server" ID="Login1" CssClass="Inputs w3-card-4" OnAuthenticate="Login1_Authenticate" DestinationPageUrl="~/Index.aspx" />
         </p>
         <p>
             <asp:Label runat="server" ID="error" CssClass="Error" />

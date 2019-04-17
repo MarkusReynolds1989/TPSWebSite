@@ -20,7 +20,7 @@ public partial class StaffPortal : System.Web.UI.Page
         }
     }
     protected void BindData(){
-        dsStaffProfile myDataSet = TPS.App_Code.clsDataLayer.AccessStaffProfile(Server.MapPath("TPS.accdb"));
+        StaffProfile myDataSet = TPS.App_Code.clsDataLayer.AccessStaffProfile(Server.MapPath("TPS.accdb"));
         //set the datagrid to datasource based on table
         grdViewStaffPortal.DataSource = myDataSet.Tables["tblStaffProfile"];
         //the datagrid

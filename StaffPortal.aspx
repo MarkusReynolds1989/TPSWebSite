@@ -1,4 +1,5 @@
 <%@ Page Language="C#" AutoEventWireup="true" CodeFile="StaffPortal.aspx.cs" Inherits="StaffPortal" %>
+
 <!--StaffPortal Form Code TPS Website
 //Programmed by: Markus Reynolds
 //3/31/2019
@@ -11,8 +12,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Staff Portal</title>
-   <link rel="stylesheet" type="text/css" href="CSS/main.css" />
-    <script src ="Scripts/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="CSS/main.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <script src="Scripts/jquery-3.3.1.min.js"></script>
     <script>
         //Add the header and footer bars
         $(function () {
@@ -34,35 +36,35 @@
             </p>
             <h1>Staff Portal</h1>
             <p>
-                <asp:Label runat="server" Text="Bio: " CssClass ="Labels"></asp:Label>
-                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                 &nbsp;<asp:TextBox runat ="server" CssClass ="Inputs" ID ="txtBio"></asp:TextBox>
+                <asp:Label runat="server" Text="Bio: " CssClass="Labels"></asp:Label>
+                <asp:TextBox runat="server" CssClass="Inputs" ID="txtBio"></asp:TextBox>
             </p>
             <p>
-                <asp:Label runat="server" Text="Availability: " CssClass ="Labels"></asp:Label>
-                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                 &nbsp;<asp:TextBox runat ="server" CssClass ="Inputs" ID ="txtAvail"></asp:TextBox>
+                <asp:Label runat="server" Text="Availability: " CssClass="Labels"></asp:Label>
+                <asp:TextBox runat="server" CssClass="Inputs" ID="txtAvail"></asp:TextBox>
             </p>
             <p>
-                <asp:Label runat="server" Text="Resume: " CssClass ="Labels"></asp:Label>
-                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:FileUpload runat ="server" CssClass ="Buttons" ID ="fileupResume"></asp:FileUpload>
+                <asp:Label runat="server" Text="Resume: " CssClass="Labels"></asp:Label>
+                <asp:FileUpload runat="server" CssClass="Buttons" ID="fileupResume"></asp:FileUpload>
             </p>
             <p>
-                <asp:Label runat="server" Text="Picture: " CssClass ="Labels"></asp:Label>
-                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:FileUpload runat ="server" CssClass ="Buttons" ID ="fileupPicture"></asp:FileUpload>
+                <asp:Label runat="server" Text="Picture: " CssClass="Labels"></asp:Label>
+                <asp:FileUpload runat="server" CssClass="Buttons" ID="fileupPicture"></asp:FileUpload>
             </p>
             <p>
-                <asp:Label runat="server" Text="StaffID: " CssClass = "Labels"/>
-                <asp:TextBox runat="server" ID="txtStaffID" CssClass="Inputs"/>
+                <asp:Label runat="server" Text="StaffID: " CssClass="Labels" />
+                <asp:TextBox runat="server" ID="txtStaffID" CssClass="Inputs" />
             </p>
             <p>
-                <asp:Button runat ="server" Text="Update" ID="btnUpdate" OnClick="btnUpdate_OnButtonClick"/>
+                <asp:Button runat="server" Text="Update" ID="btnUpdate" OnClick="btnUpdate_OnButtonClick" />
             </p>
+            <div class="w3-container w3-border w3-panel w3-pale-red">
+                <p>
+                    <asp:Label runat="server" ID="error"></asp:Label>
+                </p>
+            </div>
             <p>
-                <asp:Label runat="server" CssClass="Error" ID="error"></asp:Label>
-            </p>
-             <p>
-                <asp:GridView runat="server" ID="grdViewStaffPortal" CssClass="Grid"
+                <asp:GridView runat="server" ID="grdViewStaffPortal" CssClass="w3-table-all w3-card-4"
                     CellPadding="4" ForeColor="#333333" GridLines="None">
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                     <EditRowStyle BackColor="#999999" />
@@ -79,6 +81,6 @@
             </p>
         </div>
     </form>
-    <div id ="footer"></div>
+    <div id="footer"></div>
 </body>
 </html>

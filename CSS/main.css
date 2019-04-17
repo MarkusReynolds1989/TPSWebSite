@@ -21,18 +21,18 @@
 
 
 .Labels{
-    display: inline-block;
-    float: initial;
-    width: auto;
+    display:block;
+    float: left;
+    margin-left: 500px;
+    width: 15%;
 }
 
 .Inputs {
-    display: inline-flex;
-    float: initial;
-    padding-left: 50px;
-    border-radius: 2px;
-    width: auto;
-    }
+    display:block;
+    float: right;
+    margin-right: 500px;
+    width: 15%;
+}
 
 .Icons {
     display: block;
@@ -44,7 +44,6 @@
 
 .Buttons {
     display: inline-block;
-    float: initial;
     width: auto;
     height: auto;
 }
@@ -53,3 +52,4 @@
     color:red;
     font-size: 26px;
 }
+

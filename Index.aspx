@@ -10,6 +10,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <link rel ="stylesheet" type ="text/css" href="CSS/main.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
     <title>Index</title>
     <script src ="Scripts/jquery-3.3.1.min.js"></script>
     <script>

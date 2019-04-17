@@ -11,6 +11,7 @@
 <head runat="server">
     <title>Staffing Request</title>
     <link rel ="stylesheet" type ="text/css" href="CSS/main.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
     <script src ="Scripts/jquery-3.3.1.min.js"></script>
     <script>
         //Add the header and footer bars
@@ -70,9 +71,11 @@
             </p>
             <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="OnButtonClick_btnSearch" />
             <br />
-            <p>
-                <asp:Label ID ="error" runat="server" CssClass="Error" ></asp:Label>
-            </p>
+            <div class="w3-container w3-border w3-panel w3-pale-red">
+                        <p>
+                            <asp:Label runat="server" ID="error"></asp:Label>
+                        </p>
+                    </div>
             <h3>
                 Your Results:
             </h3>

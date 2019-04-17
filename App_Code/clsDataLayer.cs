@@ -530,17 +530,17 @@ namespace TPS.App_Code
         /* Fill Staff Profile
         //////////////////
         ////////////////*/
-        public static dsStaffProfile AccessStaffProfile(string Database)
+        public static StaffProfile AccessStaffProfile(string Database)
         {
-            dsStaffProfile DS;
-            //Call Objects
+            StaffProfile DS;
+            //Call Objectshg
             OleDbConnection sqlConn;
             OleDbDataAdapter sqlDA;
             //Methods for connection, query
             sqlConn = new OleDbConnection("PROVIDER = Microsoft.ACE.OLEDB.12.0;" + "Data Source =" + Database);
             sqlDA = new OleDbDataAdapter("select * from tblStaffProfile", sqlConn);
             //datastream class
-            DS = new dsStaffRequest();
+            DS = new StaffProfile();
             //fill table
             sqlDA.Fill(DS.tblStaffProfile);
             return DS;
