@@ -4,6 +4,7 @@
 //Open source avaiable under GNU License
 //A GNU License should be included in the documentation for this code but you can also find it online
 using System;
+using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -28,7 +29,6 @@ public partial class Staff : System.Web.UI.Page
         grdViewStaff.DataBind();
     }
 
-    [WebMethod]
     protected void AddStaff(object sender, EventArgs e)
     {
         try{

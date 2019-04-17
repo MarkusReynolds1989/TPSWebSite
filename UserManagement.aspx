@@ -67,11 +67,9 @@
                     <asp:ListItem Value="3">Staff</asp:ListItem>
                 </asp:DropDownList>
             </p>
-            <div class="w3-container w3-border w3-panel w3-pale-red">
-                <p>
-                    <asp:Label runat="server" ID="error"></asp:Label>
-                </p>
-            </div>
+            <p>
+                <asp:Label runat="server" ID="error" CssClass="Error" />
+            </p>
             <p>
                 <asp:Button ID="btnAddUser" runat="server" Text="Add" OnClick="OnButtonClick_AddUser" />
             </p>

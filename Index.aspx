@@ -29,28 +29,40 @@
     <form id="frmIndex" runat="server">
         <div id="Main">
             <asp:ImageButton ID="btnHome" runat="server" ImageUrl="images/TPS_Logo_Small.jpg" PostBackUrl="~/Index.aspx" CssClass="Logo" />
-            <br/>
-            <header class="w3-container"><h1>Navigation</h1></header>
+            <br />
+            <header class="w3-container">
+                <h1>Navigation</h1>
+            </header>
             <div class="w3-container">
-                    <header class="w3-container"><h3>User Management</h3></header>
-                    <asp:ImageButton ID="btnUser" runat="server" ImageUrl="~/images/user.png" CssClass="Icons  w3-card-4" PostBackUrl="~/UserManagement.aspx" Visible="False" />
+                <header class="w3-container">
+                    <h3>User Management</h3>
+                </header>
+                <asp:ImageButton ID="btnUser" runat="server" ImageUrl="~/images/user.png" CssClass="Icons  w3-card-4" PostBackUrl="~/UserManagement.aspx" Visible="False" />
             </div>
             <div class="w3-container">
-                    <header class="w3-container"><h3>Staff Management</h3></header>
-                    <asp:ImageButton ID="btnStaff" runat="server" CssClass="Icons w3-card-4" ImageUrl="~/images/staff.jpg" PostBackUrl="~/Staff.aspx" Visible="False" />
+                <header class="w3-container">
+                    <h3>Staff Management</h3>
+                </header>
+                <asp:ImageButton ID="btnStaff" runat="server" CssClass="Icons w3-card-4" ImageUrl="~/images/staff.jpg" PostBackUrl="~/Staff.aspx" Visible="False" />
             </div>
             <div class="w3-container">
-                <header class="w3-container"><h3>Contract Management</h3></header>
-                    <asp:ImageButton ID="btnContracts" runat="server" CssClass="Icons  w3-card-4" ImageUrl="~/images/contract.png" PostBackUrl="~/Contracts.aspx" Visible="False" />
+                <header class="w3-container">
+                    <h3>Contract Management</h3>
+                </header>
+                <asp:ImageButton ID="btnContracts" runat="server" CssClass="Icons  w3-card-4" ImageUrl="~/images/contract.png" PostBackUrl="~/Contracts.aspx" Visible="False" />
             </div>
             <div class="w3-container">
-                    <header class="w3-container"><h3>Staff Requests</h3></header>
-                    <asp:ImageButton ID="btnStaffRequest" runat="server" CssClass="Icons  w3-card-4" ImageUrl="~/images/staffingrequest.jpg" PostBackUrl="~/StaffRequest.aspx" Visible="False" />
+                <header class="w3-container">
+                    <h3>Staff Requests</h3>
+                </header>
+                <asp:ImageButton ID="btnStaffRequest" runat="server" CssClass="Icons  w3-card-4" ImageUrl="~/images/staffingrequest.jpg" PostBackUrl="~/StaffRequest.aspx" Visible="False" />
             </div>
 
             <div class="w3-container">
-                    <header class="w3-container"><h3>Staff Portal</h3></header>
-                    <asp:ImageButton ID="btnStaffPortal" runat="server" CssClass="Icons  w3-card-4" ImageUrl="~/images/staffportal.jpg" PostBackUrl="~/StaffPortal.aspx" />
+                <header class="w3-container">
+                    <h3>Staff Portal</h3>
+                </header>
+                <asp:ImageButton ID="btnStaffPortal" runat="server" CssClass="Icons  w3-card-4" ImageUrl="~/images/staffportal.jpg" PostBackUrl="~/StaffPortal.aspx" />
             </div>
         </div>
     </form>

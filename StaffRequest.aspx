@@ -78,11 +78,9 @@
             <br />
             <br />
             <br />
-            <div class="w3-container w3-border w3-panel w3-pale-red">
-                <p>
-                    <asp:Label runat="server" ID="error"></asp:Label>
-                </p>
-            </div>
+            <p>
+                <asp:Label runat="server" ID="error" CssClass="Error" />
+            </p>
             <h3>Your Results:
             </h3>
             <p>

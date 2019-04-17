@@ -58,11 +58,9 @@
             <p>
                 <asp:Button runat="server" Text="Update" ID="btnUpdate" OnClick="btnUpdate_OnButtonClick" />
             </p>
-            <div class="w3-container w3-border w3-panel w3-pale-red">
-                <p>
-                    <asp:Label runat="server" ID="error"></asp:Label>
-                </p>
-            </div>
+            <p>
+                <asp:Label runat="server" ID="error" CssClass="Error" />
+            </p>
             <p>
                 <asp:GridView runat="server" ID="grdViewStaffPortal" CssClass="w3-table-all w3-card-4"
                     CellPadding="4" ForeColor="#333333" GridLines="None">

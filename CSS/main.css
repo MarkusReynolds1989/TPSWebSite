@@ -20,20 +20,15 @@
 }
 
 
-.Labels{
-    display:block;
-    float: left;
-    margin-left: 500px;
-    padding-bottom: 100px;
-    width: 15%;
+.Labels {
+    display: inline-block;
+    width: 10%;
+    text-align: right;
 }
 
 .Inputs {
-    display:block;
-    float: right;
-    margin-right: 500px;
-    padding-bottom: 100px;
-    width: 15%;
+    display: inline-block;
+    width: 10%;
 }
 
 .Icons {
@@ -45,6 +40,11 @@
     display: inline-block;
     width: auto;
     height: auto;
+}
+
+.Error {
+    color: red;
+    font-weight:600;
 }
 
 
