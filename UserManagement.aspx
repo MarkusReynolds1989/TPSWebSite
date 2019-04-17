@@ -47,21 +47,19 @@
 
             <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="images/TPS_Logo_Small.jpg" PostBackUrl="~/Index.aspx" />
             <br />
-            &nbsp;<img src="images/user.png" height="50" style="height: 86px; width: 92px" />
+            <img src="images/user.png" height="50" style="height: 86px; width: 92px" />
             <h1>User Management</h1>
             <h3>Add User</h3>
             <p>
                 <asp:Label ID="Label1" runat="server" Text="Name:" CssClass="Labels"></asp:Label>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:TextBox ID="txtUserName" runat="server" CssClass="Inputs"></asp:TextBox>
             </p>
             <p>
-                &nbsp;<asp:Label ID="Label2" runat="server" CssClass="Labels" Text="Password: "></asp:Label>
-                &nbsp;<asp:TextBox ID="txtPassword" runat="server" TextMode="Password" CssClass="Inputs"></asp:TextBox>
+                <asp:Label ID="Label2" runat="server" CssClass="Labels" Text="Password: "></asp:Label>
+                <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" CssClass="Inputs"></asp:TextBox>
             </p>
             <p>
-                <asp:Label ID="Label3" runat="server" Text="Access Code: "></asp:Label>
-                &nbsp;&nbsp;&nbsp;
+                <asp:Label ID="Label3" runat="server" CssClass="Labels" Text="Access Code: "></asp:Label>
                 <asp:DropDownList ID="DropDownList1" runat="server" CssClass="Inputs">
                     <asp:ListItem Value="0">Admin</asp:ListItem>
                     <asp:ListItem Value="1">Manager</asp:ListItem>

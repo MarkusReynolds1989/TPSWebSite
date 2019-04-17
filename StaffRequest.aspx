@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="StaffRequest.aspx.cs" Inherits="StaffRequest" %>
+
 <!--StaffRequest Form Code TPS Website
 //Programmed by: Markus Reynolds
 //3/31/2019
@@ -10,9 +11,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Staffing Request</title>
-    <link rel ="stylesheet" type ="text/css" href="CSS/main.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/main.css" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
-    <script src ="Scripts/jquery-3.3.1.min.js"></script>
+    <script src="Scripts/jquery-3.3.1.min.js"></script>
     <script>
         //Add the header and footer bars
         $(function () {
@@ -45,39 +46,44 @@
     </script>
 </head>
 <body>
-    <div id ="header"></div>
+    <div id="header"></div>
     <form id="form1" runat="server">
         <div>
             <asp:ImageButton ID="btnHome" runat="server" ImageUrl="images/TPS_Logo_Small.jpg" PostBackUrl="~/Index.aspx" CssClass="Logo" />
-&nbsp;<br />
-            <img src ="images/staffingrequest.jpg" class="Icons" />
+            &nbsp;<br />
+            <img src="images/staffingrequest.jpg" class="Icons" />
             <br />
             <h1>Staffing Request</h1>
             <p>
-                <asp:Label ID="Label2" runat="server" Text="Experience:" CssClass ="Labels"></asp:Label>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="txtExperience" runat="server" CssClass ="Inputs"></asp:TextBox>
+                <asp:Label ID="Label2" runat="server" Text="Experience:" CssClass="Labels"></asp:Label>
+                <asp:TextBox ID="txtExperience" runat="server" CssClass="Inputs"></asp:TextBox>
             </p>
             <p>
-                <asp:Label ID="Label3" runat="server" Text="Education:" CssClass ="Labels"></asp:Label>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="txtEducation" runat="server" CssClass ="Inputs"></asp:TextBox>
+                <asp:Label ID="Label3" runat="server" Text="Education:" CssClass="Labels"></asp:Label>
+                <asp:TextBox ID="txtEducation" runat="server" CssClass="Inputs"></asp:TextBox>
             </p>
             <p>
-                <asp:Label ID="Label4" runat="server" Text="Salary:" CssClass ="Labels"></asp:Label>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="txtSalary" runat="server" CssClass ="Inputs"></asp:TextBox>
+                <asp:Label ID="Label4" runat="server" Text="Salary:" CssClass="Labels"></asp:Label>
+                <asp:TextBox ID="txtSalary" runat="server" CssClass="Inputs"></asp:TextBox>
             </p>
             <p>
-                <asp:Label ID="Label1" runat="server" Text="Location:" CssClass ="Labels"></asp:Label>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="txtLocation" runat="server" CssClass ="Inputs"></asp:TextBox>
+                <asp:Label ID="Label1" runat="server" Text="Location:" CssClass="Labels"></asp:Label>
+                <asp:TextBox ID="txtLocation" runat="server" CssClass="Inputs"></asp:TextBox>
             </p>
+
             <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="OnButtonClick_btnSearch" />
+
+            <br />
+            <br />
+            <br />
+            <br />
             <br />
             <div class="w3-container w3-border w3-panel w3-pale-red">
-                        <p>
-                            <asp:Label runat="server" ID="error"></asp:Label>
-                        </p>
-                    </div>
-            <h3>
-                Your Results:
+                <p>
+                    <asp:Label runat="server" ID="error"></asp:Label>
+                </p>
+            </div>
+            <h3>Your Results:
             </h3>
             <p>
                 <asp:GridView runat="server" ID="grdViewSearch" CssClass="w3-table-all w3-card-4" OnSelectedIndexChanged="OnSelectedIndexChanged"
@@ -99,8 +105,7 @@
                     <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                 </asp:GridView>
             </p>
-            <h3>
-                Your Request:
+            <h3>Your Request:
             </h3>
             <p>
                 <asp:GridView runat="server" ID="grdViewRequest" CssClass="w3-table-all w3-card-4" CellPadding="4" ForeColor="#333333" GridLines="None">
@@ -116,12 +121,12 @@
                     <SortedDescendingCellStyle BackColor="#FFFDF8" />
                     <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                 </asp:GridView>
-           </p>
+            </p>
             <p>
-                <asp:Button ID ="btnAdd" runat ="server" Text="Add Staff Request" OnClick="OnButtonClick_AddStaffRequest" />
+                <asp:Button ID="btnAdd" runat="server" Text="Add Staff Request" OnClick="OnButtonClick_AddStaffRequest" />
             </p>
         </div>
     </form>
-    <div id ="footer"></div>
+    <div id="footer"></div>
 </body>
 </html>

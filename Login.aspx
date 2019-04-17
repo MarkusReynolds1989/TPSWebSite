@@ -29,9 +29,11 @@
         <br />
         <br />
         <br />
-        <p>
-            <asp:Login runat="server" ID="Login1" CssClass="Inputs w3-card-4" OnAuthenticate="Login1_Authenticate" DestinationPageUrl="~/Index.aspx" />
-        </p>
+        <div class="w3-container w3-center">
+            <p>
+                <asp:Login runat="server" ID="Login1" CssClass="w3-card-4" OnAuthenticate="Login1_Authenticate" DestinationPageUrl="~/Index.aspx" />
+            </p>
+        </div>
         <p>
             <asp:Label runat="server" ID="error" CssClass="Error" />
         </p>

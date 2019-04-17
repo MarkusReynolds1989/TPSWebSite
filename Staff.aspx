@@ -30,93 +30,62 @@
         <div id="Form">
             <p>
                 <asp:ImageButton ID="imgHome" runat="server" ImageUrl="images/TPS_Logo_Small.jpg" PostBackUrl="~/Index.aspx" CssClass="Logo" />
-                &nbsp;
             </p>
             <p>
                 <img src="images/staff.jpg" class="Icons" />
             </p>
-            <h1>Staff</h1>
+
+            <h1>Staff Member Management</h1>
+
             <h2>Add Staff</h2>
-            <asp:ScriptManager ID="MainScriptManager" runat="server" EnablePageMethods="true" />
-            <asp:UpdatePanel ID="pnlStaff" runat="server">
-                <ContentTemplate>
-                    <script>
-                        function doValidation() {
-                            //Declare our variables for the function
-                            let firstName;
-                            let lastName;
-                            let salary;
-                            let location;
-                            //regex variables to check the text
-                            //consider making these global
-                            //set the variables from the fields
-                            firstName = $("#txtFirstName").val();
-                            lastName = $("#txtLastName").val();
-                            salary = $("#txtSalary").val();
-                            location = $("#txtLocation").val();
-                            //test to make sure all the fields are entered correctly
-                            if (firstName == "" || firstName == REGEXNAME) {
-                                $("#error").text("Please enter first name.");
-                            }
-                            else if (lastName == "" || lastName == REGEXNAME) {
-                                $("#error").text("Please enter last name.");
-                            }
-                            else if (salary == "" || salary == REGEXCURRENCY) {
-                                $("#error").text("Please enter salary.");
-                            }
-                            else if (location == "" || location == REGEXNAME) {
-                                $("#error").text("Please enter a locaation.");
-                            }
-                            else {
-                                PageMethods.AddStaff;
-                            }
-                        }
-                    </script>
-                    <p>
-                        <asp:Label runat="server" Text="First Name: " CssClass="Labels"></asp:Label>
-                        <asp:TextBox runat="server" CssClass="Inputs" ID="txtFirstName" Height="22px"></asp:TextBox>
-                    </p>
-                    <p>
-                        <asp:Label runat="server" Text="Last Name: " CssClass="Labels"></asp:Label>
-                        <asp:TextBox runat="server" CssClass="Inputs" ID="txtLastName"></asp:TextBox>
-                    </p>
-                    <p>
-                        <asp:Label runat="server" Text="Education Level: " CssClass="Labels"></asp:Label>
-                        <asp:DropDownList runat="server" CssClass="Inputs" ID="drpEduLevel">
-                            <asp:ListItem Value="High School">High School</asp:ListItem>
-                            <asp:ListItem Value="Bachelor">Bachelor</asp:ListItem>
-                            <asp:ListItem Value="Masters">Masters</asp:ListItem>
-                            <asp:ListItem Value="Doctorate">Doctorate</asp:ListItem>
-                            <asp:ListItem Value="Some College">Some College</asp:ListItem>
-                        </asp:DropDownList>
-                    </p>
-                    <p>
-                        <asp:Label runat="server" Text="Experience: " CssClass="Labels"></asp:Label>
+            <p>
+                <asp:Label runat="server" Text="First Name: " CssClass="Labels"></asp:Label>
+                <asp:TextBox runat="server" CssClass="Inputs" ID="txtFirstName"></asp:TextBox>
+            </p>
+            <p>
+                <asp:Label runat="server" Text="Last Name: " CssClass="Labels"></asp:Label>
+                <asp:TextBox runat="server" CssClass="Inputs" ID="txtLastName"></asp:TextBox>
+            </p>
+            <p>
+                <asp:Label runat="server" Text="Education Level: " CssClass="Labels"></asp:Label>
+                <asp:DropDownList runat="server" CssClass="Inputs" ID="drpEduLevel">
+                    <asp:ListItem Value="High School">High School</asp:ListItem>
+                    <asp:ListItem Value="Bachelor">Bachelor</asp:ListItem>
+                    <asp:ListItem Value="Masters">Masters</asp:ListItem>
+                    <asp:ListItem Value="Doctorate">Doctorate</asp:ListItem>
+                    <asp:ListItem Value="Some College">Some College</asp:ListItem>
+                </asp:DropDownList>
+            </p>
+            <p>
+                <asp:Label runat="server" Text="Experience: " CssClass="Labels"></asp:Label>
+                <asp:TextBox runat="server" CssClass="Inputs" ID="txtExperience"></asp:TextBox>
+            </p>
+            <p>
+                <asp:Label runat="server" Text="Salary: " CssClass="Labels"></asp:Label>
+                <asp:TextBox runat="server" CssClass="Inputs" ID="txtSalary"></asp:TextBox>
+            </p>
+            <p>
+                <asp:Label runat="server" Text="Location: " CssClass="Labels"></asp:Label>
+                <asp:TextBox runat="server" CssClass="Inputs" ID="txtLocation"></asp:TextBox>
+            </p>
 
-                        <asp:TextBox runat="server" CssClass="Inputs" ID="txtExperience"></asp:TextBox>
-                    </p>
-                    <p>
-                        <asp:Label runat="server" Text="Salary: " CssClass="Labels"></asp:Label>
+                <asp:Button runat="server" ID="btnAddStaff" Text="Add Staff Member"
+                    OnClick="AddStaff"
+                    CausesValidation="true" CssClass="Inputs"></asp:Button>
 
-                        <asp:TextBox runat="server" CssClass="Inputs" ID="txtSalary"></asp:TextBox>
-                    </p>
-                    <p>
-                        <asp:Label runat="server" Text="Location: " CssClass="Labels"></asp:Label>
 
-                        <asp:TextBox runat="server" CssClass="Inputs" ID="txtLocation"></asp:TextBox>
-                    </p>
-                    <p>
-                        <asp:Button runat="server" ID="btnAddStaff" Text="Add Staff Member"
-                            OnClick="AddStaff"
-                            CausesValidation="true"></asp:Button>
-                    </p>
-                    <div class="w3-container w3-border w3-panel w3-pale-red">
-                        <p>
-                            <asp:Label runat="server" ID="error"></asp:Label>
-                        </p>
-                    </div>
-                </ContentTemplate>
-            </asp:UpdatePanel>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+
+            <div class="w3-container w3-border w3-panel w3-pale-red">
+                <p>
+                    <asp:Label runat="server" ID="error"></asp:Label>
+                </p>
+            </div>
+
             <h2>Current Staff:
             </h2>
             <asp:GridView runat="server" ID="grdViewStaff" CssClass="w3-table-all w3-card-4" CellPadding="4" ForeColor="#333333" GridLines="Horizontal"

@@ -23,15 +23,15 @@
 .Labels{
     display:block;
     float: left;
-    margin-left: 750px;
-    width: 10%;
+    margin-left: 500px;
+    width: 15%;
 }
 
 .Inputs {
     display:block;
     float: right;
-    margin-right: 750px;
-    width: 10%;
+    margin-right: 500px;
+    width: 15%;
 }
 
 .Icons {
