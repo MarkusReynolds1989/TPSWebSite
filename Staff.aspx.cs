@@ -28,8 +28,7 @@ public partial class Staff : System.Web.UI.Page
         grdViewStaff.DataBind();
     }
 
-    [System.Web.Services.WebMethod()]
-    [System.Web.Script.Services.ScriptMethod()]
+    [WebMethod]
     protected void AddStaff(object sender, EventArgs e)
     {
         try{
