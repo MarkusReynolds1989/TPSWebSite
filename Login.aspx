@@ -25,15 +25,11 @@
 </head>
 <body>
     <form id="lgn" runat="server">
-        <img class="Logo" src="images/TPS_Logo_Small.jpg" />
+        <img class="Logo w3-card-4" src="images/TPS_Logo_Small.jpg" />
         <br />
         <br />
         <br />
-        <div class="w3-container w3-center">
-            <p>
-                <asp:Login runat="server" ID="Login1" CssClass="w3-center w3-card-4" OnAuthenticate="Login1_Authenticate" DestinationPageUrl="~/Index.aspx" />
-            </p>
-        </div>
+        <asp:Login runat="server" ID="Login1" CssClass="w3-content w3-card-4" OnAuthenticate="Login1_Authenticate" DestinationPageUrl="~/Index.aspx" />
         <p>
             <asp:Label runat="server" ID="error" CssClass="Error" />
         </p>

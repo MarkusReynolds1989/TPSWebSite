@@ -13,7 +13,7 @@
 
 
 ## NICE to haves:
-1. Make the front-end play nicely. A lot of weird errors.
+1. ~~Make the front-end play nicely. A lot of weird errors.~~
 2. ~~Fix the tables going to the left.~~
 3. Make the javascript run before the server side code. We can call it from inside server code.
 4. ~~Create a method that sends an email to the manager when a staff request is made.~~
@@ -22,3 +22,5 @@
 7. StaffRequest edit.
 8. Refactor classes for each kind of query.
 9. Switch the front end CSS to gridview.
+10. Error: UserManagement adds a blank user.
+11. Fix password Javascript.

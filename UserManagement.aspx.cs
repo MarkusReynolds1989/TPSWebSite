@@ -27,17 +27,29 @@ public partial class UserManagement : System.Web.UI.Page
         //the datagrid
         grdViewUsers.DataBind();
     }
+
     protected void OnButtonClick_AddUser(object sender, EventArgs e)
     {
-        string UserName = txtUserName.Text;
-        string Password = txtPassword.Text;
-        string SecurityLevel = DropDownList1.SelectedValue;
-        if (TPS.App_Code.clsDataLayer.SaveUser(Server.MapPath("TPS.accdb"), UserName, Password, SecurityLevel))
+        try
         {
-            error.Text = "Successfully added user";
-            BindData();
+            string UserName = txtUserName.Text;
+            string Password = txtPassword.Text;
+            string SecurityLevel = DropDownList1.SelectedValue;
+            if (UserName != null || UserName.Trim() != "" && Password != null || Password.Trim() != "")
+            {
+                if (TPS.App_Code.clsDataLayer.SaveUser(Server.MapPath("TPS.accdb"), UserName, Password, SecurityLevel))
+                {
+                    error.Text = "Successfully added user";
+                    BindData();
+                }
+            }
+            else
+            {
+                error.Text = "Plese fill out all fields";
+            }
         }
-        else
+
+        catch (NullReferenceException)
         {
             error.Text = "Plese fill out all fields";
         }

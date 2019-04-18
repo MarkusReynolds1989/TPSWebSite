@@ -22,10 +22,12 @@
             $("#header").load("addons/header.html");
             $("#footer").load("addons/footer.html");
         });
+
         function doValidation() {
             //Declare our variables for the function
             let firstName;
             let lastName;
+            let experience;
             let salary;
             let location;
             //regex variables to check the text
@@ -33,30 +35,32 @@
             //set the variables from the fields
             firstName = $("#txtFirstName").val();
             lastName = $("#txtLastName").val();
+            experience = $("#txtExperience").val();
             salary = $("#txtSalary").val();
             location = $("#txtLocation").val();
             //test to make sure all the fields are entered correctly
             if (firstName == "" || firstName == REGEXNAME) {
                 $("#error").text("Please enter first name.");
+                return false;
             }
             else if (lastName == "" || lastName == REGEXNAME) {
                 $("#error").text("Please enter last name.");
+                return false;
+            }
+            else if (experience == "" || experience == REGEXCURRENCY) {
+                $("#error").text("Please enter experience.");
+                return false;
             }
             else if (salary == "" || salary == REGEXCURRENCY) {
                 $("#error").text("Please enter salary.");
+                return false;
             }
             else if (location == "" || location == REGEXNAME) {
-                $("#error").text("Please enter a locaation.");
+                $("#error").text("Please enter a location.");
+                return false;
             }
             else {
-                //ajax
-                $.ajax({
-                    type: "POST",
-                    url: 'Staff.aspx.cs/AddStaff',
-                    data: "",
-                    contentType: "application/json,
-                    dataType: "json"
-                });
+                return true;
             }
         }
     </script>
@@ -113,7 +117,7 @@
             <br />
             <p>
                 <asp:Button runat="server" ID="btnAddStaff" Text="Add Staff Member"
-                    OnClientClick="doValidation()" CssClass="Inputs" />
+                    OnClientClick="if(doValidation()){return true} else{return false}" CssClass="Inputs" OnClick="AddStaff"/>
             </p>
             <h2>Current Staff:
             </h2>

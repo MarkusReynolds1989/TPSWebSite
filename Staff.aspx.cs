@@ -39,8 +39,9 @@ public partial class Staff : System.Web.UI.Page
             string EduLevel = drpEduLevel.SelectedValue;
             string Experience = txtExperience.Text;
             string Salary = txtSalary.Text;
+            string Location = txtLocation.Text;
             //savestaff is a boolean to make sure our query is good
-            if (TPS.App_Code.clsDataLayer.SaveStaff(Server.MapPath("TPS.accdb"), FirstName, LastName, EduLevel, Experience, Salary))
+            if (TPS.App_Code.clsDataLayer.SaveStaff(Server.MapPath("TPS.accdb"), FirstName, LastName, EduLevel, Experience, Salary, Location))
             {
                 error.Text = "Successfully added staff member.";
                 BindData();

@@ -90,7 +90,7 @@ namespace TPS.App_Code
         /*Add staff member Staff Only
         ////////////////////
         ///////////////////*/
-        public static bool SaveStaff(string Database, string FirstName, string LastName, string EduLevel, string Experience, string Salary)
+        public static bool SaveStaff(string Database, string FirstName, string LastName, string EduLevel, string Experience, string Salary,string Location)
         {
             bool recordSaved;
             OleDbTransaction myTransaction = null;
@@ -103,10 +103,10 @@ namespace TPS.App_Code
                 string strSQL;
                 myTransaction = conn.BeginTransaction();
                 command.Transaction = myTransaction;
-                strSQL = "Insert into tblStaffMember (FirstName ,LastName ,EduLevel,Experience,Salary) "
+                strSQL = "Insert into tblStaffMember (FirstName ,LastName ,EduLevel,Experience,Salary,Location) "
                     + "values ('" + FirstName + "','"
                     + LastName + "','"
-                    + EduLevel + "','" + Experience + "','" + Salary + "' ) ";
+                    + EduLevel + "','" + Experience + "','" + Salary + "','" + Location + "' ) ";
                 command.CommandType = CommandType.Text;
                 command.CommandText = strSQL;
                 command.ExecuteNonQuery();

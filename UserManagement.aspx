@@ -20,22 +20,26 @@
             $("#header").load("addons/header.html");
             $("#footer").load("addons/footer.html");
         });
+
         function doValidation() {
             //Function Scope Variables
             let userName;
             let password;
             //Assignment
-            firstName = $("#txtUserName").val();
+            userName = $("#txtUserName").val();
             password = $("#txtPassword").val();
             //Test
-            if (firstName == "" || REGEXNAME) {
-                $("#error").text = "Please input a user name";
+            if (userName == "" || userName == REGEXNAME) {
+                $("#error").text("Please input a user name");
+                return false;
             }
             else if (password == "") {
-                $("#error").text = "Please input a password";
+                $("#error").text("Please input a password");
+                return false;
             }
             else {
-                $("#error").text = ""
+                $("#error").text("");
+                return true;
             }
         }
     </script>
@@ -71,13 +75,16 @@
                 <asp:Label runat="server" ID="error" CssClass="Error" />
             </p>
             <p>
-                <asp:Button ID="btnAddUser" runat="server" Text="Add" OnClick="OnButtonClick_AddUser" />
+                <asp:Button ID="btnAddUser" runat="server" Text="Add" 
+                    OnClientClick="if(doValidation()){return true} else{return false}"
+                    OnClick="OnButtonClick_AddUser" />
             </p>
             <h3>Current Users:</h3>
         </div>
         <div>
             <p>
-                <asp:GridView ID="grdViewUsers" runat="server" CssClass="w3-table-all w3-card-4" CellPadding="4" ForeColor="#333333" GridLines="None"
+                <asp:GridView ID="grdViewUsers" runat="server" CssClass="w3-table-all w3-card-4" CellPadding="4" 
+                    ForeColor="#333333" GridLines="None"
                     OnSelectedIndexChanged="OnSelectedIndexChanged" OnRowDeleting="OnRowDeleting"
                     OnRowEditing="OnRowEditing"
                     OnRowCancelingEdit="OnRowCancelingEdit" OnRowUpdating="OnRowUpdating">
