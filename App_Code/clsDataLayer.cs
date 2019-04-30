@@ -32,7 +32,7 @@ namespace TPS.App_Code
             SqlTransaction myTransaction = null;
             try
             {
-                SqlConnection conn = new SqlConnection("PROVIDER=Microsoft.ACE.OLEDB.12.0;" +
+                SqlConnection conn = new SqlConnection(
                     "Data Source=" + Database);
                 conn.Open();
                 SqlCommand command = conn.CreateCommand();
@@ -66,7 +66,7 @@ namespace TPS.App_Code
             SqlTransaction myTransaction = null;
             try
             {
-                SqlConnection conn = new SqlConnection("PROVIDER=Microsoft.ACE.OLEDB.12.0;" +
+                SqlConnection conn = new SqlConnection(
                     "Data Source=" + Database);
                 conn.Open();
                 SqlCommand command = conn.CreateCommand();
@@ -99,7 +99,7 @@ namespace TPS.App_Code
             SqlTransaction myTransaction = null;
             try
             {
-                SqlConnection conn = new SqlConnection("PROVIDER=Microsoft.ACE.OLEDB.12.0;" +
+                SqlConnection conn = new SqlConnection(
                     "Data Source=" + Database);
                 conn.Open();
                 SqlCommand command = conn.CreateCommand();
@@ -134,7 +134,7 @@ namespace TPS.App_Code
             SqlTransaction myTransaction = null;
             try
             {
-                SqlConnection conn = new SqlConnection("PROVIDER=Microsoft.ACE.OLEDB.12.0;" +
+                SqlConnection conn = new SqlConnection(
                     "Data Source=" + Database);
                 conn.Open();
                 SqlCommand command = conn.CreateCommand();
@@ -169,7 +169,7 @@ namespace TPS.App_Code
             SqlTransaction myTransaction = null;
             try
             {
-                SqlConnection conn = new SqlConnection("PROVIDER=Microsoft.ACE.OLEDB.12.0;" +
+                SqlConnection conn = new SqlConnection(
                     "Data Source=" + Database);
                 conn.Open();
                 SqlCommand command = conn.CreateCommand();
@@ -209,7 +209,7 @@ namespace TPS.App_Code
             SqlTransaction myTransaction = null;
             try
             {
-                SqlConnection conn = new SqlConnection("PROVIDER=Microsoft.ACE.OLEDB.12.0;" +
+                SqlConnection conn = new SqlConnection(
                     "Data Source=" + Database);
                 conn.Open();
                 SqlCommand command = conn.CreateCommand();
@@ -242,7 +242,7 @@ namespace TPS.App_Code
             SqlTransaction myTransaction = null;
             try
             {
-                SqlConnection conn = new SqlConnection("PROVIDER=Microsoft.ACE.OLEDB.12.0;" +
+                SqlConnection conn = new SqlConnection(
                     "Data Source=" + Database);
                 conn.Open();
                 SqlCommand command = conn.CreateCommand();
@@ -275,7 +275,7 @@ namespace TPS.App_Code
             SqlTransaction myTransaction = null;
             try
             {
-                SqlConnection conn = new SqlConnection("PROVIDER=Microsoft.ACE.OLEDB.12.0;" +
+                SqlConnection conn = new SqlConnection(
                     "Data Source=" + Database);
                 conn.Open();
                 SqlCommand command = conn.CreateCommand();
@@ -308,7 +308,7 @@ namespace TPS.App_Code
             SqlTransaction myTransaction = null;
             try
             {
-                SqlConnection conn = new SqlConnection("PROVIDER=Microsoft.ACE.OLEDB.12.0;" +
+                SqlConnection conn = new SqlConnection(
                     "Data Source=" + Database);
                 conn.Open();
                 SqlCommand command = conn.CreateCommand();
@@ -345,7 +345,7 @@ namespace TPS.App_Code
             SqlTransaction myTransaction = null;
             try
             {
-                SqlConnection conn = new SqlConnection("PROVIDER=Microsoft.ACE.OLEDB.12.0;" +
+                SqlConnection conn = new SqlConnection(
                     "Data Source=" + Database);
                 conn.Open();
                 SqlCommand command = conn.CreateCommand();
@@ -374,13 +374,13 @@ namespace TPS.App_Code
         /*Update User///////
         ////////////////////
         ///////////////////*/
-        public static bool UpdateUser(string Database, string UserId, string UserName, string UserPassword, string SecurityLevel)
+        public static bool UpdateUser(string Database, string UserId, string UserName, string UserPassword, int SecurityLevel)
         {
             bool recordSaved;
             SqlTransaction myTransaction = null;
             try
             {
-                SqlConnection conn = new SqlConnection("PROVIDER=Microsoft.ACE.OLEDB.12.0;" +
+                SqlConnection conn = new SqlConnection(
                     "Data Source=" + Database);
                 conn.Open();
                 SqlCommand command = conn.CreateCommand();
@@ -425,7 +425,7 @@ namespace TPS.App_Code
             SqlConnection sqlConn;
             SqlDataAdapter sqlDA;
             //we use the methods to create messages and connect to the database
-            sqlConn = new SqlConnection("PROVIDER = Microsoft.ACE.OLEDB.12.0;" + "Data Source =" + Database);
+            sqlConn = new SqlConnection("Data Source =" + Database);
             sqlDA = new SqlDataAdapter("select * from tblStaffMember", sqlConn); //How can we display salary as $
             //new object of the DS class
             DS = new dsStaff();
@@ -444,7 +444,7 @@ namespace TPS.App_Code
             SqlConnection sqlConn;
             SqlDataAdapter sqlDA;
             //we use the methods to create messages and connect to the database
-            sqlConn = new SqlConnection("PROVIDER = Microsoft.ACE.OLEDB.12.0;" + "Data Source =" + Database);
+            sqlConn = new SqlConnection("Data Source =" + Database);
             sqlDA = new SqlDataAdapter("select * from tblContract", sqlConn); //How can we display salary as $
             //new object of the DS class
             DS = new dsContracts();
@@ -463,7 +463,7 @@ namespace TPS.App_Code
             SqlConnection sqlConn;
             SqlDataAdapter sqlDA;
             //Methods for connection, query
-            sqlConn = new SqlConnection("PROVIDER = Microsoft.ACE.OLEDB.12.0;" + "Data Source =" + Database);
+            sqlConn = new SqlConnection("Data Source =" + Database);
             sqlDA = new SqlDataAdapter("select * from tblManager", sqlConn);
             //datastream class 
             DS = new dsManager();
@@ -520,7 +520,7 @@ namespace TPS.App_Code
             SqlConnection sqlConn;
             SqlDataAdapter sqlDA;
             //Methods for connection, query
-            sqlConn = new SqlConnection("PROVIDER = Microsoft.ACE.OLEDB.12.0;" + "Data Source =" + Database);
+            sqlConn = new SqlConnection("Data Source =" + Database);
             sqlDA = new SqlDataAdapter("select * from tblStaffRequest", sqlConn);
             //datastream class
             DS = new dsStaffRequest();
@@ -533,17 +533,17 @@ namespace TPS.App_Code
         /* Fill Staff Profile
         //////////////////
         ////////////////*/
-        public static StaffProfile AccessStaffProfile(string Database)
+        public static dsStaffProfile AccessStaffProfile(string Database)
         {
-            StaffProfile DS;
+            dsStaffProfile DS;
             //Call Objectshg
             SqlConnection sqlConn;
             SqlDataAdapter sqlDA;
             //Methods for connection, query
-            sqlConn = new SqlConnection("PROVIDER = Microsoft.ACE.OLEDB.12.0;" + "Data Source =" + Database);
+            sqlConn = new SqlConnection("Data Source =" + Database);
             sqlDA = new SqlDataAdapter("select * from tblStaffProfile", sqlConn);
             //datastream class
-            DS = new StaffProfile();
+            DS = new dsStaffProfile();
             //fill table
             sqlDA.Fill(DS.tblStaffProfile);
             return DS;
@@ -566,7 +566,7 @@ namespace TPS.App_Code
             SqlConnection sqlConn;
             SqlDataAdapter sqlDA;
             //we use the methods to create messages and connect to the database
-            sqlConn = new SqlConnection("PROVIDER = Microsoft.ACE.OLEDB.12.0;" + "Data Source =" + Database);
+            sqlConn = new SqlConnection("Data Source =" + Database);
             if (Experience != null || Experience.Trim() != "" && Education != null || Education.Trim() != ""
                 && Salary != null || Salary.Trim() != "" && Location != null || Location.Trim() != "")
             {
@@ -594,7 +594,7 @@ namespace TPS.App_Code
             dsUserAccess DS;
             SqlConnection sqlConn;
             SqlDataAdapter sqlDA;
-            sqlConn = new SqlConnection("PROVIDER=Microsoft.ACE.OLEDB.12.0;" +
+            sqlConn = new SqlConnection(
             "Data Source=" + Database);
             sqlDA = new SqlDataAdapter("Select SecurityLevel from tblUserAccess " +
             "where UserName like '" + UserName + "' " +

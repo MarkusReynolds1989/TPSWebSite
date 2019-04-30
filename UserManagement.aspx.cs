@@ -37,7 +37,7 @@ public partial class UserManagement : System.Web.UI.Page
             int SecurityLevel = Convert.ToInt32(DropDownList1.SelectedValue);
             if (UserName != null || UserName.Trim() != "" && Password != null || Password.Trim() != "")
             {
-                if (TPS.App_Code.clsDataLayer.AddUser(Server.MapPath("TPS.accdb"), UserName, Password, SecurityLevel))
+                if (TPS.App_Code.clsDataLayer.AddUser(Server.MapPath("TPSWebsite.mdf"), UserName, Password, SecurityLevel))
                 {
                     error.Text = "Successfully added user";
                     BindData();
@@ -106,7 +106,7 @@ public partial class UserManagement : System.Web.UI.Page
             TextBox txtUserPassword = (TextBox)grdViewUsers.SelectedRow.Cells[5].Controls[0];
             string UserPassword = txtUserPassword.Text;
             TextBox txtSecurityLevel = (TextBox)grdViewUsers.SelectedRow.Cells[6].Controls[0];
-            string SecurityLevel = txtSecurityLevel.Text;
+            int SecurityLevel = Convert.ToInt32(txtSecurityLevel.Text);
 
             if (TPS.App_Code.clsDataLayer.UpdateUser(Server.MapPath("TPSWebsite.mdf"), UserId, UserName, UserPassword, SecurityLevel))
             {
