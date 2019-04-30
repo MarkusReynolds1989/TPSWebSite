@@ -9,6 +9,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data.OleDb;
+using System.Data.Sql;
+using System.Data.SqlClient;
+using System.Data.SqlTypes;
 using System.Net;
 using System.Data;
 
@@ -26,13 +29,13 @@ namespace TPS.App_Code
         public static bool ApproveRequest(string Database, string RequestID)
         {
             bool recordSaved;
-            OleDbTransaction myTransaction = null;
+            SqlTransaction myTransaction = null;
             try
             {
-                OleDbConnection conn = new OleDbConnection("PROVIDER=Microsoft.ACE.OLEDB.12.0;" +
+                SqlConnection conn = new SqlConnection("PROVIDER=Microsoft.ACE.OLEDB.12.0;" +
                     "Data Source=" + Database);
                 conn.Open();
-                OleDbCommand command = conn.CreateCommand();
+                SqlCommand command = conn.CreateCommand();
                 string strSQL;
                 myTransaction = conn.BeginTransaction();
                 command.Transaction = myTransaction;
@@ -57,16 +60,16 @@ namespace TPS.App_Code
         /*Add a new User Admin only
         ////////////////////
         ///////////////////*/
-        public static bool SaveUser(string Database, string UserName, string UserPassword, string AccessLevel)
+        public static bool AddUser(string Database, string UserName, string UserPassword, int AccessLevel)
         {
             bool recordSaved;
-            OleDbTransaction myTransaction = null;
+            SqlTransaction myTransaction = null;
             try
             {
-                OleDbConnection conn = new OleDbConnection("PROVIDER=Microsoft.ACE.OLEDB.12.0;" +
+                SqlConnection conn = new SqlConnection("PROVIDER=Microsoft.ACE.OLEDB.12.0;" +
                     "Data Source=" + Database);
                 conn.Open();
-                OleDbCommand command = conn.CreateCommand();
+                SqlCommand command = conn.CreateCommand();
                 string strSQL;
                 myTransaction = conn.BeginTransaction();
                 command.Transaction = myTransaction;
@@ -93,13 +96,13 @@ namespace TPS.App_Code
         public static bool SaveStaff(string Database, string FirstName, string LastName, string EduLevel, string Experience, string Salary,string Location)
         {
             bool recordSaved;
-            OleDbTransaction myTransaction = null;
+            SqlTransaction myTransaction = null;
             try
             {
-                OleDbConnection conn = new OleDbConnection("PROVIDER=Microsoft.ACE.OLEDB.12.0;" +
+                SqlConnection conn = new SqlConnection("PROVIDER=Microsoft.ACE.OLEDB.12.0;" +
                     "Data Source=" + Database);
                 conn.Open();
-                OleDbCommand command = conn.CreateCommand();
+                SqlCommand command = conn.CreateCommand();
                 string strSQL;
                 myTransaction = conn.BeginTransaction();
                 command.Transaction = myTransaction;
@@ -128,13 +131,13 @@ namespace TPS.App_Code
         public static bool SaveStaffRequest(string Database, string StaffID1, string StaffID2, string StaffID3)
         {
             bool recordSaved;
-            OleDbTransaction myTransaction = null;
+            SqlTransaction myTransaction = null;
             try
             {
-                OleDbConnection conn = new OleDbConnection("PROVIDER=Microsoft.ACE.OLEDB.12.0;" +
+                SqlConnection conn = new SqlConnection("PROVIDER=Microsoft.ACE.OLEDB.12.0;" +
                     "Data Source=" + Database);
                 conn.Open();
-                OleDbCommand command = conn.CreateCommand();
+                SqlCommand command = conn.CreateCommand();
                 string strSQL;
                 myTransaction = conn.BeginTransaction();
                 command.Transaction = myTransaction;
@@ -163,13 +166,13 @@ namespace TPS.App_Code
         public static bool UpdateStaffPortal(string Database, string Bio, string Availability, string Resume, string Picture)
         {
             bool recordSaved;
-            OleDbTransaction myTransaction = null;
+            SqlTransaction myTransaction = null;
             try
             {
-                OleDbConnection conn = new OleDbConnection("PROVIDER=Microsoft.ACE.OLEDB.12.0;" +
+                SqlConnection conn = new SqlConnection("PROVIDER=Microsoft.ACE.OLEDB.12.0;" +
                     "Data Source=" + Database);
                 conn.Open();
-                OleDbCommand command = conn.CreateCommand();
+                SqlCommand command = conn.CreateCommand();
                 string strSQL;
                 myTransaction = conn.BeginTransaction();
                 command.Transaction = myTransaction;
@@ -203,13 +206,13 @@ namespace TPS.App_Code
         public static bool DeleteStaff(string Database, string MemberID)
         {
             bool recordSaved;
-            OleDbTransaction myTransaction = null;
+            SqlTransaction myTransaction = null;
             try
             {
-                OleDbConnection conn = new OleDbConnection("PROVIDER=Microsoft.ACE.OLEDB.12.0;" +
+                SqlConnection conn = new SqlConnection("PROVIDER=Microsoft.ACE.OLEDB.12.0;" +
                     "Data Source=" + Database);
                 conn.Open();
-                OleDbCommand command = conn.CreateCommand();
+                SqlCommand command = conn.CreateCommand();
                 string strSQL;
                 myTransaction = conn.BeginTransaction();
                 command.Transaction = myTransaction;
@@ -236,13 +239,13 @@ namespace TPS.App_Code
         public static bool DeleteUser(string Database, string UserID)
         {
             bool recordSaved;
-            OleDbTransaction myTransaction = null;
+            SqlTransaction myTransaction = null;
             try
             {
-                OleDbConnection conn = new OleDbConnection("PROVIDER=Microsoft.ACE.OLEDB.12.0;" +
+                SqlConnection conn = new SqlConnection("PROVIDER=Microsoft.ACE.OLEDB.12.0;" +
                     "Data Source=" + Database);
                 conn.Open();
-                OleDbCommand command = conn.CreateCommand();
+                SqlCommand command = conn.CreateCommand();
                 string strSQL;
                 myTransaction = conn.BeginTransaction();
                 command.Transaction = myTransaction;
@@ -269,13 +272,13 @@ namespace TPS.App_Code
         public static bool DeleteRequest(string Database, string RequestID)
         {
             bool recordSaved;
-            OleDbTransaction myTransaction = null;
+            SqlTransaction myTransaction = null;
             try
             {
-                OleDbConnection conn = new OleDbConnection("PROVIDER=Microsoft.ACE.OLEDB.12.0;" +
+                SqlConnection conn = new SqlConnection("PROVIDER=Microsoft.ACE.OLEDB.12.0;" +
                     "Data Source=" + Database);
                 conn.Open();
-                OleDbCommand command = conn.CreateCommand();
+                SqlCommand command = conn.CreateCommand();
                 string strSQL;
                 myTransaction = conn.BeginTransaction();
                 command.Transaction = myTransaction;
@@ -302,13 +305,13 @@ namespace TPS.App_Code
         public static bool DeleteContract(string Database, string ContractID)
         {
             bool recordSaved;
-            OleDbTransaction myTransaction = null;
+            SqlTransaction myTransaction = null;
             try
             {
-                OleDbConnection conn = new OleDbConnection("PROVIDER=Microsoft.ACE.OLEDB.12.0;" +
+                SqlConnection conn = new SqlConnection("PROVIDER=Microsoft.ACE.OLEDB.12.0;" +
                     "Data Source=" + Database);
                 conn.Open();
-                OleDbCommand command = conn.CreateCommand();
+                SqlCommand command = conn.CreateCommand();
                 string strSQL;
                 myTransaction = conn.BeginTransaction();
                 command.Transaction = myTransaction;
@@ -339,13 +342,13 @@ namespace TPS.App_Code
         public static bool UpdateStaff(string Database, string MemberID, string FirstName, string LastName, string EduLevel, string Experience, string Salary,string Location)
         {
             bool recordSaved;
-            OleDbTransaction myTransaction = null;
+            SqlTransaction myTransaction = null;
             try
             {
-                OleDbConnection conn = new OleDbConnection("PROVIDER=Microsoft.ACE.OLEDB.12.0;" +
+                SqlConnection conn = new SqlConnection("PROVIDER=Microsoft.ACE.OLEDB.12.0;" +
                     "Data Source=" + Database);
                 conn.Open();
-                OleDbCommand command = conn.CreateCommand();
+                SqlCommand command = conn.CreateCommand();
                 string strSQL;
                 myTransaction = conn.BeginTransaction();
                 command.Transaction = myTransaction;
@@ -374,13 +377,13 @@ namespace TPS.App_Code
         public static bool UpdateUser(string Database, string UserId, string UserName, string UserPassword, string SecurityLevel)
         {
             bool recordSaved;
-            OleDbTransaction myTransaction = null;
+            SqlTransaction myTransaction = null;
             try
             {
-                OleDbConnection conn = new OleDbConnection("PROVIDER=Microsoft.ACE.OLEDB.12.0;" +
+                SqlConnection conn = new SqlConnection("PROVIDER=Microsoft.ACE.OLEDB.12.0;" +
                     "Data Source=" + Database);
                 conn.Open();
-                OleDbCommand command = conn.CreateCommand();
+                SqlCommand command = conn.CreateCommand();
                 string strSQL;
                 myTransaction = conn.BeginTransaction();
                 command.Transaction = myTransaction;
@@ -419,11 +422,11 @@ namespace TPS.App_Code
         {
             dsStaff DS;
             //we call objects of the classes
-            OleDbConnection sqlConn;
-            OleDbDataAdapter sqlDA;
+            SqlConnection sqlConn;
+            SqlDataAdapter sqlDA;
             //we use the methods to create messages and connect to the database
-            sqlConn = new OleDbConnection("PROVIDER = Microsoft.ACE.OLEDB.12.0;" + "Data Source =" + Database);
-            sqlDA = new OleDbDataAdapter("select * from tblStaffMember", sqlConn); //How can we display salary as $
+            sqlConn = new SqlConnection("PROVIDER = Microsoft.ACE.OLEDB.12.0;" + "Data Source =" + Database);
+            sqlDA = new SqlDataAdapter("select * from tblStaffMember", sqlConn); //How can we display salary as $
             //new object of the DS class
             DS = new dsStaff();
             // method of sqlDA class to fill the table
@@ -438,11 +441,11 @@ namespace TPS.App_Code
         {
             dsContracts DS;
             //we call objects of the classes
-            OleDbConnection sqlConn;
-            OleDbDataAdapter sqlDA;
+            SqlConnection sqlConn;
+            SqlDataAdapter sqlDA;
             //we use the methods to create messages and connect to the database
-            sqlConn = new OleDbConnection("PROVIDER = Microsoft.ACE.OLEDB.12.0;" + "Data Source =" + Database);
-            sqlDA = new OleDbDataAdapter("select * from tblContract", sqlConn); //How can we display salary as $
+            sqlConn = new SqlConnection("PROVIDER = Microsoft.ACE.OLEDB.12.0;" + "Data Source =" + Database);
+            sqlDA = new SqlDataAdapter("select * from tblContract", sqlConn); //How can we display salary as $
             //new object of the DS class
             DS = new dsContracts();
             // method of sqlDA class to fill the table
@@ -457,11 +460,11 @@ namespace TPS.App_Code
         {
             dsManager DS;
             //Call objects
-            OleDbConnection sqlConn;
-            OleDbDataAdapter sqlDA;
+            SqlConnection sqlConn;
+            SqlDataAdapter sqlDA;
             //Methods for connection, query
-            sqlConn = new OleDbConnection("PROVIDER = Microsoft.ACE.OLEDB.12.0;" + "Data Source =" + Database);
-            sqlDA = new OleDbDataAdapter("select * from tblManager", sqlConn);
+            sqlConn = new SqlConnection("PROVIDER = Microsoft.ACE.OLEDB.12.0;" + "Data Source =" + Database);
+            sqlDA = new SqlDataAdapter("select * from tblManager", sqlConn);
             //datastream class 
             DS = new dsManager();
             //fill table
@@ -476,11 +479,11 @@ namespace TPS.App_Code
         {
             dsClient DS;
             //Call Objects
-            OleDbConnection sqlConn;
-            OleDbDataAdapter sqlDA;
+            SqlConnection sqlConn;
+            SqlDataAdapter sqlDA;
             //Methods for connection, query
-            sqlConn = new OleDbConnection("PROVIDER = Microsoft.ACE.OLEDB.12.0;" + "Data Source =" + Database);
-            sqlDA = new OleDbDataAdapter("select * from tblClient", sqlConn);
+            sqlConn = new SqlConnection("Data Source =" + Database);
+            sqlDA = new SqlDataAdapter("select * from tblClient", sqlConn);
             //datastream class
             DS = new dsClient();
             //fill table
@@ -495,11 +498,11 @@ namespace TPS.App_Code
         {
             dsUserAccess DS;
             //Call Objects
-            OleDbConnection sqlConn;
-            OleDbDataAdapter sqlDA;
+            SqlConnection sqlConn;
+            SqlDataAdapter sqlDA;
             //Methods for connection, query
-            sqlConn = new OleDbConnection("PROVIDER = Microsoft.ACE.OLEDB.12.0;" + "Data Source =" + Database);
-            sqlDA = new OleDbDataAdapter("select * from tblUserAccess", sqlConn);
+            sqlConn = new SqlConnection("Data Source =" + Database);
+            sqlDA = new SqlDataAdapter("select * from tblUserAccess", sqlConn);
             //datastream class
             DS = new dsUserAccess();
             //fill table
@@ -514,11 +517,11 @@ namespace TPS.App_Code
         {
             dsStaffRequest DS;
             //Call Objects
-            OleDbConnection sqlConn;
-            OleDbDataAdapter sqlDA;
+            SqlConnection sqlConn;
+            SqlDataAdapter sqlDA;
             //Methods for connection, query
-            sqlConn = new OleDbConnection("PROVIDER = Microsoft.ACE.OLEDB.12.0;" + "Data Source =" + Database);
-            sqlDA = new OleDbDataAdapter("select * from tblStaffRequest", sqlConn);
+            sqlConn = new SqlConnection("PROVIDER = Microsoft.ACE.OLEDB.12.0;" + "Data Source =" + Database);
+            sqlDA = new SqlDataAdapter("select * from tblStaffRequest", sqlConn);
             //datastream class
             DS = new dsStaffRequest();
             //fill table
@@ -534,11 +537,11 @@ namespace TPS.App_Code
         {
             StaffProfile DS;
             //Call Objectshg
-            OleDbConnection sqlConn;
-            OleDbDataAdapter sqlDA;
+            SqlConnection sqlConn;
+            SqlDataAdapter sqlDA;
             //Methods for connection, query
-            sqlConn = new OleDbConnection("PROVIDER = Microsoft.ACE.OLEDB.12.0;" + "Data Source =" + Database);
-            sqlDA = new OleDbDataAdapter("select * from tblStaffProfile", sqlConn);
+            sqlConn = new SqlConnection("PROVIDER = Microsoft.ACE.OLEDB.12.0;" + "Data Source =" + Database);
+            sqlDA = new SqlDataAdapter("select * from tblStaffProfile", sqlConn);
             //datastream class
             DS = new StaffProfile();
             //fill table
@@ -560,20 +563,20 @@ namespace TPS.App_Code
         {
             dsStaff DS;
             //we call objects of the classes
-            OleDbConnection sqlConn;
-            OleDbDataAdapter sqlDA;
+            SqlConnection sqlConn;
+            SqlDataAdapter sqlDA;
             //we use the methods to create messages and connect to the database
-            sqlConn = new OleDbConnection("PROVIDER = Microsoft.ACE.OLEDB.12.0;" + "Data Source =" + Database);
+            sqlConn = new SqlConnection("PROVIDER = Microsoft.ACE.OLEDB.12.0;" + "Data Source =" + Database);
             if (Experience != null || Experience.Trim() != "" && Education != null || Education.Trim() != ""
                 && Salary != null || Salary.Trim() != "" && Location != null || Location.Trim() != "")
             {
-                sqlDA = new OleDbDataAdapter("select * from tblStaffMember where Experience like '%" +
+                sqlDA = new SqlDataAdapter("select * from tblStaffMember where Experience like '%" +
                     Experience + "%' and EduLevel like '%" + Education + "%' and Salary like '%" +
                     Salary + "%' and Location like '%" + Location + "%'", sqlConn);
             }
             else
             {
-                sqlDA = new OleDbDataAdapter("select * from tblStaffMember", sqlConn);
+                sqlDA = new SqlDataAdapter("select * from tblStaffMember", sqlConn);
             }
             //new object of the DS class
             DS = new dsStaff();
@@ -589,11 +592,11 @@ namespace TPS.App_Code
         public static dsUserAccess VerifyUser(string Database, string UserName, string UserPassword)
         {
             dsUserAccess DS;
-            OleDbConnection sqlConn;
-            OleDbDataAdapter sqlDA;
-            sqlConn = new OleDbConnection("PROVIDER=Microsoft.ACE.OLEDB.12.0;" +
+            SqlConnection sqlConn;
+            SqlDataAdapter sqlDA;
+            sqlConn = new SqlConnection("PROVIDER=Microsoft.ACE.OLEDB.12.0;" +
             "Data Source=" + Database);
-            sqlDA = new OleDbDataAdapter("Select SecurityLevel from tblUserAccess " +
+            sqlDA = new SqlDataAdapter("Select SecurityLevel from tblUserAccess " +
             "where UserName like '" + UserName + "' " +
             "and UserPassword like '" + UserPassword + "'", sqlConn);
             DS = new dsUserAccess();
