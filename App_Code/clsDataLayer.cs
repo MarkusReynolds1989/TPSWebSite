@@ -5,20 +5,14 @@
 //A GNU License should be included in the documentation for this code but you can also find it online
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Data.OleDb;
-using System.Data.Sql;
 using System.Data.SqlClient;
-using System.Data.SqlTypes;
-using System.Net;
 using System.Data;
 
 namespace TPS.App_Code
 {
     public class clsDataLayer
     {
+
         /* Adding to database codes
              //////////////////////////
              ////////////////////////*/
@@ -26,14 +20,17 @@ namespace TPS.App_Code
         /*Approve a contract Manager only
         ///////////////////////////
         ///////////////////////*/
-        public static bool ApproveRequest(string Database, string RequestID)
+        public static bool ApproveRequest(string Database, int RequestID)
         {
             bool recordSaved;
             SqlTransaction myTransaction = null;
             try
             {
                 SqlConnection conn = new SqlConnection(
-                    "Data Source=" + Database);
+                "Data Source = " + ".'\'SQLEXPRESS;" +
+                "AttachDbFilename = 'C:'\'Program Files'\'Microsoft SQL Server'\'MSSQL14.SQLEXPRESS'\'MSSQL'\'DATA'\'TPSWebsite.mdf';" +
+                "Integrated Security = True; " +
+                "Connect Timeout = 30" + Database);
                 conn.Open();
                 SqlCommand command = conn.CreateCommand();
                 string strSQL;
@@ -93,7 +90,7 @@ namespace TPS.App_Code
         /*Add staff member Staff Only
         ////////////////////
         ///////////////////*/
-        public static bool SaveStaff(string Database, string FirstName, string LastName, string EduLevel, string Experience, string Salary,string Location)
+        public static bool SaveStaff(string Database, string FirstName, string LastName, string EduLevel, int Experience, int Salary, string Location, string JobType)
         {
             bool recordSaved;
             SqlTransaction myTransaction = null;
@@ -106,10 +103,10 @@ namespace TPS.App_Code
                 string strSQL;
                 myTransaction = conn.BeginTransaction();
                 command.Transaction = myTransaction;
-                strSQL = "Insert into tblStaffMember (FirstName ,LastName ,EduLevel,Experience,Salary,Location) "
+                strSQL = "Insert into tblStaffMember (FirstName ,LastName ,EduLevel,Experience,Salary,Location,JobType) "
                     + "values ('" + FirstName + "','"
                     + LastName + "','"
-                    + EduLevel + "','" + Experience + "','" + Salary + "','" + Location + "' ) ";
+                    + EduLevel + "','" + Experience + "','" + Salary + "','" + Location + "','" + JobType + "' ) ";
                 command.CommandType = CommandType.Text;
                 command.CommandText = strSQL;
                 command.ExecuteNonQuery();
@@ -463,7 +460,7 @@ namespace TPS.App_Code
             SqlConnection sqlConn;
             SqlDataAdapter sqlDA;
             //Methods for connection, query
-            sqlConn = new SqlConnection("Data Source =" + Database);
+            sqlConn = new SqlConnection("Data Source=" +  Database);
             sqlDA = new SqlDataAdapter("select * from tblManager", sqlConn);
             //datastream class 
             DS = new dsManager();
@@ -498,10 +495,14 @@ namespace TPS.App_Code
         {
             dsUserAccess DS;
             //Call Objects
-            SqlConnection sqlConn;
+            SqlConnection sqlConn = new SqlConnection();
             SqlDataAdapter sqlDA;
             //Methods for connection, query
-            sqlConn = new SqlConnection("Data Source =" + Database);
+            sqlConn.ConnectionString =
+                "Data Source= MARKUS'\'SQLEXPRESS" +
+                "Initial Catalog=" + Database + ";" +
+                "User id=Markus'\'Reynolds;" +
+                "Password=;";
             sqlDA = new SqlDataAdapter("select * from tblUserAccess", sqlConn);
             //datastream class
             DS = new dsUserAccess();

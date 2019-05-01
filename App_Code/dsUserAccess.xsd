@@ -4,12 +4,12 @@
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="TPSWebsiteConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="TPSWebsiteConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.TPSWebsiteConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="TPSWebsiteConnectionString1" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="TPSWebsiteConnectionString1 (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.TPSWebsiteConnectionString1.ConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblUserAccessTableAdapter" GeneratorDataComponentClassName="tblUserAccessTableAdapter" Name="tblUserAccess" UserDataComponentName="tblUserAccessTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="TPSWebsiteConnectionString (Web.config)" DbObjectName="dbo.tblUserAccess" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="TPSWebsiteConnectionString1 (Web.config)" DbObjectName="dbo.tblUserAccess" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[tblUserAccess] WHERE (([UserID] = @Original_UserID))</CommandText>
@@ -62,7 +62,7 @@
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="dsUserAccess" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="dsUserAccess" msprop:Generator_UserDSName="dsUserAccess">
+  <xs:element name="dsUserAccess" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="dsUserAccess" msprop:Generator_DataSetName="dsUserAccess">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
         <xs:element name="tblUserAccess" msprop:Generator_TableClassName="tblUserAccessDataTable" msprop:Generator_TableVarName="tabletblUserAccess" msprop:Generator_TablePropName="tblUserAccess" msprop:Generator_RowDeletingName="tblUserAccessRowDeleting" msprop:Generator_RowChangingName="tblUserAccessRowChanging" msprop:Generator_RowEvHandlerName="tblUserAccessRowChangeEventHandler" msprop:Generator_RowDeletedName="tblUserAccessRowDeleted" msprop:Generator_UserTableName="tblUserAccess" msprop:Generator_RowChangedName="tblUserAccessRowChanged" msprop:Generator_RowEvArgName="tblUserAccessRowChangeEvent" msprop:Generator_RowClassName="tblUserAccessRow">
